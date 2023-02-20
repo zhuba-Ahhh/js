@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>triangle</title>
+    <style>
+        /*尖朝右*/
+        .triangle {
+            width: 0;
+            height: 0;
+            border: 100px solid transparent;
+            /* transparent 指定全透明色彩 */
+            border-left-color: #f00;
+        }
+
+        .top {
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid cyan;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+
+        .bottom {
+            width: 0;
+            height: 0;
+            border-top: 100px solid cyan;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle"></div>
+    <hr />
+    <div class="top"></div>
+    <hr />
+    <div class="bottom"></div>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/vue.min.js"></script>
+  <title>成语学习</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #app {
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      padding: 10px 0;
+      background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+    }
+
+    .idiom_tips_box {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .detailed_description {
+      border-radius: 20px;
+      padding: 15px 30px;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .idiom_box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    .item_box {
+      height: 120px;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      border-radius: 8px;
+      margin-right: 10px;
+      background: rgb(248, 243, 243);
+      border: 1px solid #999
+    }
+
+    .optional_words_region {
+      margin: auto;
+      margin-top: 50px;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .words {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      background: orange;
+      border: 1px solid black;
+      border-radius: 4px;
+      font-size: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .words:hover {
+      background: rgb(247, 113, 3);
+      color: rgb(248, 243, 243);
+    }
+
+    .confirm_btn_box {
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .confirm_btn {
+      margin-top: 30px;
+      border-radius: 8px;
+      padding: 10px 30px;
+      color: white;
+      background: #409eff
+    }
+  </style>
+</head>
+
+<body>
+  <!-- {word:"热泪盈眶",means:"形容非常感激或高兴"} -->
+  <!-- {word:"才华横溢",means:"指才华充分显露出来"} -->
+  <!-- {word:"聚沙成塔",means:"比喻积少成多"} -->
+  <!-- {word:"名垂青史",means:"形容功业巨大，永远流传"} -->
+  <!-- {word:"绝无仅有",means:"形容极其稀少"} -->
+  <!-- {word:"衣衫褴褛",means:"形容身上衣服破破烂烂"} -->
+  <!-- {word:"焕然一新",means:"形容呈现出崭新的面貌"} -->
+  <!-- {word:"并驾齐驱",means:"比喻齐头并进，不分前后"} -->
+  <!-- {word:"博大精深",means:"形容思想和学识广博高深"} -->
+  <!-- {word:"忙里偷闲",means:"在繁忙中抽出空闲来"} -->
+  <div id="app">
+    <div class="title">成语学习</div>
+    <!-- 提示-描述 -->
+    <div class="idiom_tips_box">
+      <span class="detailed_description">提示：{{tip}}</span>
+    </div>
+    <!-- 选中的成语 -->
+    <div class="idiom_box">
+      <div class="item_box" v-for="item,index in idiom" @click="clear(index)">{{item}}</div>
+    </div>
+    <div :style="result == null ? 'color:#ccc' : result ? 'color : red' : ''" style="text-align:center">
+      {{result == null ? '请点击下方文字组织正确的成语（点击框内文字可清除）' : result ? '答案正确' : '答案错误'}}</div>
+    <!-- 可选区域 -->
+    <div class="optional_words_region">
+      <!-- <div>{{word}}</div> -->
+      <span class="words" v-for="(item,index) in words.split('')" :key="index" @click="getSingleWord(item)">
+        {{item}}
+      </span>
+    </div>
+    <!-- 确定 -->
+    <div class="confirm_btn_box">
+      <span class="confirm_btn" @click="confirm">确定</span>
+    </div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        tip: "",
+        arr: [
+          { word: "热泪盈眶", tip: "形容非常感激或高兴" },
+          { word: "才华横溢", tip: "指才华充分显露出来" },
+          { word: "聚沙成塔", tip: "比喻积少成多" },
+          { word: "名垂青史", tip: "形容功业巨大，永远流传" },
+          { word: "绝无仅有", tip: "形容极其稀少" },
+          { word: "衣衫褴褛", tip: "形容身上衣服破破烂烂" },
+          { word: "焕然一新", tip: "形容呈现出崭新的面貌" },
+          { word: "并驾齐驱", tip: "比喻齐头并进，不分前后" },
+          { word: "博大精深", tip: "形容思想和学识广博高深" },
+          { word: "忙里偷闲", tip: "在繁忙中抽出空闲来" }
+        ],
+        words: '',
+        idiom: ["", "", "", ""],
+        result: null
+      },
+      created() {
+        this.tip = this.arr[parseInt(Math.random() * this.arr.length)].tip
+        this.arr.forEach(item => {
+          this.words += item.word
+        });
+
+        let words = this.words.split("");
+        words = this.shuffle(words)
+        this.words = words.join("")
+      },
+      methods: {
+        //乱序方法
+        shuffle(arr) {
+          let temp, length = arr.length;
+          for (let i = 0; i < length - 1; i++) {
+            let index = Math.floor(Math.random() * (length--));
+            temp = arr[index];
+            arr[index] = arr[length];
+            arr[length] = temp;
+          }
+          return arr;
+        },
+        //TODO 点击文字后，在idiom从左到右第一个空的位置加上改文字
+        getSingleWord(val) {
+          for (let i = 0; i < 4; i++) {
+            if (this.idiom[i] == '') {
+              this.idiom[i] = val;
+              console.log(i);
+              break;
+            }
+          }
+        },
+        clear(i) {
+          this.idiom[i] = ""
+          this.$set(this.idiom, i, "")
+        },
+        // TODO 校验成语是否输入正确答案
+        // 猜中成语 result 为 true;
+        // 猜错成语 result 为 false;
+        // 例1：tip=‘形容非常感激或高兴’，idiom=["热","泪","盈","眶"]，则result返回true
+        // 例2：tip=‘形容非常感激或高兴’，idiom=["泪","眼","盈","眶"]，则result返回false
+        // 例3：tip=‘在繁忙中抽出空闲来’，idiom=["忙","里","偷","闲"]，则result返回true
+        confirm() {
+          let flag = 0;
+          const word = this.arr.filter(item => item.tip === this.tip)[0].word;
+          this.result = this.idiom.join('') === word;
+          return this.idiom.join('') === word;
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>center</title>
+  <style>
+    .box {
+      height: 100px;
+      width: 100px;
+      position: relative;
+      background-color: aquamarine;
+    }
+
+    .in {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: aqua;
+    }
+
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      width: 100px;
+      background-color: rgb(204, 255, 127);
+    }
+
+    .flex-in {
+      height: 40px;
+      width: 40px;
+      background-color: rgb(0, 68, 255);
+    }
+
+    .grid {
+      display: grid;
+      height: 100px;
+      width: 100px;
+      background-color: rgb(255, 168, 127);
+    }
+
+    .grid-in {
+      height: 40px;
+      width: 40px;
+      justify-self: center;
+      align-self: center;
+      background-color: rgb(0, 68, 255);
+    }
+
+    .ab {
+      height: 100px;
+      width: 100px;
+      position: relative;
+      background-color: aquamarine;
+    }
+
+    .ab-in {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      left: 50%;
+      top: 50%;
+      margin-top: -20px;
+      margin-left: -20px;
+      background-color: rgb(71, 11, 27);
+    }
+
+    .calc {
+      height: 100px;
+      width: 100px;
+      position: relative;
+      background-color: rgb(19, 114, 82);
+    }
+
+    .calc-in {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      left: calc(50% -20px);
+      top: calc(50% -20px);
+      background-color: rgb(63, 19, 114);
+    }
+
+    .margin {
+      height: 100px;
+      width: 100px;
+      position: relative;
+      background-color: rgb(9, 52, 38);
+    }
+
+    .margin-in {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: rgb(114, 15, 226);
+    }
+  </style>
+</head>
+
+<body>
+  父相对子绝对定位居中
+  <div class="box">
+    <div class="in"></div>
+  </div>
+  flex居中
+  <div class="flex">
+    <div class="flex-in"></div>
+  </div>
+  gird居中
+  <div class="grid">
+    <div class="grid-in"></div>
+  </div>
+  已知子元素宽高
+  <div class="ab">
+    <div class="ab-in"></div>
+  </div>
+  绝对定位加calc 已知子元素宽高
+  <div class="calc">
+    <div class="calc-in"></div>
+  </div>
+  margin auto
+  <div class="margin">
+    <div class="margin-in"></div>
+  </div>
+</body>
+
+</html>

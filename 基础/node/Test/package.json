@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "fs": "^0.0.1-security",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

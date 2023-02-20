@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>Reactz App</title>
+    <style>
+      div {
+        font-size: 20px;
+        color: rgb(88, 224, 224);
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+  <script src="../src/index.js"></script>
+  <script>
+    //这里我们省去 Babel 编译的这一步，因为懒得安装了
+    /* 
+    ```jsx
+    const element = (
+      <div style="background: salmon">
+        <h1>Hello World</h1>
+        <h2 style="text-align:right">from Reactz</h2>
+      </div>
+    );
+    ```
+    */
+    const container = document.getElementById('root');
+
+    const updateValue = e => {
+      console.log(e.target.value);
+      rerender(e.target.value)
+      console.log('render')
+    }
+
+    function Counter() {
+      const [state, setState] = Reactz.useState(1);
+      return /*#__PURE__*/ Reactz.createElement("h1", {
+        onClick: () => setState(c => c + 1)
+      }, "Count: ", state);
+    }
+    const functionElement = /*#__PURE__*/ Reactz.createElement(Counter, null);
+
+    const rerender = value => {
+      const inputElement = /*#__PURE__*/ Reactz.createElement("div", null, /*#__PURE__*/ Reactz.createElement(
+        "input", {
+          onInput: updateValue,
+          value: value
+        }), /*#__PURE__*/ Reactz.createElement("h2", null, "Hello ", value));
+
+      const element = /*#__PURE__*/ Reactz.createElement(
+        "div", {
+          style: "background: aquamarine; "
+        },
+        /*#__PURE__*/
+        Reactz.createElement("h1", null, "Hello World"),
+        /*#__PURE__*/
+        Reactz.createElement("h2", {
+          style: "text-align:right"
+        }, "from Reactz"),
+        inputElement,
+        functionElement
+      );
+      Reactz.render(element, container);
+    };
+
+    rerender('z!')
+  </script>
+
+</html>
