@@ -6,7 +6,7 @@ function _new(fn, ...arg) {
 
 function _new(fn, ...arg) {
   let obj = Object.create(fn.prototype); // 创建空对象并且其prototype指向构造函数的原型对象
-  let result = fn.apply(obj, ...arg); // 将空对像赋值构造函数内部的this,用构造函数内部的方法修改空对象
+  let result = fn.apply(obj, ...arg); // 将空对象赋值构造函数内部的this,用构造函数内部的方法修改空对象
   return result instanceof Object ? result : obj; // 如果构造函数返回一个非基本类型的值，则返回这个值，否则返回刚创建的对象
 }
 

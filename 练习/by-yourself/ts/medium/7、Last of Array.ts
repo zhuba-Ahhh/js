@@ -8,4 +8,4 @@ type Last<A> = A extends [...infer res, infer last] ? last : never
 type tail1 = Last<arr1> // expected to be 'c'
 type tail2 = Last<arr2> // expected to be 1
 
-export {}
+export { }

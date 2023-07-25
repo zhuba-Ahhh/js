@@ -8,7 +8,7 @@ function myInstanceOf(obj, createFnc) {
   }
 }
 
-const _instanof = (obj, createFnc) => {
+const _instanceOf = (obj, createFnc) => {
   let proto = Object.getPrototypeOf(obj);
   const protoType = createFnc.prototype;
   while (true) {

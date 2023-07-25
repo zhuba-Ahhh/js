@@ -5,4 +5,4 @@ type MyAwaited<raw> = raw extends Promise<infer T> ? T : never
 
 type Result = MyAwaited<ExampleType> // string
 
-export {}
+export { }

@@ -8,4 +8,4 @@ type Pop<A extends unknown[]> = A extends [...infer left, infer last]
 type re1 = Pop<arr1> // expected to be ['a', 'b', 'c']
 type re2 = Pop<arr2> // expected to be [3, 2]
 
-export {}
+export { }

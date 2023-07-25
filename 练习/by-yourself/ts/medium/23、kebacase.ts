@@ -5,16 +5,16 @@ type StrLen<S, cache extends unknown[] = []> = S extends `${infer f}${infer s}`
 // 如果是字母，就判断是否是大写的
 type isUppercase<s extends string> = s extends ZM | Uppercase<ZM>
   ? Uppercase<s> extends s
-    ? true
-    : false
+  ? true
+  : false
   : false
 
 type KebabCase<S, cache extends string = ""> = S extends `${infer f}${infer s}`
   ? isUppercase<f> extends true //如果第一个是大写
-    ? StrLen<cache> extends 0 // 如果是第一位
-      ? KebabCase<s, `${cache}${Lowercase<f>}`> // 如果是第一位，就直接拼接小写
-      : KebabCase<s, `${cache}-${Lowercase<f>}`> //否则加个杠
-    : KebabCase<s, `${cache}${f}`> // 不是大写就直接拼接
+  ? StrLen<cache> extends 0 // 如果是第一位
+  ? KebabCase<s, `${cache}${Lowercase<f>}`> // 如果是第一位，就直接拼接小写
+  : KebabCase<s, `${cache}-${Lowercase<f>}`> //否则加个杠
+  : KebabCase<s, `${cache}${f}`> // 不是大写就直接拼接
   : cache //不能提取就直接返回cache
 
 type res1 = KebabCase<"FooBarBaz"> //'foo-bar-baz'>

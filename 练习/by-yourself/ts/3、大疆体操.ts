@@ -10,4 +10,4 @@ type Solution<raw extends Record<string, any>, K = keyof raw> = K extends string
 type res = Solution<{ a: 1; b: 2 }>
 
 type res2 = keyof { a: 1; b: 2 }
-export {}
+export { }

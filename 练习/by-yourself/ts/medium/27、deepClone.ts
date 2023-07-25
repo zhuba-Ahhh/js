@@ -2,8 +2,8 @@
 // T extends any是肯定会执行的
 type DeepClone<T extends Record<string, any>> = T extends any
   ? {
-      [k in keyof T]: T[k] extends Record<string, any> ? DeepClone<T[k]> : T[k];
-    }
+    [k in keyof T]: T[k] extends Record<string, any> ? DeepClone<T[k]> : T[k];
+  }
   : never;
 
 type Res = DeepClone<{
@@ -13,4 +13,4 @@ type Res = DeepClone<{
   };
 }>;
 
-export {};
+export { };

@@ -6,4 +6,4 @@ type LengthOfString<S extends string> = S extends `${infer first}${infer rest}`
 type res = LengthOfString<"">
 type res1 = LengthOfString<"abcdefg">
 type res2 = LengthOfString<" ">
-export {}
+export { }

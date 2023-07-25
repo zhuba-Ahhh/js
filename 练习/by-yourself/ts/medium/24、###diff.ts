@@ -1,9 +1,9 @@
 type Diff1<T, U> = {
   [key in Exclude<keyof (T & U), keyof (T | U)>]: key extends keyof T //遍历合并后的
-    ? T[key]
-    : key extends keyof U
-    ? U[key]
-    : never
+  ? T[key]
+  : key extends keyof U
+  ? U[key]
+  : never
 }
 
 // 或者这样写
@@ -30,4 +30,4 @@ type Bar = {
   gender: number
 }
 
-export {}
+export { }

@@ -15,7 +15,7 @@ function myAssign(target, source) {
   return target
 }
 
-function assgin(target, source) {
+function assign(target, source) {
   if (arguments.length < 2) return target;
   source = Array.prototype.slice.call(arguments, 1);
   source.forEach(obj => {

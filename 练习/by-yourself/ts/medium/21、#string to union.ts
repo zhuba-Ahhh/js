@@ -6,4 +6,4 @@ type StringToUnion<T extends string> = T extends `${infer L}${infer R}`
   : never
 type Result = StringToUnion<Test> // expected to be "1" | "2" | "3"
 
-export {}
+export { }

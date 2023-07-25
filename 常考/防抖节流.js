@@ -1,4 +1,12 @@
 // 防抖
+var Debounce = function(fn, t) {
+  let timer = null;
+  return function(...args) {
+      timer && clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, args),t);
+  }
+};
+
 function debounce(fn, wait) {
   let timer = null;
   return function () {

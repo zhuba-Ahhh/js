@@ -20,4 +20,4 @@ todo.title = "Hello" // Error: cannot reassign a readonly property
 todo.description = "barFoo" // Error: cannot reassign a readonly property
 todo.completed = true // OK
 
-export {}
+export { }

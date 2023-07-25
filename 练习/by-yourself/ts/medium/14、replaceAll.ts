@@ -8,4 +8,4 @@ type Replace<
 type replaced = Replace<"types are fun!", "fun", "awesome"> // expected to be 'types are awesome!'
 type replaced2 = Replace<'t y p e s', ' ', ''> // expected to be 'types'
 
-export {}
+export { }

@@ -7,4 +7,4 @@ type AppendArgument<Fn, Arg> = Fn extends (...args: infer Args) => infer R
 type Result = AppendArgument<Fn, boolean>
 // 期望是 (a: number, b: string, x: boolean) => number
 
-export {}
+export { }

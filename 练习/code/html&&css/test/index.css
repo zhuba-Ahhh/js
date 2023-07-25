@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 33%;
+  background-color: aquamarine;
+  border: solid 1px #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+}
+
+.item1 {
+  grid-column: 1 / span 3;
+  background-color: aqua;
+}
+
+.item2 {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  background-color: aqua;
+}
+
+.item3 {
+  grid-column: 3;
+  grid-row: 2;
+  background-color: aqua;
+}
+
+
+body {
+  background-color: blue;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: green;
+  }
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+
+.container3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item3 {
+  width: 50%;
+  background-color: blueviolet;
+}
+
+.item4 {
+  width: 25%;
+  background-color: blanchedalmond;
+}
+
+
+.container4 {
+  background: linear-gradient(to right, #ff0000, #0000ff);
+  height: 5%;
+  width: 100%;
+}
+
+
+li:hover {
+  background-color: gray;
+}
+
+
+.container5 {
+  overflow: scroll;
+  height: 200px;
+}
+
+
+.container6 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #666;
+    color: white;
+    border: none;
+  }
+}

@@ -5,4 +5,4 @@ type Capitalize<S> = S extends `${infer F}${infer L} ${infer R}`
   : S
 
 type capitalized = Capitalize<"hello world"> // expected to be 'Hello world'
-export {}
+export { }

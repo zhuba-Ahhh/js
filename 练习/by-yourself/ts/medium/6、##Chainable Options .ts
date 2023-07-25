@@ -24,4 +24,4 @@ interface Result {
   }
 }
 
-export {}
+export { }

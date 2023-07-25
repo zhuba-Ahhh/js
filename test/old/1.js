@@ -70,3 +70,21 @@ function removeSameItem(arr) {
 
 let arr2 = [2, 1, 1, 2, 3, 1, 2, 3]
 console.log(removeSameItem(arr2.sort((a, b) => a - b)));
+
+
+// 2 3 4 6 5 1
+setTimeout(() => {
+  console.log(1);
+})
+
+console.log(2);
+
+new Promise((reslove) => {
+  console.log(3)
+  reslove();
+  console.log(4)
+}).then(() => {
+  console.log(5);
+})
+
+console.log(6);

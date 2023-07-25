@@ -1,5 +1,23 @@
 let arr = [1, [2, [3, 4]]];
 
+// === 原生flat
+var flatOne = function (arr, n) {
+  if (n < 1) {
+      return arr;
+  }
+
+  const res = [];
+  for (let item of arr) {
+      if (Array.isArray(item)) {
+          res.push(...flat(item, n - 1));
+      } else {
+          res.push(item);
+      }
+  }
+
+  return res;
+};
+
 function flatten1(arr) {
   while (arr.some(item => Array.isArray(item))) {
     arr = [].concat(...arr);

@@ -15,4 +15,4 @@ type LookUp<T, K> = T extends { type: K } ? T : never
 
 type MyDogType = LookUp<Cat | Dog, "dog"> // expected to be `Dog`
 
-export {}
+export { }

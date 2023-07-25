@@ -4,7 +4,7 @@ class Heap {
     this.compare = compare
   }
   static swap(arr, i, j) {
-    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    [arr[i], arr[j]] = [arr[j], arr[i]]
   }
   insert(item) {
     const arr = this.heap

@@ -7,6 +7,17 @@ function Curring(func) {
   }
 }
 
+var curry = function(fn) {
+  const argsList = [];
+  return function curried(...args) {
+      argsList.push(...args);
+      if (argsList.length >= fn.length) {
+          return fn(...argsList);
+      }
+      return curried;
+  };
+};
+
 function Curring1(func) {
   return function curried(...args) {
     if (args.length >= func.length) {
