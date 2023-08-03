@@ -19,6 +19,9 @@ const compare = (arr1, arr2) => {
 }
 
 //-------------------------
+/**
+ * 
+ */
 class LRUCache {
 	constructor(capacity) {
 		this.map = new Map();
