@@ -1,16 +1,10 @@
 // haystack = "sadbutsad", needle = "sad" => 0
-function findFirstIndex(haystack, needle) {
+export function findFirstIndex(haystack: string, needle: string) {
   return haystack.indexOf(needle);
 }
 
-const haystack = "sadbutsad";
-const needle = "sad";
-
-const index = findFirstIndex(haystack, needle);
-console.log(index); // 输出：0
-
 // 双循环 O(n * m)
-function findFirstIndex1(haystack, needle) {
+export function findFirstIndex1(haystack: string, needle: string) {
   // 如果 needle 是空字符串，直接返回 0（根据题意）
   if (needle.length === 0) {
     return 0;
@@ -38,18 +32,15 @@ function findFirstIndex1(haystack, needle) {
   return -1;
 }
 
-const index1 = findFirstIndex1(haystack, needle);
-console.log(index1); // 输出：0
-
 // KMP算法 O(n + m)
-function kmpSearch(haystack, needle) {
+export function kmpSearch(haystack: string, needle: string) {
   // 如果 needle 是空字符串，直接返回 0
   if (needle.length === 0) {
     return 0;
   }
 
   // 1. 构建部分匹配表（PMT）
-  const computeLPSArray = (pattern) => {
+  const computeLPSArray = (pattern: string) => {
     const lps = new Array(pattern.length).fill(0); // 初始化 LPS 数组
     let length = 0; // lps[0] 总是 0
     let i = 1;
@@ -96,12 +87,8 @@ function kmpSearch(haystack, needle) {
   return -1; // 未找到匹配
 }
 
-// 测试
-const index2 = kmpSearch(haystack, needle);
-console.log(index2); // 输出：0
-
 // Rabin-Karp 算法 O(n + m) 在某些情况下可以比 KMP 算法更快，尤其是在模式字符串较短或主字符串较长时。
-function rabinKarpSearch(haystack, needle) {
+export function rabinKarpSearch(haystack: string, needle: string) {
   const MOD = 1000000007; // 一个较大的质数用于取模
   const d = 256; // 字符集大小（ASCII 字符集）
 
@@ -151,7 +138,3 @@ function rabinKarpSearch(haystack, needle) {
 
   return -1; // 未找到匹配
 }
-
-// 测试
-const index3 = rabinKarpSearch(haystack, needle);
-console.log(index3); // 输出：0
