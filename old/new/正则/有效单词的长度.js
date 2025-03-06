@@ -33,7 +33,7 @@ console.log(getMaxLengthOfWords("help bed little0 work"));
 //     }
 
 //     return maxL;
-// } 
+// }
 
 // let ml = 0;
 // let cl = 0;
@@ -41,6 +41,5 @@ console.log(getMaxLengthOfWords("help bed little0 work"));
 //     cl = findMaxLengthAviableWord(item);
 //     ml = ml > cl ? ml : cl;
 // }
-
 
 // console.log(ml);

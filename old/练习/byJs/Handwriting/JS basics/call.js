@@ -14,24 +14,24 @@ call:
  * @returns 返回调用结果
  */
 Function.prototype._call = function (context) {
-	if (typeof this !== 'function') {
-		console.error('TypeError');
-	}
-	let args = [...arguments].slice(1),
-		res = null;
-	context = context || globalThis;
-	const key = Symbol();
-	context[key] = this;
-	res = context[key](...args);
-	delete context[key];
-	return res;
+  if (typeof this !== "function") {
+    console.error("TypeError");
+  }
+  let args = [...arguments].slice(1),
+    res = null;
+  context = context || globalThis;
+  const key = Symbol();
+  context[key] = this;
+  res = context[key](...args);
+  delete context[key];
+  return res;
 };
 
 //test
 
 global.name = 1;
 const a = function () {
-	console.log(this.name);
+  console.log(this.name);
 };
 a(); //1
 

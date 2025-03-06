@@ -1,28 +1,27 @@
 function formatNumber(n) {
-    const num = Number(n);
-    if (isNaN(num)) return NaN;
-    const numSplit = num.toString().split(".");
-    let integer, decimal;
-    if (numSplit.length === 1) {
-        integer = numSplit[0];
-        decimal = "";
-    } else {
-        integer = numSplit[0];
-        decimal = numSplit[1];
+  const num = Number(n);
+  if (isNaN(num)) return NaN;
+  const numSplit = num.toString().split(".");
+  let integer, decimal;
+  if (numSplit.length === 1) {
+    integer = numSplit[0];
+    decimal = "";
+  } else {
+    integer = numSplit[0];
+    decimal = numSplit[1];
+  }
+  let intFormat = "";
+  let cnt = 0;
+  for (let i = integer.length - 1; i >= 0; i--) {
+    if (cnt % 3 === 0 && i !== integer.length - 1) {
+      intFormat = "," + intFormat;
+      cnt = 0;
     }
-    let intFormat = "";
-    let cnt = 0;
-    for (let i = integer.length - 1; i >= 0; i--) {
-        if (cnt % 3 === 0 && i !== integer.length - 1) {
-            intFormat = "," + intFormat;
-            cnt = 0;
-        }
-        intFormat = integer[i] + intFormat;
-        cnt++;
-    }
-    return intFormat + (decimal && "." + decimal);
+    intFormat = integer[i] + intFormat;
+    cnt++;
+  }
+  return intFormat + (decimal && "." + decimal);
 }
-
 
 // 测试
 

@@ -10,13 +10,13 @@
  * @return {number}
  */
 var maxChunksToSorted = function (arr) {
-	let mx = 0,
-		res = 0;
-	for (let i = 0; i < arr.length; i++) {
-		const cur = arr[i];
-		mx = Math.max(mx, cur);
-		if (mx === i) res++;
-	}
-	return res;
+  let mx = 0,
+    res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const cur = arr[i];
+    mx = Math.max(mx, cur);
+    if (mx === i) res++;
+  }
+  return res;
 };
 // @lc code=end

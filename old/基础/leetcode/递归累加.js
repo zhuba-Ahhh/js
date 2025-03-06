@@ -4,6 +4,5 @@ function cumulative(min = 1, max = 100) {
   return sum;
 }
 
-
 console.log(cumulative());
 console.log(cumulative(1, 10));

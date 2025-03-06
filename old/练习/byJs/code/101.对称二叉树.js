@@ -18,19 +18,19 @@
  * @return {boolean}
  */
 var isSymmetric = function (root) {
-	if (!root) return root;
-	const isMirror = (l, r) => {
-		if (!l && !r) return true;
-		if (!l || !r) return false;
-		if (
-			l.val === r.val &&
-			isMirror(l.left, r.right) &&
-			isMirror(l.right, r.left)
-		) {
-			return true;
-		}
-		return false;
-	};
-	return isMirror(root.left, root.right);
+  if (!root) return root;
+  const isMirror = (l, r) => {
+    if (!l && !r) return true;
+    if (!l || !r) return false;
+    if (
+      l.val === r.val &&
+      isMirror(l.left, r.right) &&
+      isMirror(l.right, r.left)
+    ) {
+      return true;
+    }
+    return false;
+  };
+  return isMirror(root.left, root.right);
 };
 // @lc code=end

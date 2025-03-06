@@ -12,20 +12,20 @@ throttle 节流
  * @returns function
  */
 const throttle = (fn, delay) => {
-	let curTime = new Date();
+  let curTime = new Date();
 
-	return (...args) => {
-		let nowTime = new Date();
+  return (...args) => {
+    let nowTime = new Date();
 
-		if (nowTime - curTime >= delay) {
-			curTime = new Date();
-			return fn.apply(this, args);
-		}
-	};
+    if (nowTime - curTime >= delay) {
+      curTime = new Date();
+      return fn.apply(this, args);
+    }
+  };
 };
 
 //test
-const test = id => void console.log('test' + id);
+const test = (id) => void console.log("test" + id);
 const testThrorrle = throttle(test, 200);
 
 // setInterval(() => void testThrorrle(), 100);

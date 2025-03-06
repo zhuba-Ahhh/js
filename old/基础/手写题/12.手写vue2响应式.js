@@ -23,16 +23,17 @@ function defineReactive(target, key, value) {
   //深度观察
   observer(value);
 
-  Object.defineProperty(target, key), {
-    get() {
-      return value;
-    },
-    set(newValue) {
-      observer(newValue);
-      if (newValue !== value) {
-        value = newValue;
-        console.log("更新视图");
-      }
-    },
-  };
+  Object.defineProperty(target, key),
+    {
+      get() {
+        return value;
+      },
+      set(newValue) {
+        observer(newValue);
+        if (newValue !== value) {
+          value = newValue;
+          console.log("更新视图");
+        }
+      },
+    };
 }

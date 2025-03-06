@@ -4,10 +4,10 @@
  * @returns
  */
 const getAllTags = (el = document) => {
-	const children = Array.prototype.flatMap.call(el.children, x =>
-		getAllTags(x)
-	);
-	return [el, ...children];
+  const children = Array.prototype.flatMap.call(el.children, (x) =>
+    getAllTags(x),
+  );
+  return [el, ...children];
 };
 
 //test

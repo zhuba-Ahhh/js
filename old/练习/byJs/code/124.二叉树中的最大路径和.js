@@ -18,21 +18,21 @@
  * @return {number}
  */
 var maxPathSum = function (root) {
-	if (root === null) return 0;
-	let maxSum = -9999;
-	const dfs = root => {
-		if (root === null) return 0;
-		const left = dfs(root.left),
-			right = dfs(root.right);
+  if (root === null) return 0;
+  let maxSum = -9999;
+  const dfs = (root) => {
+    if (root === null) return 0;
+    const left = dfs(root.left),
+      right = dfs(root.right);
 
-		const subTreeSum = root.val + left + right;
-		maxSum = Math.max(maxSum, subTreeSum);
+    const subTreeSum = root.val + left + right;
+    maxSum = Math.max(maxSum, subTreeSum);
 
-		return root.val + Math.max(0, left, right) > 0
-			? root.val + Math.max(0, left, right)
-			: 0;
-	};
-	dfs(root);
-	return maxSum;
+    return root.val + Math.max(0, left, right) > 0
+      ? root.val + Math.max(0, left, right)
+      : 0;
+  };
+  dfs(root);
+  return maxSum;
 };
 // @lc code=end

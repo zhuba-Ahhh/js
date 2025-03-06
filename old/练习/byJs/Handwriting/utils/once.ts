@@ -4,23 +4,23 @@
  * @returns 处理完的函数
  */
 function once<T>(f: (...args: any) => T): (...args: any) => T {
-	let result: T;
-	let revoked: boolean = false;
+  let result: T;
+  let revoked: boolean = false;
 
-	return (...args) => {
-		if (revoked) return result;
-		const r = f(...args);
-		revoked = true;
-		result = r;
-		return result;
-	};
+  return (...args) => {
+    if (revoked) return result;
+    const r = f(...args);
+    revoked = true;
+    result = r;
+    return result;
+  };
 }
 
 //test
 const test = (a: number) => {
-	console.log('a:', a);
-	console.log('c');
-	return a;
+  console.log("a:", a);
+  console.log("c");
+  return a;
 };
 
 const tonce = once(test);

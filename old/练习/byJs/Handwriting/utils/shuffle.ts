@@ -16,7 +16,7 @@ a;
 
 //四位不重复的验证码
 const randomUniqueCode = () =>
-	shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 4);
+  shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 4);
 console.log(randomUniqueCode());
 
 /**

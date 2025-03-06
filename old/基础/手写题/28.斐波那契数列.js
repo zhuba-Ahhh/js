@@ -38,10 +38,10 @@ function fn(n) {
   return current;
 }
 
-
 function fibonacci3(n) {
   if (n < 2) return 1;
-  let a = 0, b = 1;
+  let a = 0,
+    b = 1;
   for (let i = 1; i <= n; i++) {
     b += a;
     a = b - a;

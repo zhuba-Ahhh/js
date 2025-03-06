@@ -11,35 +11,35 @@
  * @return {number[][]}
  */
 var combinationSum2 = function (candidates, target) {
-	const res = [],
-		path = [],
-		len = candidates.length;
-	candidates.sort();
+  const res = [],
+    path = [],
+    len = candidates.length;
+  candidates.sort();
 
-	const dfs = (sum, i) => {
-		if (sum > target) return;
-		if (sum === target) {
-			res.push([...path]);
-			return;
-		}
+  const dfs = (sum, i) => {
+    if (sum > target) return;
+    if (sum === target) {
+      res.push([...path]);
+      return;
+    }
 
-		let pre = -1; //recored last
-		for (let j = i; j < len; j++) {
-			const cur = candidates[j];
-			if (cur > target - sum || cur === pre) continue;
-			path.push(cur);
-			sum += cur;
-			pre = cur;
-			//往下走
-			dfs(sum, j + 1);
-			//回溯
-			path.pop();
-			sum -= cur;
-		}
-	};
+    let pre = -1; //recored last
+    for (let j = i; j < len; j++) {
+      const cur = candidates[j];
+      if (cur > target - sum || cur === pre) continue;
+      path.push(cur);
+      sum += cur;
+      pre = cur;
+      //往下走
+      dfs(sum, j + 1);
+      //回溯
+      path.pop();
+      sum -= cur;
+    }
+  };
 
-	dfs(0, 0);
+  dfs(0, 0);
 
-	return res;
+  return res;
 };
 // @lc code=end

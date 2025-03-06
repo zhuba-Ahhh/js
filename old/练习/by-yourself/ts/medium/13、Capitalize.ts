@@ -2,7 +2,7 @@
 // 左侧也再提取出第一个
 type Capitalize<S> = S extends `${infer F}${infer L} ${infer R}`
   ? `${Uppercase<F>}${L} ${Capitalize<R>}`
-  : S
+  : S;
 
-type capitalized = Capitalize<"hello world"> // expected to be 'Hello world'
-export { }
+type capitalized = Capitalize<"hello world">; // expected to be 'Hello world'
+export {};

@@ -11,11 +11,11 @@
  * @return {number}
  */
 var sumNumbers = function (root) {
-	return dfs(root, 0);
+  return dfs(root, 0);
 };
 const dfs = (node, cur) => {
-	if (node === null) return 0;
-	const v = node.val + cur * 10;
-	if (node.left === null && node.right === null) return v;
-	return dfs(node.left, v) + dfs(node.right, v);
+  if (node === null) return 0;
+  const v = node.val + cur * 10;
+  if (node.left === null && node.right === null) return v;
+  return dfs(node.left, v) + dfs(node.right, v);
 };

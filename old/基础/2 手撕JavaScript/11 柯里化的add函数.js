@@ -4,31 +4,28 @@
  * 2022-03-14
  **************************************************/
 
-
 // 1 一种实现
 
 function add(...args) {
-    const outerResult = args.reduce((pre, cur) => pre + cur);
-    const fn = function (...args) {
-        if (!args.length) return outerResult;
-        const innerResult = args.reduce((pre, cur) => pre + cur);
-        return add(outerResult, innerResult);
-    };
-    return fn;
+  const outerResult = args.reduce((pre, cur) => pre + cur);
+  const fn = function (...args) {
+    if (!args.length) return outerResult;
+    const innerResult = args.reduce((pre, cur) => pre + cur);
+    return add(outerResult, innerResult);
+  };
+  return fn;
 }
-
 
 // 2 另一种实现
 
 function add2(...args) {
-    const nums = [...args];
-    const fn = function (...args) {
-        nums.push(...args);
-        return arguments.length ? fn : nums.reduce((pre, cur) => pre + cur);
-    };
-    return fn;
+  const nums = [...args];
+  const fn = function (...args) {
+    nums.push(...args);
+    return arguments.length ? fn : nums.reduce((pre, cur) => pre + cur);
+  };
+  return fn;
 }
-
 
 // 3 测试
 

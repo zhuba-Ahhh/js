@@ -24,16 +24,15 @@
 
 // 除了某个元素只出现一次以外，其余每个元素均出现两次 这句话是突破口
 
-
 const singleNumber = (nums) => {
-  let ans = 0
+  let ans = 0;
 
   for (const num of nums) {
-    ans = ans ^ num
+    ans = ans ^ num;
   }
 
-  return ans
-}
+  return ans;
+};
 
 // console.log(singleNumber([2,2,1]))
-console.log(singleNumber([4,1,2,1,2]))
+console.log(singleNumber([4, 1, 2, 1, 2]));

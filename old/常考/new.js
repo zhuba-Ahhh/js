@@ -1,7 +1,9 @@
 function _new(fn, ...arg) {
   let obj = Object.create(fn.prototype);
   let result = fn.apply(obj, ...arg);
-  return Object.prototype.toString.call(result) == '[object object]' ? result : obj;
+  return Object.prototype.toString.call(result) == "[object object]"
+    ? result
+    : obj;
 }
 
 function _new(fn, ...arg) {
@@ -32,4 +34,4 @@ const newObj = function (className, ...arg) {
   obj.__proto__ = className.prototype;
   let res = className.apply(obj, ...arg);
   return res instanceof Object ? res : obj;
-}
+};

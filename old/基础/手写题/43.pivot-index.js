@@ -13,16 +13,16 @@
  */
 
 const pivotIndex = (nums) => {
-  let total = nums.reduce((ret, num) => ret + num, 0)
-  let sum = 0
+  let total = nums.reduce((ret, num) => ret + num, 0);
+  let sum = 0;
 
   for (let i = 0, len = nums.length; i < len; i++) {
-    if (sum * 2 + nums[ i ] === total) {
-      return i
+    if (sum * 2 + nums[i] === total) {
+      return i;
     }
 
-    sum += nums[ i ]
+    sum += nums[i];
   }
 
-  return -1
-}
+  return -1;
+};

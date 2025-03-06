@@ -27,11 +27,12 @@ var lowestCommonAncestor = function (root, p, q) {
   return res;
 };
 
-
 // 但是可以利用好二叉搜索树的性质
- var lowestCommonAncestor = function(root, p, q) {
-  if(!root) return null
-  if(root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left,p,q)
-  if(root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right,p,q)
-  return root
+var lowestCommonAncestor = function (root, p, q) {
+  if (!root) return null;
+  if (root.val > p.val && root.val > q.val)
+    return lowestCommonAncestor(root.left, p, q);
+  if (root.val < p.val && root.val < q.val)
+    return lowestCommonAncestor(root.right, p, q);
+  return root;
 };

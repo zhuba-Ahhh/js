@@ -1,5 +1,5 @@
 // 'a_b_c' => 'ABC'
-let str = 'abc_bcs_abd';
+let str = "abc_bcs_abd";
 
 let change = function (str) {
   let arr = str.split("_");
@@ -14,8 +14,6 @@ let change = function (str) {
   }
 
   return arr.join("");
-}
+};
 
 console.log(change(str));
-
-

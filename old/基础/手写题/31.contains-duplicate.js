@@ -27,39 +27,39 @@
  */
 
 const containsDuplicate1 = (nums) => {
-  const cacheMap = {}
+  const cacheMap = {};
 
   for (const num of nums) {
-    if (cacheMap[ num ]) {
-      delete cacheMap[ num ]
+    if (cacheMap[num]) {
+      delete cacheMap[num];
     } else {
-      cacheMap[ num ] = 1
+      cacheMap[num] = 1;
     }
   }
 
-  return Object.keys(cacheMap).length < nums.length
-}
+  return Object.keys(cacheMap).length < nums.length;
+};
 
 const containsDuplicate2 = (nums) => {
-  nums.sort((a, b) => a - b)
+  nums.sort((a, b) => a - b);
 
-  const len = nums.length
-  let slow = 0
-  let fast = 1
+  const len = nums.length;
+  let slow = 0;
+  let fast = 1;
 
   while (fast < len) {
-    if (nums[ slow ] !== nums[ fast ]) {
-      slow++
-      fast++
+    if (nums[slow] !== nums[fast]) {
+      slow++;
+      fast++;
     } else {
-      break
+      break;
     }
   }
 
-  return fast !== len
-}
+  return fast !== len;
+};
 
-console.log(containsDuplicate1([1,1,1,3,3,4,3,2,4,2]))
-console.log(containsDuplicate2([1,1,1,3,3,4,3,2,4,2]))
-console.log(containsDuplicate1([1,2,3,4]))
-console.log(containsDuplicate2([1,2,3,4]))
+console.log(containsDuplicate1([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]));
+console.log(containsDuplicate2([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]));
+console.log(containsDuplicate1([1, 2, 3, 4]));
+console.log(containsDuplicate2([1, 2, 3, 4]));

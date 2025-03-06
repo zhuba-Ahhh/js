@@ -33,24 +33,24 @@
  */
 
 const strStr = (haystack, needle) => {
-  if (needle === '') {
-    return 0
+  if (needle === "") {
+    return 0;
   }
-  const len = haystack.length
-  const len2 = needle.length
-  let i = 0
+  const len = haystack.length;
+  const len2 = needle.length;
+  let i = 0;
 
   while (i < len) {
-    let curValue = haystack.substr(i, len2)
+    let curValue = haystack.substr(i, len2);
 
     if (curValue === needle) {
-      return i
+      return i;
     }
 
-    i++
+    i++;
   }
 
-  return -1
-}
+  return -1;
+};
 
-console.log(strStr('a', 'a'))
+console.log(strStr("a", "a"));

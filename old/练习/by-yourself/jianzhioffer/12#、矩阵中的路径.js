@@ -68,6 +68,6 @@ console.log(
       ["S", "F", "C", "S"],
       ["A", "D", "E", "E"],
     ],
-    "ABCCED"
-  )
+    "ABCCED",
+  ),
 );

@@ -1,23 +1,23 @@
-const http = require('http'); //https://nodejs.org/api/http.html
+const http = require("http"); //https://nodejs.org/api/http.html
 
 /* Application */
 module.exports = class Application {
-	constructor() {
-		this.middlewares = []; //收集中间件回调函数的数组，之后使用 koa-compse 串联
-	}
-	listen(...args) {
-		const server = http.createServer(async (req, res) => {
-			const ctx = new Context(req, res);
-			// 对中间件回调函数串联，形成洋葱模型
-			const fn = compose(this.middlewares); // compose 是重点。返回一个函数，效果是串联
-			await fn(ctx);
-			ctx.res.end(ctx.body);
-		});
-		server.listen(...args);
-	}
-	use(middleware) {
-		this.middlewares.push(middleware);
-	}
+  constructor() {
+    this.middlewares = []; //收集中间件回调函数的数组，之后使用 koa-compse 串联
+  }
+  listen(...args) {
+    const server = http.createServer(async (req, res) => {
+      const ctx = new Context(req, res);
+      // 对中间件回调函数串联，形成洋葱模型
+      const fn = compose(this.middlewares); // compose 是重点。返回一个函数，效果是串联
+      await fn(ctx);
+      ctx.res.end(ctx.body);
+    });
+    server.listen(...args);
+  }
+  use(middleware) {
+    this.middlewares.push(middleware);
+  }
 };
 
 /**
@@ -25,10 +25,10 @@ module.exports = class Application {
  * 以 request, response 来构造 ctx 对象
  */
 class Context {
-	constructor(req, res) {
-		this.req = req;
-		this.res = res;
-	}
+  constructor(req, res) {
+    this.req = req;
+    this.res = res;
+  }
 }
 /**
  *
@@ -36,17 +36,17 @@ class Context {
  * @returns 串联后的函数
  */
 function compose(middlewares) {
-	return ctx => {
-		/**
-		 * 执行第 i 个 中间件
-		 * @param {number} i 中间件数组下标
-		 * @returns 中间件函数
-		 */
-		const dispatch = i => {
-			const middleware = middlewares[i];
-			if (i === middlewares.length) return; // 搞完全部中间件
-			return middleware(ctx, () => dispatch(i + 1)); // 这里调用下一个
-		};
-		return dispatch(0); // 调用第一个
-	};
+  return (ctx) => {
+    /**
+     * 执行第 i 个 中间件
+     * @param {number} i 中间件数组下标
+     * @returns 中间件函数
+     */
+    const dispatch = (i) => {
+      const middleware = middlewares[i];
+      if (i === middlewares.length) return; // 搞完全部中间件
+      return middleware(ctx, () => dispatch(i + 1)); // 这里调用下一个
+    };
+    return dispatch(0); // 调用第一个
+  };
 }

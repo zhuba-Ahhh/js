@@ -25,38 +25,37 @@
 const validPalindrome = (s) => {
   const isPalindrome = (st, ed) => {
     while (st < ed) {
-      if (s[ st ] !== s[ ed ]) {
-        return false
+      if (s[st] !== s[ed]) {
+        return false;
       }
 
-      st++
-      ed--
+      st++;
+      ed--;
     }
 
-    return true
-  }
+    return true;
+  };
 
-  let i = 0 // 头指针
-  let j = s.length - 1 // 尾指针
+  let i = 0; // 头指针
+  let j = s.length - 1; // 尾指针
 
-  while (i < j && s[ i ] === s[ j ]) {
-    i++
-    j--
+  while (i < j && s[i] === s[j]) {
+    i++;
+    j--;
   }
 
   if (isPalindrome(i + 1, j)) {
-    return true
+    return true;
   }
 
   if (isPalindrome(i, j - 1)) {
-    return true
+    return true;
   }
 
+  return false;
+};
 
-  return false
-}
-
-console.log(validPalindrome('aba'))
-console.log(validPalindrome('abca'))
-console.log(validPalindrome('abc'))
-console.log(validPalindrome("deeee"))
+console.log(validPalindrome("aba"));
+console.log(validPalindrome("abca"));
+console.log(validPalindrome("abc"));
+console.log(validPalindrome("deeee"));

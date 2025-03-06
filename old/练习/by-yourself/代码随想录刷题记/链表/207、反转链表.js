@@ -15,7 +15,6 @@ var reverseList = function (head) {
   return pre;
 };
 
-
 // 递归写法
 var reverse = function (pre, head) {
   if (!head) return pre;

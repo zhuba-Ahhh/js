@@ -4,8 +4,8 @@
  * @returns 多个数组的交集
  */
 const intersection = (...list: Array<Array<any>>) => {
-	const result = list.reduce((a, b) => a.filter(v => b.includes(v)));
-	return [...new Set(result)];
+  const result = list.reduce((a, b) => a.filter((v) => b.includes(v)));
+  return [...new Set(result)];
 };
 
 //test

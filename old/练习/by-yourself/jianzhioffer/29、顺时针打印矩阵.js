@@ -1,6 +1,6 @@
 // 记录四个顶点，用for循环插入值
 var spiralOrder = function (matrix) {
-  if(matrix.length === 0) return []
+  if (matrix.length === 0) return [];
   const ans = [];
   let t = 0;
   let r = matrix[0].length - 1;
@@ -24,4 +24,3 @@ var spiralOrder = function (matrix) {
   }
   return ans;
 };
-

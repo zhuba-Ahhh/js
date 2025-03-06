@@ -1,7 +1,7 @@
 const a = {
   i: 1,
   toString() {
-    return a.i++
+    return a.i++;
   },
-}
-console.log(a == 1 && a == 2)
+};
+console.log(a == 1 && a == 2);

@@ -14,7 +14,6 @@
     需要进行二维遍历，遍历第i个的时候，从j = [0,i-1]里找到比 nums[i] 小的 dp[j] 的对应最长递增子序列的最大值 + 1即可
  */
 
-
 var lengthOfLIS = function (nums) {
   let res = 1;
   let dp = new Array(nums.length).fill(1);

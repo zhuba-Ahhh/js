@@ -1,7 +1,5 @@
 // 新建一个节点是为了防止第一个节点就要删除的情况
 
-
-
 var removeElements = function (head, val) {
   const ret = new ListNode(0, head);
   let cur = ret;
@@ -20,25 +18,24 @@ var removeElements = function (head, val) {
   return ret.next;
 };
 
-
-var removeElements = function(head, val) {
-  if(!head) return null
-  const res = new ListNode()
-  res.next = head
-  let pre = res
-  let now = head
+var removeElements = function (head, val) {
+  if (!head) return null;
+  const res = new ListNode();
+  res.next = head;
+  let pre = res;
+  let now = head;
   // 不断的更新now
   // pre.next是记录要删除的节点
-  while(now){
-      const next = now.next
-      // 如果要删除，就不更新pre，因为无法保证下一个pre.next，也就是now是不是等于val的
-      // 可以想像，后面的内容往前面压，前面的指针不变
-      if(now.val === val){
-          pre.next = next
-      }else{
-          pre = now            
-      }
-      now = next
+  while (now) {
+    const next = now.next;
+    // 如果要删除，就不更新pre，因为无法保证下一个pre.next，也就是now是不是等于val的
+    // 可以想像，后面的内容往前面压，前面的指针不变
+    if (now.val === val) {
+      pre.next = next;
+    } else {
+      pre = now;
+    }
+    now = next;
   }
-  return res.next
+  return res.next;
 };

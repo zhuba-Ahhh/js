@@ -12,7 +12,7 @@ class EventBus {
   }
   emit(key, ...args) {
     // 触发callback
-    this.keyMap[key].forEach(callback => {
+    this.keyMap[key].forEach((callback) => {
       callback.call(null, ...args);
     });
   }
@@ -43,12 +43,14 @@ class EventBus {
 
 const eventBus = new EventBus();
 // 注册事件
-eventBus.on("riyangzai", duration => console.log(`洋仔被日了${duration}小时`));
-const cb = duration => console.log(`洋仔还想被日${duration}小时`);
+eventBus.on("riyangzai", (duration) =>
+  console.log(`洋仔被日了${duration}小时`),
+);
+const cb = (duration) => console.log(`洋仔还想被日${duration}小时`);
 eventBus.on("riyangzai", cb);
 eventBus.off("riyangzai", cb);
 
-const onceCb = duration => console.log("羊只想被日一次，", duration);
+const onceCb = (duration) => console.log("羊只想被日一次，", duration);
 eventBus.once("riyangzai", onceCb);
 
 // 触发事件

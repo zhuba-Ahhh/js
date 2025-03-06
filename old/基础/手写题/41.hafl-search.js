@@ -24,24 +24,24 @@ nums 的每个元素都将在 [-9999, 9999]之间。
  */
 //  这个解答很详细
 const search = (nums, target) => {
-  let i = 0
-  let j = nums.length - 1
-  let midIndex = 0
+  let i = 0;
+  let j = nums.length - 1;
+  let midIndex = 0;
 
   while (i <= j) {
-    midIndex = Math.floor((i + j) / 2)
-    const midValue = nums[ midIndex ]
+    midIndex = Math.floor((i + j) / 2);
+    const midValue = nums[midIndex];
 
     if (midValue === target) {
-      return midIndex
+      return midIndex;
     } else if (midValue < target) {
-      i = midIndex + 1
+      i = midIndex + 1;
     } else {
-      j = midIndex - 1
+      j = midIndex - 1;
     }
   }
 
-  return -1
-}
+  return -1;
+};
 
-console.log(search([-1,0,3,5,9,12], 9))
+console.log(search([-1, 0, 3, 5, 9, 12], 9));

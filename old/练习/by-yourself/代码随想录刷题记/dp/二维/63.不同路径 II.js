@@ -23,36 +23,40 @@
         如果i，j-1可到达，就加上dp[i][j-1]
 
  */
- var uniquePathsWithObstacles = function(obstacleGrid) {
-  const n = obstacleGrid.length
-  const m = obstacleGrid[0].length
+var uniquePathsWithObstacles = function (obstacleGrid) {
+  const n = obstacleGrid.length;
+  const m = obstacleGrid[0].length;
   // 如果起点和终点为0，那么就无法到达
-  if(obstacleGrid[n-1][m-1] === 1) return 0
-  if(obstacleGrid[0][0] === 1) return 0
+  if (obstacleGrid[n - 1][m - 1] === 1) return 0;
+  if (obstacleGrid[0][0] === 1) return 0;
   // 初始化
-  const dp = new Array(n).fill(0).map(()=>new Array(m).fill(0))
+  const dp = new Array(n).fill(0).map(() => new Array(m).fill(0));
 
   // 如果堵住了，就无法到达
-  for(let i = 0 ; i < n ; i++) {
-      if(obstacleGrid[i][0] === 1) break
-      dp[i][0] = 1
+  for (let i = 0; i < n; i++) {
+    if (obstacleGrid[i][0] === 1) break;
+    dp[i][0] = 1;
   }
-  for(let i = 0 ; i < m ; i++) {
-      if(obstacleGrid[0][i] === 1) break
-      dp[0][i] = 1
+  for (let i = 0; i < m; i++) {
+    if (obstacleGrid[0][i] === 1) break;
+    dp[0][i] = 1;
   }
 
   // 遍历
-  for(let i = 1 ; i < n ; i++){
-    for(let j = 1 ; j < m ; j++){
+  for (let i = 1; i < n; i++) {
+    for (let j = 1; j < m; j++) {
       // 只有当前路可到达的时候才去计算
-      if(!obstacleGrid[i][j]){
-        if(!obstacleGrid[i-1][j]) dp[i][j] += dp[i-1][j]
-        if(!obstacleGrid[i][j-1]) dp[i][j] += dp[i][j-1]
+      if (!obstacleGrid[i][j]) {
+        if (!obstacleGrid[i - 1][j]) dp[i][j] += dp[i - 1][j];
+        if (!obstacleGrid[i][j - 1]) dp[i][j] += dp[i][j - 1];
       }
     }
   }
-  return  dp[n-1][m-1]
+  return dp[n - 1][m - 1];
 };
 
-uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]])
+uniquePathsWithObstacles([
+  [0, 0, 0],
+  [0, 1, 0],
+  [0, 0, 0],
+]);

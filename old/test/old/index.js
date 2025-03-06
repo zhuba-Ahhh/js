@@ -1,9 +1,9 @@
 function versionCompare(version1, version2) {
   let change = function (version) {
     let v = version.split(".");
-    v[0] += '.';
-    return parseFloat(v.join(""))
-  }
+    v[0] += ".";
+    return parseFloat(v.join(""));
+  };
 
   // let v1 = version1.split(".");
   // let v2 = version2.split(".");
@@ -27,7 +27,7 @@ function versionCompare(version1, version2) {
 Function.prototype.a = () => alert(1);
 Object.prototype.b = () => alert(2);
 
-function A() {};
+function A() {}
 var a = new A();
 a.a();
 a.b();

@@ -14,13 +14,13 @@ function fib1(n) {
   return fib1(n - 1) + fib1(n - 2);
 }
 
-let d = Date.now()
+let d = Date.now();
 for (let i = 1; i < 100; i++) {
   console.log("F1", fib(i));
 }
 console.log("D1", Date.now() - d);
 
-let d1 = Date.now()
+let d1 = Date.now();
 for (let i = 1; i < 100; i++) {
   console.log("F2", fib1(i));
 }

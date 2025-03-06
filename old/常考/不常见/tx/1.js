@@ -1,5 +1,5 @@
-var a = [1, 2, 3, 4, 5]
-var b = [2, 4, 6, 8, 10]
+var a = [1, 2, 3, 4, 5];
+var b = [2, 4, 6, 8, 10];
 
 // 交集
 const jiao = a.filter((item) => b.indexOf(item) !== -1);

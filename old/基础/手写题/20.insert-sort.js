@@ -7,18 +7,18 @@
 
 const insertSort = (array) => {
   for (let i = 1, length = array.length; i < length; i++) {
-    let j = i - 1
-    const curValue = array[ i ]
+    let j = i - 1;
+    const curValue = array[i];
 
-    while (j >= 0 && array[ j ] > curValue) {
-      array[ j + 1 ] = array[ j ]
-      j--
+    while (j >= 0 && array[j] > curValue) {
+      array[j + 1] = array[j];
+      j--;
     }
 
-    array[ j + 1 ] = curValue
+    array[j + 1] = curValue;
   }
 
-  return array
-}
+  return array;
+};
 
-console.log(insertSort([ -1, 10, 10, 2 ]))
+console.log(insertSort([-1, 10, 10, 2]));

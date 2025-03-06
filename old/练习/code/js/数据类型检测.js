@@ -1,14 +1,13 @@
 function getType(data) {
-  if (data === null) return 'null'; // Null
-  if (typeof data !== 'object') return typeof data; // Number Boolean Symbol String
-  if (data.constructor === Array) return 'array'; // Array
-  if (data instanceof Date) return 'date'; // Date
-  if (data instanceof Map) return 'map'; // Map
-  if (data instanceof Set) return 'set'; // Set
-  if (data instanceof RegExp) return 'regexp'; // RegExp
-  return 'object';
+  if (data === null) return "null"; // Null
+  if (typeof data !== "object") return typeof data; // Number Boolean Symbol String
+  if (data.constructor === Array) return "array"; // Array
+  if (data instanceof Date) return "date"; // Date
+  if (data instanceof Map) return "map"; // Map
+  if (data instanceof Set) return "set"; // Set
+  if (data instanceof RegExp) return "regexp"; // RegExp
+  return "object";
 }
-
 
 // 示例
 const testArr = [

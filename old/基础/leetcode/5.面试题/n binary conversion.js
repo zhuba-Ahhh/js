@@ -5,12 +5,12 @@
  * @returns string
  */
 function cov(n, base = 7) {
-    let ans = [];
-    while (n) {
-        ans.push(n % base);
-        n = parseInt(n / base);
-    }
-    return ans.reverse().join("");
+  let ans = [];
+  while (n) {
+    ans.push(n % base);
+    n = parseInt(n / base);
+  }
+  return ans.reverse().join("");
 }
 
 console.log(cov(7));

@@ -5,15 +5,15 @@
  * @returns 新数组
  */
 Array.prototype._map = function (callback, thisArg) {
-	return this.reduce((acc, cur, idx, arr) => {
-		acc.push(callback.call(thisArg, cur, idx, arr));
-		return acc;
-	}, []);
+  return this.reduce((acc, cur, idx, arr) => {
+    acc.push(callback.call(thisArg, cur, idx, arr));
+    return acc;
+  }, []);
 };
 
 //test
 const a = [1, 2, 3]._map((cur, idx, arr) => {
-	return [].concat(arr, cur * idx);
+  return [].concat(arr, cur * idx);
 });
 console.log(a);
 //[ [ 1, 2, 3, 0 ], [ 1, 2, 3, 2 ], [ 1, 2, 3, 6 ] ]

@@ -18,18 +18,18 @@
  * @return {number[]}
  */
 var rightSideView = function (root) {
-	if (!root) return [];
-	const q = [root];
-	const res = [];
-	while (q.length) {
-		let len = q.length;
-		while (len--) {
-			const x = q.shift();
-			if (len === 0) res.push(x.val);
-			x.left && q.push(x.left);
-			x.right && q.push(x.right);
-		}
-	}
-	return res;
+  if (!root) return [];
+  const q = [root];
+  const res = [];
+  while (q.length) {
+    let len = q.length;
+    while (len--) {
+      const x = q.shift();
+      if (len === 0) res.push(x.val);
+      x.left && q.push(x.left);
+      x.right && q.push(x.right);
+    }
+  }
+  return res;
 };
 // @lc code=end

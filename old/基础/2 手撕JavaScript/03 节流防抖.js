@@ -8,23 +8,22 @@
 // window触发resize的时候，不断的调整浏览器窗口大小会不断的触发这个事件，用防抖来让其只触发一次.
 
 function debounce(fun, delay) {
-    // 闭包封装一个变量保存定时器id
-    let timer = 0;
-    // 返回一个包装后的函数
-    return function (...args) {
-        // 保存上下文
-        const that = this; // 保存 this 是为了可以使包装函数成为对象的方法（如使用DOM0方式来绑定事件处理程序）
-        const _args = args;
-        // 清除上一个计时器
-        clearTimeout(timer);
-        // 设置新的计时器
-        setTimeout(() => {
-            // 以保存的上下文来调用
-            fun.call(that, ..._args);
-        }, delay);
-    };
+  // 闭包封装一个变量保存定时器id
+  let timer = 0;
+  // 返回一个包装后的函数
+  return function (...args) {
+    // 保存上下文
+    const that = this; // 保存 this 是为了可以使包装函数成为对象的方法（如使用DOM0方式来绑定事件处理程序）
+    const _args = args;
+    // 清除上一个计时器
+    clearTimeout(timer);
+    // 设置新的计时器
+    setTimeout(() => {
+      // 以保存的上下文来调用
+      fun.call(that, ..._args);
+    }, delay);
+  };
 }
-
 
 // 2 函数节流 throttle
 
@@ -37,31 +36,30 @@ function debounce(fun, delay) {
 // 监听滚动事件，比如是否滑到底部加载更多，单位时间内只判断一次。
 
 function throttle(fun, delay) {
-    // 闭包封装上次触发时的时间戳和计时器id
-    let last, timer;
-    // 返回一个包装后的函数
-    return function (...args) {
-        // 保存上下文
-        let that = this;
-        let _args = args;
-        // 记录当前时间戳
-        let now = +new Date();
-        if (last && now < last + delay) {
-            // 如果有上次触发的记录并且还没有超过延时，那就推迟到delay之后执行函数（延迟执行）
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-                // 注意：凡执行函数的地方，务必要记住保存执行时间戳
-                last = now;
-                fun.apply(that, _args);
-            }, delay);
-        } else {
-            // 如果已经超过延时了，就可以直接执行函数了
-            last = now;
-            fun.apply(that, ..._args);
-        }
+  // 闭包封装上次触发时的时间戳和计时器id
+  let last, timer;
+  // 返回一个包装后的函数
+  return function (...args) {
+    // 保存上下文
+    let that = this;
+    let _args = args;
+    // 记录当前时间戳
+    let now = +new Date();
+    if (last && now < last + delay) {
+      // 如果有上次触发的记录并且还没有超过延时，那就推迟到delay之后执行函数（延迟执行）
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        // 注意：凡执行函数的地方，务必要记住保存执行时间戳
+        last = now;
+        fun.apply(that, _args);
+      }, delay);
+    } else {
+      // 如果已经超过延时了，就可以直接执行函数了
+      last = now;
+      fun.apply(that, ..._args);
     }
+  };
 }
-
 
 // 3 节流防抖的区别
 

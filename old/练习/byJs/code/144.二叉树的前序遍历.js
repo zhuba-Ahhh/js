@@ -18,26 +18,26 @@
  * @return {number[]}
  */
 var preorderTraversal = function (root) {
-	/* 
+  /* 
 	if (!root) return [];
 	return [root.val]
 		.concat(preorderTraversal(root.left))
 		.concat(preorderTraversal(root.right));
   */
-	if (!root) return [];
-	const ans = [],
-		stk = [root];
-	let t = stk.pop();
-	while (t) {
-		if (t.right) {
-			stk.push(t.right);
-		}
-		if (t.left) {
-			stk.push(t.left);
-		}
-		ans.push(t.val);
-		t = stk.pop();
-	}
-	return ans;
+  if (!root) return [];
+  const ans = [],
+    stk = [root];
+  let t = stk.pop();
+  while (t) {
+    if (t.right) {
+      stk.push(t.right);
+    }
+    if (t.left) {
+      stk.push(t.left);
+    }
+    ans.push(t.val);
+    t = stk.pop();
+  }
+  return ans;
 };
 // @lc code=end

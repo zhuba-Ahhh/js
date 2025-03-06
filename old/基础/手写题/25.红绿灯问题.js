@@ -37,4 +37,4 @@ const taskRunner = async function () {
   await task(2100, "yello");
   taskRunner();
 };
-taskRunner()
+taskRunner();

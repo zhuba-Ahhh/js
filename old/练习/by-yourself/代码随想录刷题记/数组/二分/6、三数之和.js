@@ -5,7 +5,7 @@ var threeSum = function (nums) {
   nums = nums.sort((a, b) => a - b);
   let res = [];
   for (let i = 0; i < nums.length - 2; i++) {
-    // 剪枝 
+    // 剪枝
     if (nums[i] > 0) break;
     // 去重1:如果当前的位是和前面一样的，就不做计算了
     if (nums[i] === nums[i - 1]) continue;

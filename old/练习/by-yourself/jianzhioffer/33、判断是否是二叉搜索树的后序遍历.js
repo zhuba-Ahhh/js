@@ -6,7 +6,7 @@ var verifyPostorder = function (postorder) {
   // 当前
   let root = postorder[postorder.length - 1];
   // 找到第一个大于root的节点位置，去切分左右子树
-  let index = postorder.findIndex(i => i > root);
+  let index = postorder.findIndex((i) => i > root);
   let right = postorder.slice(index, postorder.length - 1);
   let left = postorder.slice(0, index);
   let flag = true;

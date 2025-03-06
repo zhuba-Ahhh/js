@@ -19,21 +19,21 @@
 
 // 思路就是将非零的不断往前移动，零的不断往后移动
 const moveZeroes = (nums) => {
-  let len = nums.length  
-  let j = 0
-  
+  let len = nums.length;
+  let j = 0;
+
   for (let i = 0; i < len; i++) {
-    if (nums[ i ] !== 0) {
-      let temp = nums[ i ]
+    if (nums[i] !== 0) {
+      let temp = nums[i];
 
-      nums[ i ] = nums[ j ]
-      nums[ j ] = temp
+      nums[i] = nums[j];
+      nums[j] = temp;
 
-      j++
+      j++;
     }
   }
 
-  return nums
-}
+  return nums;
+};
 
-moveZeroes([0,1,0,3,12])
+moveZeroes([0, 1, 0, 3, 12]);

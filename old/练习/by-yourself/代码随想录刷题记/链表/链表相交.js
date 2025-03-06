@@ -4,13 +4,13 @@
    到最后如果都没有找到相同的，也会因为同时为undefined而推出循环
  */
 
- var getIntersectionNode = function(headA, headB) {
-  if(!headA || !headB) return null
-  let a = headA
-  let b = headB
-  while(a !== b){
-      a = !a ? headB : a.next
-      b = !b ? headA : b.next
+var getIntersectionNode = function (headA, headB) {
+  if (!headA || !headB) return null;
+  let a = headA;
+  let b = headB;
+  while (a !== b) {
+    a = !a ? headB : a.next;
+    b = !b ? headA : b.next;
   }
-  return a
+  return a;
 };

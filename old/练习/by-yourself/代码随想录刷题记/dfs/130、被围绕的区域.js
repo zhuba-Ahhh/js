@@ -26,10 +26,9 @@ var solve = function (board) {
   }
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
-      if (board[i][j] === "A"){
+      if (board[i][j] === "A") {
         board[i][j] = "O";
-      }
-      else if (board[i][j] === "O"){
+      } else if (board[i][j] === "O") {
         board[i][j] = "X";
       }
     }

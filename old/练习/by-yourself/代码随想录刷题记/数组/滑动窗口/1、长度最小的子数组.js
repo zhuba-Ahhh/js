@@ -10,13 +10,13 @@ var minSubArrayLen = function (target, nums) {
   const arr = [];
   let sum = 0;
   let res = Infinity;
-  for(let i = 0 ; i < nums.length ; i++){
-    sum = sum + nums[i]
-    arr.push(nums[i])
-    while(sum >= target){
-      res = Math.min(res,arr.length)
-      const f = arr.shift()
-      sum -= f
+  for (let i = 0; i < nums.length; i++) {
+    sum = sum + nums[i];
+    arr.push(nums[i]);
+    while (sum >= target) {
+      res = Math.min(res, arr.length);
+      const f = arr.shift();
+      sum -= f;
     }
   }
   return res;
@@ -25,20 +25,19 @@ var minSubArrayLen = function (target, nums) {
 var minSubArrayLen = function (target, nums) {
   let sum = 0;
   // 用left和right代替数组
-  let left = 0
-  let right = 0 
+  let left = 0;
+  let right = 0;
   let res = Infinity;
-  while(right < nums.length){
-    sum = sum + nums[right]
-    while(sum >= target){
-      res = Math.min(res,right - left + 1)
-      const f = nums[left++]
-      sum -= f
+  while (right < nums.length) {
+    sum = sum + nums[right];
+    while (sum >= target) {
+      res = Math.min(res, right - left + 1);
+      const f = nums[left++];
+      sum -= f;
     }
-    right++
+    right++;
   }
   return res === Infinity ? 0 : res;
 };
-
 
 console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3]));

@@ -3,24 +3,24 @@
 // 没啥好说的
 var levelOrder = function (root) {
   if (!root) {
-    return []
+    return [];
   }
 
-  const ans = []
-  const queue = [root]
+  const ans = [];
+  const queue = [root];
 
   while (queue.length) {
-    const cnt = queue.length
-    const level = []
+    const cnt = queue.length;
+    const level = [];
     for (let i = 0; i < cnt; ++i) {
-      const cur = queue.shift()
-      level.push(cur.val)
+      const cur = queue.shift();
+      level.push(cur.val);
       for (const child of cur.children) {
-        queue.push(child)
+        queue.push(child);
       }
     }
-    ans.push(level)
+    ans.push(level);
   }
 
-  return ans
-}
+  return ans;
+};

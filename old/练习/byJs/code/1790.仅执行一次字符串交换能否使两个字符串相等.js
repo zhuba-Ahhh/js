@@ -11,22 +11,22 @@
  * @return {boolean}
  */
 var areAlmostEqual = function (s1, s2) {
-	let t1,
-		t2,
-		flag = 0;
-	const l1 = s1.length,
-		l2 = s2.length;
-	if (l1 !== l2) return false;
-	if (s1 === s2) return true;
-	for (let i = 0; i < l1; i++) {
-		if (s1[i] !== s2[i]) {
-			flag++;
-			if (flag === 1) t1 = i;
-			if (flag === 2) t2 = i;
-			if (flag === 3) return false;
-		}
-	}
-	if (s2[t1] === s1[t2] && s2[t2] === s1[t1]) return true;
-	return false;
+  let t1,
+    t2,
+    flag = 0;
+  const l1 = s1.length,
+    l2 = s2.length;
+  if (l1 !== l2) return false;
+  if (s1 === s2) return true;
+  for (let i = 0; i < l1; i++) {
+    if (s1[i] !== s2[i]) {
+      flag++;
+      if (flag === 1) t1 = i;
+      if (flag === 2) t2 = i;
+      if (flag === 3) return false;
+    }
+  }
+  if (s2[t1] === s1[t2] && s2[t2] === s1[t1]) return true;
+  return false;
 };
 // @lc code=end

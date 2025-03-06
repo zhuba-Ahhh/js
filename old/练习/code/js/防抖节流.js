@@ -6,7 +6,7 @@ function debounce(fn, waittime) {
     timeout = setTimeout(function () {
       fn.apply(this);
     }, waittime);
-  }
+  };
 }
 // 节流 throttle
 function throttle(fn, waittime) {
@@ -16,13 +16,10 @@ function throttle(fn, waittime) {
       timeout = setTimeout(() => {
         timeout = null;
         fn.apply(this);
-      }, waittime)
+      }, waittime);
     }
-  }
+  };
 }
-
-
-
 
 function debounce(fn, delay) {
   let timer = 0;

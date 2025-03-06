@@ -11,26 +11,26 @@ Array.prototype.my_fill = function (value, start = 0, end) {
   }
   end = end || this.length;
   if (start < 0) {
-    start = this.length + start
+    start = this.length + start;
   }
   //注意fill不会改变数组的长度
   if (end > this.length) {
-    end = this.length
+    end = this.length;
   }
   if (end < 0) {
-    end = this.length + end
+    end = this.length + end;
   }
   for (let i = start; i < end; i++) {
     this[i] = value;
   }
-  return this //直接返回，会改变对象
-}
-let arr = ['a', 'a', 'a'];
-console.log(arr.my_fill([1, 2, 3], 4))
+  return this; //直接返回，会改变对象
+};
+let arr = ["a", "a", "a"];
+console.log(arr.my_fill([1, 2, 3], 4));
 // join() 方法将数组作为字符串返回。
 
 // 元素将由指定的分隔符分隔。默认分隔符是逗号 (,)
-Array.prototype.my_join = function (value = ',') {
+Array.prototype.my_join = function (value = ",") {
   if (this == undefined) {
     throw TypeError("this is null or undefined");
   }
@@ -44,7 +44,7 @@ Array.prototype.my_join = function (value = ',') {
     // str = i === 0 ? `${str}${this[i]}` : `${str}${value}${this[i]}`
   }
   return str;
-}
+};
 
 let str = [1, 1, 1, 1];
-console.log(str.my_join('l'));
+console.log(str.my_join("l"));

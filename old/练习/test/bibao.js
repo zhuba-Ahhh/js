@@ -1,6 +1,6 @@
 function add() {
   let i = 0;
-  return () => console.log((++i) % 2);
+  return () => console.log(++i % 2);
 }
 
 const fn = add();

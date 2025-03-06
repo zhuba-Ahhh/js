@@ -4,11 +4,11 @@ function People(name) {
 
 People.prototype.getName = function () {
   console.log(this.name);
-}
+};
 
-let people = new People("ZH")
+let people = new People("ZH");
 console.log(people.name);
-people.getName()
+people.getName();
 
 function Student(name, age) {
   People.call(this, name);
@@ -23,7 +23,6 @@ let XM = new Student("ZHUBA", 20);
 console.log(XM.name, XM.age);
 XM.getName();
 
-
 Promise.All = function (promises) {
   let arr = [],
     l = promises.length,
@@ -31,22 +30,25 @@ Promise.All = function (promises) {
 
   return new Promise((resolve, reject) => {
     promises.forEach((promise, index) => {
-      promise.resolve(item).then(res => {
-        arr[index] = res;
-        cnt++;
-        if (cnt === l) resolve(arr);
-      }).catch(err => reject(err));
-    })
-  })
-}
+      promise
+        .resolve(item)
+        .then((res) => {
+          arr[index] = res;
+          cnt++;
+          if (cnt === l) resolve(arr);
+        })
+        .catch((err) => reject(err));
+    });
+  });
+};
 
 Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
     promises.forEach((promise) => {
       Promise.resolve(promise).then(resolve, reject);
-    })
-  })
-}
+    });
+  });
+};
 
 // 创建一个空对象。
 // 获取函数参数。
@@ -54,16 +56,14 @@ Promise.race = function (promises) {
 // 将构造函数中的方法和属性都继承给实例对象。
 // 判断返回值类型， 如果是值类型， 就返回创建的对象， 如果是引用对象， 就返回引用的对象。
 
-
 let __new = function (fn, ...args) {
   let newObj = {};
   newObj.__proto__ = fn.prototype;
 
   let res = fn.call(fn, args);
   console.log(typeof res);
-  return typeof res == 'object' ? res : newObj;
-}
-
+  return typeof res == "object" ? res : newObj;
+};
 
 function curry(fn) {
   const args = [];
@@ -71,18 +71,18 @@ function curry(fn) {
     if (!rest.length) return fn(...args);
     args.push(...rest);
     return result;
-  }
+  };
 }
 
 function Curry(fn) {
   let l = fn.length,
     args = [];
-  return function result(this, ...rest) {
+  return function result(...rest) {
     args = [...args, ...rest];
 
     if (args.length < l) return result;
     else return fn.apply(this, args.slice(0, l));
-  }
+  };
 }
 
 Function.prototype.Bind = function (context, ...bindArgs) {
@@ -91,8 +91,8 @@ Function.prototype.Bind = function (context, ...bindArgs) {
   return function (...args) {
     const newArgs = bindArgs.concat(args);
     return self.apply(context, newArgs);
-  }
-}
+  };
+};
 
 function getType(x) {
   const originType = Object.prototype.toString.call(x);

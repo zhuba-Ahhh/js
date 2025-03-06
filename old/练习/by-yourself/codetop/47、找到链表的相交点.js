@@ -11,12 +11,12 @@
 // 或者我们可以先遍历一遍，记录链表的长度，用快慢指针让长链表先走差值步，然后找到相交点，没有就是null
 
 var getIntersectionNode = function (headA, headB) {
-  let a = headA
-  let b = headB
+  let a = headA;
+  let b = headB;
   while (a !== b) {
-    a = !a ? headB : a.next  //如果a存在，就next，否则就切换到B
-    b = !b ? headA : b.next
+    a = !a ? headB : a.next; //如果a存在，就next，否则就切换到B
+    b = !b ? headA : b.next;
   }
   // 最后退出的情况，要么是a === b === nul，要么就是他们相同的地方
-  return a
-}
+  return a;
+};

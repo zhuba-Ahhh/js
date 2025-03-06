@@ -29,20 +29,20 @@
  * @return {number}
  */
 var maxDepth = function (root) {
-	if (!root) return 0;
-	if (!root.right && !root.left) return 1;
-	let cur = root;
-	const que = [root, null];
-	let level = 1;
-	while ((cur = que.shift()) !== undefined) {
-		if (cur === null) {
-			if (que.length === 0) return level;
-			level++;
-			que.push(null);
-			continue;
-		}
-		cur.left && que.push(cur.left);
-		cur.right && que.push(cur.right);
-	}
+  if (!root) return 0;
+  if (!root.right && !root.left) return 1;
+  let cur = root;
+  const que = [root, null];
+  let level = 1;
+  while ((cur = que.shift()) !== undefined) {
+    if (cur === null) {
+      if (que.length === 0) return level;
+      level++;
+      que.push(null);
+      continue;
+    }
+    cur.left && que.push(cur.left);
+    cur.right && que.push(cur.right);
+  }
 };
 // @lc code=end

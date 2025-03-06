@@ -13,7 +13,7 @@ function convertToCamelCase(obj) {
     }
 
     let value = obj[key];
-    let newKey = key.replace(/_(\w)/g, function(_, p1) {
+    let newKey = key.replace(/_(\w)/g, function (_, p1) {
       return p1.toUpperCase();
     });
 
@@ -30,20 +30,19 @@ function convertToCamelCase(obj) {
   return obj;
 }
 
-
 let obj = {
   user_info: {
     first_name: "John",
     last_name: "Doe",
     contact_info: {
       phone_number: "1234567890",
-      email_address: "john.doe@example.com"
-    }
+      email_address: "john.doe@example.com",
+    },
   },
   order_info: {
     order_id: "123456",
-    order_date: "2023-04-30"
-  }
+    order_date: "2023-04-30",
+  },
 };
 
 console.log(convertToCamelCase(obj));

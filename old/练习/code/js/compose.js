@@ -15,11 +15,14 @@ function fn4(x) {
 }
 
 function compose(...fn) {
-  return fn.reduce((pre, cur) => {
-    return (...args) => pre(cur(...args))
-  }, (cur) => cur)
+  return fn.reduce(
+    (pre, cur) => {
+      return (...args) => pre(cur(...args));
+    },
+    (cur) => cur,
+  );
 }
 
 console.log(compose(fn1, fn2, fn3, fn4)(1));
 let fn = compose(fn1, fn2, fn3, fn4);
-console.log(fn(1))
+console.log(fn(1));

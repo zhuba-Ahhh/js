@@ -5,20 +5,20 @@
  * @returns {boolean}
  */
 const _instanceof = (obj, fun) => {
-	// 用 Object.getPrototypeOf 获取其原型
-	let p = Object.getPrototypeOf(obj),
-		p2 = fun.prototype;
+  // 用 Object.getPrototypeOf 获取其原型
+  let p = Object.getPrototypeOf(obj),
+    p2 = fun.prototype;
 
-	while (1) {
-		if (!p) return false;
-		if (p === p2) return true;
-		//一层一层往上找
-		p = Object.getPrototypeOf(p);
-	}
+  while (1) {
+    if (!p) return false;
+    if (p === p2) return true;
+    //一层一层往上找
+    p = Object.getPrototypeOf(p);
+  }
 };
 
 //test
-const a = new Number('1');
+const a = new Number("1");
 console.log(a instanceof Number); //true
 console.log(a instanceof Object); //true
 console.log(a instanceof String); //false

@@ -86,7 +86,7 @@ var nearestExit = function (maze, entrance) {
           nextX === row - 1 ||
           nextY === column - 1
         ) {
-          console.log(nextX,nextY,len+1)
+          console.log(nextX, nextY, len + 1);
           res = Math.min(res, len + 1);
         }
         dfs(nextX, nextY, len + 1);
@@ -110,6 +110,6 @@ console.log(
       [".", ".", "+", "+", "+", "+", "+", ".", "."],
       [".", "+", "+", ".", ".", "+", ".", ".", "."],
     ],
-    [5, 8]
-  )
+    [5, 8],
+  ),
 );

@@ -15,24 +15,23 @@ Array.prototype.qk = function () {
     cur = arr.splice(0, 1);
   for (let item of arr) item > cur ? right.push(item) : left.push(item);
   return qk(left).concat(cur, qk(right));
-}
+};
 
 let arr = [1, 1, 2, 3, 4, 3, 4, 5, 3, 4, 6, 74, 3];
 console.log(arr.qk());
-
 
 function PALL(args) {
   const Promises = Array.from(args),
     values = [],
     l = Promises.length;
   return new Promise((resolve, reject) => {
-    Promises.forEach(promise => {
+    Promises.forEach((promise) => {
       promise.then((data, err) => {
         if (!err) reject(err);
         values.length === l ? resolve(values) : values.push(data);
-      })
-    })
-  })
+      });
+    });
+  });
 }
 
 function PACE(args) {
@@ -42,7 +41,7 @@ function PACE(args) {
     for (let i = 0; i < l; i++) {
       Promises[i].then(reslove, reject);
     }
-  })
+  });
 }
 
 Promise.race = function (args) {
@@ -52,10 +51,8 @@ Promise.race = function (args) {
     for (let i = 0; i < l; i++) {
       Promises[i].then(reslove, reject);
     }
-  })
-}
-
-
+  });
+};
 
 function _flat(arr, depth) {
   if (!Array.isArray(arr) || depth < 1) return arr;

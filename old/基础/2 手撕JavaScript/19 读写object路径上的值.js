@@ -4,52 +4,49 @@
  * 2022-03-20
  **************************************************/
 
-
 // 1 实现 getValue 函数来读取对象路径上的值
 
 const getValue = function (obj, query) {
-    if (query === "" || query === undefined) return obj;
-    if (typeof query === "string") {
-        query = query.split(".");
-    }
-    if (query.length === 1) {
-        return obj[query.shift()];
-    }
-    const key = query.shift();
-    if (obj[key] !== undefined) {
-        return getValue(obj[key], query);
-    } else {
-        return undefined;
-    }
+  if (query === "" || query === undefined) return obj;
+  if (typeof query === "string") {
+    query = query.split(".");
+  }
+  if (query.length === 1) {
+    return obj[query.shift()];
+  }
+  const key = query.shift();
+  if (obj[key] !== undefined) {
+    return getValue(obj[key], query);
+  } else {
+    return undefined;
+  }
 };
-
 
 // 2 实现 setValue 函数来修改对象路径上的值
 
 const setValue = function (obj, query, val) {
-    let t = obj;
-    const rawp = query.split(".");
-    const properties = rawp.slice(0, -1);
-    for (const p of properties) {
-        if (t === null || t === undefined) return false;
-        t = obj[p];
-    }
-    if (typeof t !== "object") return false;
-    t[rawp[rawp.length - 1]] = val;
-    return true;
+  let t = obj;
+  const rawp = query.split(".");
+  const properties = rawp.slice(0, -1);
+  for (const p of properties) {
+    if (t === null || t === undefined) return false;
+    t = obj[p];
+  }
+  if (typeof t !== "object") return false;
+  t[rawp[rawp.length - 1]] = val;
+  return true;
 };
-
 
 // 3 测试
 
 const obj = {
-    name: "Dasen",
-    age: 23,
-    bestFriend: {
-        name: "Tiantian",
-        age: 22,
-        homeTown: ["Hubei", "Huanggang"],
-    },
+  name: "Dasen",
+  age: 23,
+  bestFriend: {
+    name: "Tiantian",
+    age: 22,
+    homeTown: ["Hubei", "Huanggang"],
+  },
 };
 
 console.log(getValue(obj)); // {name: 'Dasen', age: 23, bestFriend: {…}}

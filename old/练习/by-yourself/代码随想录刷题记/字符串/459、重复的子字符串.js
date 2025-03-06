@@ -10,8 +10,6 @@ var repeatedSubstringPattern = function (s) {
   return false;
 };
 
-
 // 移动匹配
-
 
 // KMP加速

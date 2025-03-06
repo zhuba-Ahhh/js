@@ -25,10 +25,10 @@
 // };
 //将上面的 traversal 融合进来，简化代码
 var hasPathSum = function (root, targetSum) {
-	if (!root) return false;
-	if (!root.left && !root.right && targetSum === root.val) return true;
-	return (
-		hasPathSum(root.left, targetSum - root.val) ||
-		hasPathSum(root.right, targetSum - root.val)
-	);
+  if (!root) return false;
+  if (!root.left && !root.right && targetSum === root.val) return true;
+  return (
+    hasPathSum(root.left, targetSum - root.val) ||
+    hasPathSum(root.right, targetSum - root.val)
+  );
 };

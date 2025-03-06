@@ -12,4 +12,4 @@ function myInstanceOf(left: any, right: any): boolean {
 console.log(myInstanceOf([], Object));
 
 console.log(myInstanceOf(Function, Function));
-export {}
+export {};

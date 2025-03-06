@@ -1,5 +1,5 @@
 function reverseArray(arr) {
-    return arr.split('').reverse.join('');
+  return arr.split("").reverse.join("");
 }
 
 const arr = [1, 2, 3, 4, 3];

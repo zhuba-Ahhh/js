@@ -17,43 +17,43 @@ Object.freeze() 冻结，强调不可改变
 Object.preventExtensions() 让一个对象变的不可扩展，也就是永远不能再添加新的属性。 —— 但可以删除
 Object.seal()  强调封闭，阻止添加新属性并将所有现有属性标记为不可配置。—— 但当前属性的值只要原来是可写的就可以改变。
 */
-const _objectFreeze = object => {
-	const keys = Object.getOwnPropertyNames(object);
-	const symbolKeys = Object.getOwnPropertySymbols(object);
-	[...keys, ...symbolKeys].forEach(key => {
-		Object.defineProperty(object, key, {
-			configurable: false,
-			writable: false,
-		});
-	});
-	// Object.preventExtensions(object);
-	Object.seal(object);
+const _objectFreeze = (object) => {
+  const keys = Object.getOwnPropertyNames(object);
+  const symbolKeys = Object.getOwnPropertySymbols(object);
+  [...keys, ...symbolKeys].forEach((key) => {
+    Object.defineProperty(object, key, {
+      configurable: false,
+      writable: false,
+    });
+  });
+  // Object.preventExtensions(object);
+  Object.seal(object);
 };
 
 //test
 function test() {
-	const o = { name: 'z', fn: function () {} };
-	_objectFreeze(o);
-	o.name = 'g';
-	o.fn = 1;
-	o.o = 1;
-	const result =
-		o.name === 'z' && typeof o.fn === 'function' && o.o === undefined;
-	return result;
+  const o = { name: "z", fn: function () {} };
+  _objectFreeze(o);
+  o.name = "g";
+  o.fn = 1;
+  o.o = 1;
+  const result =
+    o.name === "z" && typeof o.fn === "function" && o.o === undefined;
+  return result;
 }
 
 console.log(test()); //test
 
-const a = { a: '', b: { 1: '2' } };
+const a = { a: "", b: { 1: "2" } };
 // Object.preventExtensions(a);
 // Object.seal(a);
 Object.freeze(a);
-delete a['a'];
-a.b['1'] = 1;
+delete a["a"];
+a.b["1"] = 1;
 console.log(a); // { a: '', b: { 1: 1 } }
 
-const c = { a: '', b: { 1: '2' } };
+const c = { a: "", b: { 1: "2" } };
 _objectFreeze(c);
-delete c['a'];
-c.b['1'] = 1;
+delete c["a"];
+c.b["1"] = 1;
 console.log(c); // { a: '', b: { 1: 1 } }

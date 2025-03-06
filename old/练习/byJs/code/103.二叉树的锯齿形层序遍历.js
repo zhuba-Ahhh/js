@@ -18,33 +18,33 @@
  * @return {number[][]}
  */
 var zigzagLevelOrder = function (root) {
-	if (!root) return [];
-	const ans = []; //最终结果
-	let dFlag = true; //遍历方向
-	let levelNodes = []; //存储某一层
-	const que = [root, null]; //用于 BFS
-	while (que.length > 0) {
-		const t = que.shift();
-		if (t) {
-			levelNodes.push(t.val);
-			if (t.left) {
-				que.push(t.left);
-			}
-			if (t.right) {
-				que.push(t.right);
-			}
-		} else {
-			if (!dFlag) {
-				levelNodes = levelNodes.reverse();
-			}
-			ans.push(levelNodes);
-			levelNodes = [];
-			dFlag = !dFlag;
-			if (que.length > 0) {
-				que.push(null);
-			}
-		}
-	}
-	return ans;
+  if (!root) return [];
+  const ans = []; //最终结果
+  let dFlag = true; //遍历方向
+  let levelNodes = []; //存储某一层
+  const que = [root, null]; //用于 BFS
+  while (que.length > 0) {
+    const t = que.shift();
+    if (t) {
+      levelNodes.push(t.val);
+      if (t.left) {
+        que.push(t.left);
+      }
+      if (t.right) {
+        que.push(t.right);
+      }
+    } else {
+      if (!dFlag) {
+        levelNodes = levelNodes.reverse();
+      }
+      ans.push(levelNodes);
+      levelNodes = [];
+      dFlag = !dFlag;
+      if (que.length > 0) {
+        que.push(null);
+      }
+    }
+  }
+  return ans;
 };
 // @lc code=end

@@ -1,29 +1,29 @@
 class Subject {
-	constructor() {
-		this.observers = [];
-	}
+  constructor() {
+    this.observers = [];
+  }
 
-	add(observer) {
-		this.observers.push(observer);
-	}
+  add(observer) {
+    this.observers.push(observer);
+  }
 
-	notify() {
-		this.observers.map(observer => {
-			observer?.callback();
-		});
-	}
-	remove(observer) {
-		this.observers = this.observers.filter(o => o !== observer);
-	}
+  notify() {
+    this.observers.map((observer) => {
+      observer?.callback();
+    });
+  }
+  remove(observer) {
+    this.observers = this.observers.filter((o) => o !== observer);
+  }
 }
 class Observer {
-	constructor(id) {
-		this.id = id;
-	}
+  constructor(id) {
+    this.id = id;
+  }
 
-	callback() {
-		console.log('id:', this.id);
-	}
+  callback() {
+    console.log("id:", this.id);
+  }
 }
 
 const subject = new Subject();

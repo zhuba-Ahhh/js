@@ -24,7 +24,7 @@ function getSum(x) {
 
 var movingCount = function (m, n, k) {
   // 记录当前是否走过
-  const flags = new Array(m).fill(0).map(()=>new Array(n).fill(true))
+  const flags = new Array(m).fill(0).map(() => new Array(n).fill(true));
   let res = 0;
   // dfs向下和向右走
   function dfs(x, y) {
@@ -32,7 +32,7 @@ var movingCount = function (m, n, k) {
     const sumx = getSum(x);
     const sumy = getSum(y);
     if (sumx + sumy <= k && flags[x][y]) {
-      flags[x][y] = false
+      flags[x][y] = false;
       res++;
       dfs(x + 1, y);
       dfs(x, y + 1);
@@ -44,4 +44,4 @@ var movingCount = function (m, n, k) {
   return res;
 };
 
-console.log(movingCount(3,2,17))
+console.log(movingCount(3, 2, 17));

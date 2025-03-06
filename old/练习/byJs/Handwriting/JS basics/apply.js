@@ -6,19 +6,19 @@
  * @returns
  */
 Function.prototype._apply = function (context = globalThis) {
-	const args = arguments[1] || [];
-	const key = Symbol('key');
-	context[key] = this;
-	const res = context[key](...args);
-	delete context[key];
-	return res;
+  const args = arguments[1] || [];
+  const key = Symbol("key");
+  context[key] = this;
+  const res = context[key](...args);
+  delete context[key];
+  return res;
 };
 
 //test
 globalThis.name = 1;
 const a = function () {
-	console.log(this.name);
-	console.log([...arguments]);
+  console.log(this.name);
+  console.log([...arguments]);
 };
 a(); //1 []
 

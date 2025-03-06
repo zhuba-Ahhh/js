@@ -16,4 +16,4 @@ const _instanceOf = (obj, createFnc) => {
     if (proto === protoType) return true;
     proto = Object.getPrototypeOf(proto);
   }
-}
+};

@@ -29,27 +29,24 @@ var detectCycle = function (head) {
   return null;
 };
 
-
-
 // 也可以用set集合来进行判断
- var detectCycle = function(head) {
-  const set = new Set()
-  while(head){
-      if(set.has(head)) return head
-      set.add(head)
-      head = head.next
+var detectCycle = function (head) {
+  const set = new Set();
+  while (head) {
+    if (set.has(head)) return head;
+    set.add(head);
+    head = head.next;
   }
-  return null
+  return null;
 };
 
-
 // 甚至可以用hack的手段（但是它只能用来判断）
-var detectCycle = function(head) {
-  let flag = false
+var detectCycle = function (head) {
+  let flag = false;
   try {
-    JSON.stringify(head)
+    JSON.stringify(head);
   } catch (error) {
-    flag = true
+    flag = true;
   }
-  return flag
+  return flag;
 };

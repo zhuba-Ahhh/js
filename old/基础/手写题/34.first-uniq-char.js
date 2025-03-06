@@ -18,21 +18,22 @@ s = "loveleetcode"
  */
 // 利用hash表存储数量进行计数，然后再进行一次计算
 const firstUniqChar = (s) => {
-  let cacheMap = {}
+  let cacheMap = {};
 
   for (let i = 0, len = s.length; i < len; i++) {
-    const value = s[ i ]
-    
-    cacheMap[ value ] = typeof cacheMap[ value ] !== 'undefined' ? cacheMap[ value ] +1 : 1
+    const value = s[i];
+
+    cacheMap[value] =
+      typeof cacheMap[value] !== "undefined" ? cacheMap[value] + 1 : 1;
   }
 
   for (let i = 0, len = s.length; i < len; i++) {
-    if (cacheMap[ s[ i ] ] === 1) {
-      return i
+    if (cacheMap[s[i]] === 1) {
+      return i;
     }
   }
 
-  return -1
-}
+  return -1;
+};
 
-console.log(firstUniqChar("aadadaad"))
+console.log(firstUniqChar("aadadaad"));

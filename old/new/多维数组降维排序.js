@@ -1,6 +1,15 @@
-const arr1 = [[1, 2], [3, 4]];
-const arr2 = [[2, 3], [4, 5]];
-const arr3 = [[5, 6], [7, 7]];
+const arr1 = [
+  [1, 2],
+  [3, 4],
+];
+const arr2 = [
+  [2, 3],
+  [4, 5],
+];
+const arr3 = [
+  [5, 6],
+  [7, 7],
+];
 
 function addArr(arr1, ...arrs) {
   const combinedArr = arr1.concat(arrs);

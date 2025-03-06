@@ -10,13 +10,13 @@
  *   `(...args) => f(g(h(...args)))`.
  */
 const compose = (...fns: Function[]) => {
-	if (fns.length === 0) return <T>(arg: T) => arg;
-	if (fns.length === 1) return fns[0];
-	return fns.reduce(
-		(a, b) =>
-			(...args: any) =>
-				a(b(...args))
-	);
+  if (fns.length === 0) return <T>(arg: T) => arg;
+  if (fns.length === 1) return fns[0];
+  return fns.reduce(
+    (a, b) =>
+      (...args: any) =>
+        a(b(...args)),
+  );
 };
 
 //test
@@ -29,13 +29,13 @@ console.log(compose(add10, mul10, add100)(10)); // 1110
 
 // 再实现一个从左到右执行的
 const composeL2R = (...fns: Function[]) => {
-	if (fns.length === 0) return <T>(arg: T) => arg;
-	if (fns.length === 1) return fns[0];
-	return fns.reduceRight(
-		(a, b) =>
-			(...args: any) =>
-				a(b(...args))
-	);
+  if (fns.length === 0) return <T>(arg: T) => arg;
+  if (fns.length === 1) return fns[0];
+  return fns.reduceRight(
+    (a, b) =>
+      (...args: any) =>
+        a(b(...args)),
+  );
 };
 
 // (10 + 10) * 10 + 100

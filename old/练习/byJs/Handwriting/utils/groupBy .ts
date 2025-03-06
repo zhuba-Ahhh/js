@@ -5,11 +5,11 @@
  * @returns 分类好的对象
  */
 const groupBy = (collection: Array<any>, by: Function) => {
-	return collection.reduce((acc, x) => {
-		if (acc[by(x)]) acc[by(x)].push(x);
-		else acc[by(x)] = [x];
-		return acc;
-	}, {});
+  return collection.reduce((acc, x) => {
+    if (acc[by(x)]) acc[by(x)].push(x);
+    else acc[by(x)] = [x];
+    return acc;
+  }, {});
 };
 
 //test

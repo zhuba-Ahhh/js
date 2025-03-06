@@ -27,17 +27,17 @@
  */
 
 const twoSum = (nums, target) => {
-  const cacheMap = {}
+  const cacheMap = {};
 
   for (let i = 0, len = nums.length; i < len; i++) {
-    const diff = target - nums[ i ]
-    
-    if (cacheMap[ diff ] !== undefined) {
-      return [ cacheMap[ diff ], i ]
+    const diff = target - nums[i];
+
+    if (cacheMap[diff] !== undefined) {
+      return [cacheMap[diff], i];
     } else {
-      cacheMap[ nums[ i ] ] = i
+      cacheMap[nums[i]] = i;
     }
   }
-}
+};
 
-console.log(twoSum([ 2, 7, 11, 15 ], 22))
+console.log(twoSum([2, 7, 11, 15], 22));

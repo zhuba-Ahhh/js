@@ -24,19 +24,19 @@ function getCloneNode(node, visited) {
 }
 
 // 这种解法为啥不行？无法理解
-var copyRandomList = function(head) {
-  if(!head) return null
-  const map = new Map()
-  let cur = head
-  while(cur){
-      map.set(cur,new Node(cur.val))
-      cur = cur.next
+var copyRandomList = function (head) {
+  if (!head) return null;
+  const map = new Map();
+  let cur = head;
+  while (cur) {
+    map.set(cur, new Node(cur.val));
+    cur = cur.next;
   }
-  cur=head;
-  while(cur){
-      map.get(cur).next = map.get(cur.next);
-      map.get(cur).random = map.get(cur.random);
-      cur = cur.next;
+  cur = head;
+  while (cur) {
+    map.get(cur).next = map.get(cur.next);
+    map.get(cur).random = map.get(cur.random);
+    cur = cur.next;
   }
   return map.get(head);
 };

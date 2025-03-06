@@ -1,10 +1,10 @@
 // 防抖
-var Debounce = function(fn, t) {
+var Debounce = function (fn, t) {
   let timer = null;
-  return function(...args) {
-      timer && clearTimeout(timer);
-      timer = setTimeout(() => fn.apply(this, args),t);
-  }
+  return function (...args) {
+    timer && clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), t);
+  };
 };
 
 function debounce(fn, wait) {
@@ -27,13 +27,14 @@ function debounce(fn, wait) {
 function debounce(fun, waittime) {
   let timeout; //设置定时器
   return function () {
-    if (timeout) //如果存在定时器则清空
+    if (timeout)
+      //如果存在定时器则清空
       clearTimeout(timeout);
     //如果没有定时器则执行下面函数
     timeout = setTimeout(function () {
       fun.apply(this); //函数调用
-    }, waittime)
-  }
+    }, waittime);
+  };
 }
 
 // 防抖2
@@ -45,7 +46,7 @@ function debounce(fn, dur) {
     timer = setTimeout(() => {
       fn.apply(this, arguments);
     }, dur);
-  }
+  };
 }
 
 // 节流

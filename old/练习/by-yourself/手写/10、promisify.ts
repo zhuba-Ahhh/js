@@ -23,21 +23,21 @@ function promisify(fn: any) {
     return new Promise((resolve, reject) => {
       const cb = (err: any, data: any) => {
         if (!err) {
-          resolve(data)
+          resolve(data);
         } else {
-          reject(err)
+          reject(err);
         }
-      }
-      fn(...args, cb)
-    })
-  }
+      };
+      fn(...args, cb);
+    });
+  };
 }
 
 function test(name: string, cb: any) {
   // 执行传入的回调函数
-  cb(null, name)
+  cb(null, name);
 }
 
-const p = promisify(test)
-test("name", (err: any, data: any) => console.log(data)) //原本用法，需要手动传入参数
-p("name").then(res => console.log(res)) //现在只需要在then后链式调用即可
+const p = promisify(test);
+test("name", (err: any, data: any) => console.log(data)); //原本用法，需要手动传入参数
+p("name").then((res) => console.log(res)); //现在只需要在then后链式调用即可

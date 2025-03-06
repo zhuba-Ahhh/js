@@ -19,20 +19,20 @@
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function (root, p, q) {
-	let ans;
-	const dfs = (root, p, q) => {
-		if (root === null) return false;
-		const lson = dfs(root.left, p, q),
-			rson = dfs(root.right, p, q);
-		if (
-			(rson && lson) ||
-			((root.val === p.val || root.val === q.val) && (rson || lson))
-		) {
-			ans = root;
-		}
-		return lson || rson || root.val === q.val || root.val === p.val;
-	};
-	dfs(root, p, q);
-	return ans;
+  let ans;
+  const dfs = (root, p, q) => {
+    if (root === null) return false;
+    const lson = dfs(root.left, p, q),
+      rson = dfs(root.right, p, q);
+    if (
+      (rson && lson) ||
+      ((root.val === p.val || root.val === q.val) && (rson || lson))
+    ) {
+      ans = root;
+    }
+    return lson || rson || root.val === q.val || root.val === p.val;
+  };
+  dfs(root, p, q);
+  return ans;
 };
 // @lc code=end

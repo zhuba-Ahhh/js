@@ -10,17 +10,17 @@
  * @return {number}
  */
 var scoreOfParentheses = function (s) {
-	const stk = [];
-	let res = 0;
-	for (let i = 0; i < s.length; i++) {
-		const c = s[i];
-		if (c === '(') {
-			stk.push(c);
-		} else if (c === ')') {
-			stk.pop();
-			if (s[i - 1] === '(') res += 1 << stk.length;
-		}
-	}
-	return res;
+  const stk = [];
+  let res = 0;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (c === "(") {
+      stk.push(c);
+    } else if (c === ")") {
+      stk.pop();
+      if (s[i - 1] === "(") res += 1 << stk.length;
+    }
+  }
+  return res;
 };
 // @lc code=end

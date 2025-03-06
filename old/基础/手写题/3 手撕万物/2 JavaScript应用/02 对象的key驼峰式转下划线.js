@@ -10,105 +10,105 @@
 
 // 根据希望处理哪些属性类型，来选用以上各种方法
 
-
 // 工具函数：驼峰转下划线
 
 const humpToUnderline = function (name) {
-    let newName = "";
-    for (const c of name) {
-        if (c.charCodeAt() <= "Z".charCodeAt() && c.charCodeAt() >= "A".charCodeAt()) {
-            newName += "_" + c.toLowerCase();
-        } else {
-            newName += c;
-        }
+  let newName = "";
+  for (const c of name) {
+    if (
+      c.charCodeAt() <= "Z".charCodeAt() &&
+      c.charCodeAt() >= "A".charCodeAt()
+    ) {
+      newName += "_" + c.toLowerCase();
+    } else {
+      newName += c;
     }
-    return newName;
+  }
+  return newName;
 };
-
 
 // 1 简易版本：不考虑属性配置
 
 const formatPropertyNamesA = function (obj) {
-    const names = [];
-    for (const key in obj) {
-        names.push(key);
-    }
-    for (const key of names) {
-        const newKey = humpToUnderline(key);
-        obj[newKey] = obj[key];
-        delete obj[key];
-    }
+  const names = [];
+  for (const key in obj) {
+    names.push(key);
+  }
+  for (const key of names) {
+    const newKey = humpToUnderline(key);
+    obj[newKey] = obj[key];
+    delete obj[key];
+  }
 };
-
 
 // 2 完善版本：考虑属性配置
 
 const formatPropertyNamesB = function (obj) {
-    const names = [];
-    const unenumerable = {};
-    for (const key in obj) {
-        // 属性可配置才进行操作，不可配置的属性忽略
-        if (Object.getOwnPropertyDescriptor(obj, key).configurable) {
-            names.push(key);
-        }
+  const names = [];
+  const unenumerable = {};
+  for (const key in obj) {
+    // 属性可配置才进行操作，不可配置的属性忽略
+    if (Object.getOwnPropertyDescriptor(obj, key).configurable) {
+      names.push(key);
     }
-    // 获取自身的不可枚举但可配置的属性
-    for (const key of Object.getOwnPropertyNames(obj)) {
-        if (names.indexOf(key) === -1 && Object.getOwnPropertyDescriptor(obj, key).configurable) {
-            unenumerable[key] = Object.getOwnPropertyDescriptor(obj, key);
-        }
+  }
+  // 获取自身的不可枚举但可配置的属性
+  for (const key of Object.getOwnPropertyNames(obj)) {
+    if (
+      names.indexOf(key) === -1 &&
+      Object.getOwnPropertyDescriptor(obj, key).configurable
+    ) {
+      unenumerable[key] = Object.getOwnPropertyDescriptor(obj, key);
     }
-    // 处理可迭代属性
-    for (const key of names) {
-        const newKey = humpToUnderline(key);
-        obj[newKey] = obj[key];
-        delete obj[key];
-    }
-    // 处理不可迭代属性
-    for (const key in unenumerable) {
-        const newKey = humpToUnderline(key);
-        Object.defineProperty(obj, newKey, unenumerable[key]);
-        delete obj[key];
-    }
+  }
+  // 处理可迭代属性
+  for (const key of names) {
+    const newKey = humpToUnderline(key);
+    obj[newKey] = obj[key];
+    delete obj[key];
+  }
+  // 处理不可迭代属性
+  for (const key in unenumerable) {
+    const newKey = humpToUnderline(key);
+    Object.defineProperty(obj, newKey, unenumerable[key]);
+    delete obj[key];
+  }
 };
-
 
 // 测试1：简单的对象
 
 const obj = {
-    userName: "Dasen",
-    userCurrentAge: 23,
+  userName: "Dasen",
+  userCurrentAge: 23,
 };
 formatPropertyNamesA(obj);
 console.log(obj); // {user_name: 'Dasen', user_current_age: 23}
 
-
 // 测试2：有原型的对象
 
 const proto = {
-    userName: "Dasen",
-    userCurrentAge: 23,
+  userName: "Dasen",
+  userCurrentAge: 23,
 };
 
 function Person() {
-    this.nickName = "Dear " + this.userName;
+  this.nickName = "Dear " + this.userName;
 }
 Person.prototype = proto;
 const person = new Person();
 formatPropertyNamesA(person);
 console.log(person); // Person {nick_name: 'Dear Dasen', user_name: 'Dasen', user_current_age: 23}
 
-
 // 测试3：有带有属性配置的对象
 
 const person2 = {
-    userName: "Dasen",
-    userCurrentAge: 23,
+  userName: "Dasen",
+  userCurrentAge: 23,
 };
 Object.defineProperty(person2, "nickName", {
-    configurable: false,
-    enumerable: true,
-    value: "Dear Dasen",
+  configurable: false,
+  enumerable: true,
+  value: "Dear Dasen",
 });
 // nickName 属性不可配置，删除操作会静默失败，结果会多一个重复的属性 nick_name
 // formatPropertyNamesA(person2); // {nickName: 'Dear Dasen', user_name: 'Dasen', user_current_age: 23, nick_name: 'Dear Dasen'}

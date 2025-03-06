@@ -4,7 +4,7 @@ function _flat(arr, depth) {
   }
   return arr.reduce((prev, cur) => {
     if (Array.isArray(cur)) {
-      return prev.concat(_flat(cur, depth - 1))
+      return prev.concat(_flat(cur, depth - 1));
     } else {
       return prev.concat(cur);
     }
@@ -18,5 +18,5 @@ function flat1(arr, depth) {
       return pre.concat(flat1(cur, depth - 1));
     }
     return pre.concat(cur);
-  }, [])
+  }, []);
 }

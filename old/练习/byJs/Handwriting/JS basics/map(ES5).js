@@ -5,16 +5,16 @@
  * @returns 新数组
  */
 Array.prototype._map = function (callback, thisArg) {
-	if (typeof callback !== 'function')
-		throw Error('callback must be a function');
-	var arr = [];
-	for (var i = 0; i < this.length; i++) arr[i] = callback(this[i], i, this);
-	return arr;
+  if (typeof callback !== "function")
+    throw Error("callback must be a function");
+  var arr = [];
+  for (var i = 0; i < this.length; i++) arr[i] = callback(this[i], i, this);
+  return arr;
 };
 
 //test
 var a = [1, 2, 3]._map((cur, idx, arr) => {
-	return [].concat(arr, cur * idx);
+  return [].concat(arr, cur * idx);
 });
 console.log(a);
 //[ [ 1, 2, 3, 0 ], [ 1, 2, 3, 2 ], [ 1, 2, 3, 6 ] ]

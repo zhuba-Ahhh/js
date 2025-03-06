@@ -19,16 +19,16 @@
  * @return {number}
  */
 var kthSmallest = function (root, k) {
-	const stk = [];
-	while (root != null || stk.length) {
-		while (root != null) {
-			stk.push(root); //先把中存起来
-			root = root.left; //取左
-		}
-		root = stk.pop(); //取中
-		if (--k === 0) break;
-		root = root.right; //取右
-	}
-	return root.val;
+  const stk = [];
+  while (root != null || stk.length) {
+    while (root != null) {
+      stk.push(root); //先把中存起来
+      root = root.left; //取左
+    }
+    root = stk.pop(); //取中
+    if (--k === 0) break;
+    root = root.right; //取右
+  }
+  return root.val;
 };
 // @lc code=end

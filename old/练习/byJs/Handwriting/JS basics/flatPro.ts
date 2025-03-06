@@ -9,11 +9,11 @@
  * @returns 扁平之后的数组
  */
 function flat(arr: Array<any>, depth = 1): Array<any> {
-	if (depth === 0) return arr;
-	return arr.reduce(
-		(res, cur) => res.concat(Array.isArray(cur) ? flat(cur, depth - 1) : cur),
-		[]
-	);
+  if (depth === 0) return arr;
+  return arr.reduce(
+    (res, cur) => res.concat(Array.isArray(cur) ? flat(cur, depth - 1) : cur),
+    [],
+  );
 }
 
 //test

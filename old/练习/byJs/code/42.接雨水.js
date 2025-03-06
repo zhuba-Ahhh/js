@@ -27,22 +27,22 @@
 	return ans;
 }; */
 var trap = function (height) {
-	let ans = 0,
-		i = 0,
-		j = height.length - 1,
-		ileftMax = 0,
-		jrightMax = 0;
-	while (i < j) {
-		ileftMax = Math.max(ileftMax, height[i]);
-		jrightMax = Math.max(jrightMax, height[j]);
-		if (height[i] < height[j]) {
-			ans += ileftMax - height[i];
-			i++;
-		} else {
-			ans += jrightMax - height[j];
-			j--;
-		}
-	}
-	return ans;
+  let ans = 0,
+    i = 0,
+    j = height.length - 1,
+    ileftMax = 0,
+    jrightMax = 0;
+  while (i < j) {
+    ileftMax = Math.max(ileftMax, height[i]);
+    jrightMax = Math.max(jrightMax, height[j]);
+    if (height[i] < height[j]) {
+      ans += ileftMax - height[i];
+      i++;
+    } else {
+      ans += jrightMax - height[j];
+      j--;
+    }
+  }
+  return ans;
 };
 // @lc code=end

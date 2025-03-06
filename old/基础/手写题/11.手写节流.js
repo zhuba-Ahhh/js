@@ -17,7 +17,7 @@ function throttle(fn, interval) {
     const nowTime = new Date().getTime();
     const remainTime = interval - (nowTime - lastTime);
     if (remainTime <= 0) {
-      fn.call(this,...args);
+      fn.call(this, ...args);
       lastTime = nowTime;
     }
   };

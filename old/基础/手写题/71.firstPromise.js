@@ -31,7 +31,7 @@ let promiseFunction = () =>
   new Promise((rs) =>
     setTimeout(() => {
       rs(count++);
-    }, 1000)
+    }, 1000),
   );
 let firstFn = firstPromise(promiseFunction);
 firstFn().then(console.log); // 1

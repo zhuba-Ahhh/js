@@ -18,16 +18,16 @@ var removeElement = function (nums, val) {
 // 双指针
 // 解法：https://www.programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html#_27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0
 var removeElement = function (nums, val) {
-  let slow = 0
-  let fast = 0
+  let slow = 0;
+  let fast = 0;
   // 用双指针进行便利，如果fast指针的值等于val，就往后退
-  while(fast < nums.length){
-    if(nums[fast] === val){
-      fast++
-    }else{
+  while (fast < nums.length) {
+    if (nums[fast] === val) {
+      fast++;
+    } else {
       // 否则就赋值，并且一起后退
-      nums[slow++] = nums[fast++]
+      nums[slow++] = nums[fast++];
     }
   }
-  return slow
+  return slow;
 };

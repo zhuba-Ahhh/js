@@ -7,33 +7,33 @@
 
 var nextPermutation = function (nums) {
   // 标记从后往前的第一个逆序数
-  let index = nums.length - 1
+  let index = nums.length - 1;
   while (index > 0 && nums[index - 1] >= nums[index]) {
-    index--
+    index--;
   }
   if (index === 0) {
-    nums.reverse()
-    return
+    nums.reverse();
+    return;
   }
-  index--
+  index--;
 
   // 标记从后往前第一个大于逆序数的数
-  let i = nums.length - 1
+  let i = nums.length - 1;
   while (i > index && nums[i] <= nums[index]) {
-    i--
+    i--;
   }
 
   // 交换
-  ;[nums[index], nums[i]] = [nums[i], nums[index]]
+  [nums[index], nums[i]] = [nums[i], nums[index]];
 
   // 翻转
-  let left = index + 1
-  let right = nums.length - 1
+  let left = index + 1;
+  let right = nums.length - 1;
   while (left < right) {
-    ;[nums[left], nums[right]] = [nums[right], nums[left]]
-    left++
-    right--
+    [nums[left], nums[right]] = [nums[right], nums[left]];
+    left++;
+    right--;
   }
-}
+};
 
-console.log(nextPermutation([3, 2, 1]))
+console.log(nextPermutation([3, 2, 1]));

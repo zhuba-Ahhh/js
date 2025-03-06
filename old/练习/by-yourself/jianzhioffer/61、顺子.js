@@ -16,20 +16,20 @@
 输出: True
  */
 
-var isStraight = function(nums) {
-  const arr = new Array(14).fill(0)
-  let max = -1
-  let min = 14
-  for(const item of nums){
-      if(item === 0) continue
-      // 如果有重复，肯定寄
-      if(arr[item] !== 0) return false
-      arr[item]++
-      max = Math.max(max,item)
-      min = Math.min(min,item)
+var isStraight = function (nums) {
+  const arr = new Array(14).fill(0);
+  let max = -1;
+  let min = 14;
+  for (const item of nums) {
+    if (item === 0) continue;
+    // 如果有重复，肯定寄
+    if (arr[item] !== 0) return false;
+    arr[item]++;
+    max = Math.max(max, item);
+    min = Math.min(min, item);
   }
   // 在没有重复的前提下
   // 如果没有0，那么最大值和最小值的差为4
   // 如果有0，那么差小于等于4
-  return max - min <= 4
+  return max - min <= 4;
 };

@@ -23,40 +23,43 @@
  */
 // 直觉做法
 const intersection1 = (nums1, nums2) => {
-  return [ ...new Set(nums1.filter((it) => nums2.includes(it))) ]
+  return [...new Set(nums1.filter((it) => nums2.includes(it)))];
 };
-// 排序 + 双指针 
+// 排序 + 双指针
 const intersection2 = (nums1, nums2) => {
-  nums1.sort((a, b) => a - b)
-  nums2.sort((a, b) => a - b)
+  nums1.sort((a, b) => a - b);
+  nums2.sort((a, b) => a - b);
 
-  const length1 = nums1.length
-  const length2 = nums2.length
+  const length1 = nums1.length;
+  const length2 = nums2.length;
 
-  let index1 = 0
-  let index2 = 0
+  let index1 = 0;
+  let index2 = 0;
 
-  const intersection = []
+  const intersection = [];
 
   while (index1 < length1 && index2 < length2) {
-    const num1 = nums1[ index1 ]
-    const num2 = nums2[ index2 ]
+    const num1 = nums1[index1];
+    const num2 = nums2[index2];
 
     if (num1 === num2) {
-      if (!intersection.length || num1 !== intersection[ intersection.length - 1 ]) {
-        intersection.push(num1)
+      if (
+        !intersection.length ||
+        num1 !== intersection[intersection.length - 1]
+      ) {
+        intersection.push(num1);
       }
-      index1++
-      index2++
+      index1++;
+      index2++;
     } else if (num1 < num2) {
-      index1++
+      index1++;
     } else {
-      index2++
+      index2++;
     }
   }
 
-  return intersection
-}
+  return intersection;
+};
 
 // hash map
 const intersection3 = (nums1, nums2) => {
@@ -65,27 +68,27 @@ const intersection3 = (nums1, nums2) => {
   // const nums2Set = new Set(isNums1Min ? nums2: nums1)
 
   if (nums1.length > nums2.length) {
-    return intersection3(nums2, nums1)
+    return intersection3(nums2, nums1);
   }
 
-  const nums1Set = new Set(nums1)
-  const nums2Set = new Set(nums2)
-  const intersection = new Set()
+  const nums1Set = new Set(nums1);
+  const nums2Set = new Set(nums2);
+  const intersection = new Set();
 
   for (let num of nums1Set) {
     if (nums2Set.has(num)) {
-      intersection.add(num)
+      intersection.add(num);
     }
   }
 
-  return [ ... intersection ]
-}
+  return [...intersection];
+};
 
-console.log(intersection1([1,2,2,1], [2,2]))
-console.log(intersection1([4,9,5], [9,4,9,8,4]))
+console.log(intersection1([1, 2, 2, 1], [2, 2]));
+console.log(intersection1([4, 9, 5], [9, 4, 9, 8, 4]));
 
-console.log(intersection2([1,2,2,1], [2,2]))
-console.log(intersection2([4,9,5], [9,4,9,8,4]))
+console.log(intersection2([1, 2, 2, 1], [2, 2]));
+console.log(intersection2([4, 9, 5], [9, 4, 9, 8, 4]));
 
-console.log(intersection3([1,2,2,1], [2,2]))
-console.log(intersection3([4,9,5], [9,4,9,8,4]))
+console.log(intersection3([1, 2, 2, 1], [2, 2]));
+console.log(intersection3([4, 9, 5], [9, 4, 9, 8, 4]));

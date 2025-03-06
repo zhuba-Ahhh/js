@@ -6,4 +6,4 @@ for (let i = 0; i < arr.length; i++) {
   [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
 }
 
-console.log(arr)
+console.log(arr);

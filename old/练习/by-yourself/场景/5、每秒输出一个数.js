@@ -1,16 +1,16 @@
 function log(num) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      console.log(num)
-      resolve()
-    }, 1000)
-  })
+      console.log(num);
+      resolve();
+    }, 1000);
+  });
 }
 
 async function foo(arr) {
   for (const item of arr) {
-    await log(item)
+    await log(item);
   }
 }
 
-foo([1, 2, 3])
+foo([1, 2, 3]);

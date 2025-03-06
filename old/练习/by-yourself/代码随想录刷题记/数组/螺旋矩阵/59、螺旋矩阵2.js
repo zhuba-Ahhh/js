@@ -20,7 +20,7 @@ var generateMatrix = function (n) {
     offset++;
   }
   if (n % 2 === 1) arr[count][count] = n * n;
-  return arr
+  return arr;
 };
 
 generateMatrix(3);

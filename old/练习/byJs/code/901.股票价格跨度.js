@@ -7,8 +7,8 @@
 // @lc code=start
 
 var StockSpanner = function () {
-	this.idx = -1;
-	this.stk = [[this.idx, Math.pow(10, 5) + 10]];
+  this.idx = -1;
+  this.stk = [[this.idx, Math.pow(10, 5) + 10]];
 };
 
 /**
@@ -16,10 +16,10 @@ var StockSpanner = function () {
  * @return {number}
  */
 StockSpanner.prototype.next = function (price) {
-	this.idx++;
-	while (price >= this.stk[this.stk.length - 1][1]) this.stk.pop();
-	this.stk.push([this.idx, price]);
-	return this.idx - this.stk[this.stk.length - 2][0];
+  this.idx++;
+  while (price >= this.stk[this.stk.length - 1][1]) this.stk.pop();
+  this.stk.push([this.idx, price]);
+  return this.idx - this.stk[this.stk.length - 2][0];
 };
 
 /**

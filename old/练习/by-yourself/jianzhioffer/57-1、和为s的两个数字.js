@@ -10,18 +10,17 @@
  */
 
 // 因为是有序的，所以双指针即可
-var twoSum = function(nums, target) {
-  const res = []
-  let left = 0
-  let right = nums.length - 1
-  while(left < right){
-      const sum = nums[left] + nums[right]
-      if(sum === target) {
-          res.push(nums[left++],nums[right--])
-          break;
-      }
-      else if(sum > target) right--
-      else left++
+var twoSum = function (nums, target) {
+  const res = [];
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const sum = nums[left] + nums[right];
+    if (sum === target) {
+      res.push(nums[left++], nums[right--]);
+      break;
+    } else if (sum > target) right--;
+    else left++;
   }
-  return res
+  return res;
 };

@@ -11,11 +11,11 @@
  * @return {boolean}
  */
 var arrayStringsAreEqual = function (word1, word2) {
-	const join = word => {
-		let s = '';
-		for (const c of word) s += c;
-		return s;
-	};
-	return join(word1) === join(word2);
+  const join = (word) => {
+    let s = "";
+    for (const c of word) s += c;
+    return s;
+  };
+  return join(word1) === join(word2);
 };
 // @lc code=end

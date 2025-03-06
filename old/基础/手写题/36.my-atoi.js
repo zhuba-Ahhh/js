@@ -20,46 +20,45 @@
 // 正则表达式做法
 const myAtoi = (s) => {
   // 读取我们想要的数据
-  const matchRe = /\s*([+\-]?\d*).*?/
-  const match = s.match(matchRe)
-  const max = Math.pow(2, 31) - 1
-  const min = -max - 1
-  let result = 0
-  const macthNum = match[1]
+  const matchRe = /\s*([+\-]?\d*).*?/;
+  const match = s.match(matchRe);
+  const max = Math.pow(2, 31) - 1;
+  const min = -max - 1;
+  let result = 0;
+  const macthNum = match[1];
 
-  if (match && !(macthNum == '+' || macthNum === '-')) {
-
+  if (match && !(macthNum == "+" || macthNum === "-")) {
     if (macthNum >= min && macthNum <= max) {
-      result = macthNum
+      result = macthNum;
     } else if (macthNum < min) {
-      result = min
+      result = min;
     } else {
-      result = max
+      result = max;
     }
   }
 
-  console.log(match)
+  console.log(match);
 
-  return result
-}
+  return result;
+};
 
 const myAtoi2 = (s) => {
-  let result = parseInt(s)
-  const max = Math.pow(2, 31) - 1
-  const min = -max - 1
+  let result = parseInt(s);
+  const max = Math.pow(2, 31) - 1;
+  const min = -max - 1;
 
   if (isNaN(result)) {
-    result = 0
+    result = 0;
   } else {
     if (result > max) {
-      result = max
+      result = max;
     } else if (result < min) {
-      result = min
+      result = min;
     }
   }
 
-  return result
-}
+  return result;
+};
 
-console.log(myAtoi("-91283472332"))
-console.log(myAtoi2("-91283472332"))
+console.log(myAtoi("-91283472332"));
+console.log(myAtoi2("-91283472332"));

@@ -18,22 +18,22 @@
  * @return {TreeNode}
  */
 var invertTree = function (root) {
-	if (!root) return root;
-	/* const left = root.left,
+  if (!root) return root;
+  /* const left = root.left,
 		right = root.right;
 	root.left = invertTree(right);
 	root.right = invertTree(left);
 	return root; */
-	const stk = [root];
-	let cur;
-	while ((cur = stk.shift())) {
-		const left = cur.left,
-			right = cur.right;
-		cur.left = right;
-		cur.right = left;
-		left && stk.push(left);
-		right && stk.push(right);
-	}
-	return root;
+  const stk = [root];
+  let cur;
+  while ((cur = stk.shift())) {
+    const left = cur.left,
+      right = cur.right;
+    cur.left = right;
+    cur.right = left;
+    left && stk.push(left);
+    right && stk.push(right);
+  }
+  return root;
 };
 // @lc code=end

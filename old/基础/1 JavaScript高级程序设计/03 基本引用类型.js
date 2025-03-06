@@ -33,7 +33,6 @@ console.log(dt.toLocaleTimeString()); // 上午11:02:35
 console.log(dt.toUTCString()); // Tue, 07 Dec 2021 03:02:35 GMT
 console.log(dt.toJSON()); // 2021-12-07T03:02:35.844Z
 
-
 // ==================== RegExp ====================
 
 // 1 使用正则表达式
@@ -43,7 +42,6 @@ let p1 = /at/g; // 匹配字符串中所有的"at"
 let p2 = /[bc]at/i; // 匹配第一个"bat"或"cat"，忽略大小写
 let p3 = /.at/gi; // 将全局模式和忽略大小写结合
 let p4 = new RegExp(".at", "gi"); // 使用构造函数创建，等价于p3
-
 
 // 2 正则表达式方法
 
@@ -56,7 +54,6 @@ console.log(matches.input); // "mom and dad and baby"
 console.log(matches[0]); // "mom and dad and baby"
 console.log(matches[1]); // " and dad and baby"
 console.log(matches[2]); // " and baby"
-
 
 // ==================== 原始值包装类型 ====================
 
@@ -72,20 +69,18 @@ console.log(s instanceof String); // true
 console.log(n instanceof Number); // true
 console.log(b instanceof Boolean); // true
 
-
 // 2 Boolean
 
 let b1 = new Boolean(true);
 let b2 = new Boolean(false);
 if (b1) {
-    console.log("b1解释为真");
+  console.log("b1解释为真");
 }
 if (b2) {
-    console.log("b2解释为真");
+  console.log("b2解释为真");
 }
 // b1解释为真
 // b2解释为真
-
 
 // 3 Number
 
@@ -96,7 +91,6 @@ console.log(f.toFixed(2)); // 3.14
 console.log(f.toExponential()); // 3.1415926535e+0
 console.log(f.toPrecision(5)); // 3.1416
 
-
 // 4 String
 
 // UTF16编码
@@ -104,7 +98,7 @@ let s = "我是大森";
 console.log(s.charAt(1)); // 是
 console.log(s.charCodeAt(2)); // 22823
 console.log(s.charCodeAt(3).toString(16)); // 68ee
-console.log(String.fromCharCode(22823, 0x68EE)); // 大森
+console.log(String.fromCharCode(22823, 0x68ee)); // 大森
 
 // UTF32编码
 let s = "我是大森😊";
@@ -120,7 +114,7 @@ console.log(String.fromCodePoint(128522)); // 😊
 // 字符串迭代器
 let s = "我是大森😊";
 for (const c of s) {
-    console.log(c);
+  console.log(c);
 }
 // 我
 // 是

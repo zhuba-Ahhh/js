@@ -1,22 +1,23 @@
 function createNew(con) {
-  let result = Object.create(con.prototype)
-  let args = [].slice.call(arguments, 1)
-  let ret = con.apply(result, args)
-  return ((typeof ret === 'object' && ret !== null) || typeof ret === 'function') ? ret : result
+  let result = Object.create(con.prototype);
+  let args = [].slice.call(arguments, 1);
+  let ret = con.apply(result, args);
+  return (typeof ret === "object" && ret !== null) || typeof ret === "function"
+    ? ret
+    : result;
 }
 
 function Person(name, age, score) {
-  this.name = name
-  this.age = age
-  this.score = score
+  this.name = name;
+  this.age = age;
+  this.score = score;
   return {
-    name: this.name
-  }
+    name: this.name,
+  };
 }
 
-let rest = createNew(Person, 'dmc', 21, 100)
-console.log(rest)
-
+let rest = createNew(Person, "dmc", 21, 100);
+console.log(rest);
 
 // 1、 创建一个新对象。
 // 2、 让这个新的对象的原型指向该构造函数的原型对象。

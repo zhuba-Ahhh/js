@@ -34,61 +34,61 @@
 
 // 解法1，map记录法
 const intersect1 = (nums1, nums2) => {
-  const cacheMap = {}
-  const len1 = nums1.length
-  const len2 = nums2.length
-  let result = []
-  
+  const cacheMap = {};
+  const len1 = nums1.length;
+  const len2 = nums2.length;
+  let result = [];
+
   for (let i = 0; i < len1; i++) {
-    const value = cacheMap[ nums1[ i ] ]
-    cacheMap[ nums1[ i ] ] = typeof value !== 'undefined' ? value + 1 : 1
+    const value = cacheMap[nums1[i]];
+    cacheMap[nums1[i]] = typeof value !== "undefined" ? value + 1 : 1;
   }
 
   for (let j = 0; j < len2; j++) {
-    const count = cacheMap[nums2[ j ]]
+    const count = cacheMap[nums2[j]];
 
     if (count) {
-      result.push(nums2[ j ])
-      cacheMap[nums2[ j ]]--
+      result.push(nums2[j]);
+      cacheMap[nums2[j]]--;
     }
   }
 
-  return result
-}
+  return result;
+};
 // 双指针法
 const intersect2 = (nums1, nums2) => {
-  const len1 = nums1.length
-  const len2 = nums2.length
-  let i = 0
-  let j = 0
-  let result = []
+  const len1 = nums1.length;
+  const len2 = nums2.length;
+  let i = 0;
+  let j = 0;
+  let result = [];
 
-  nums1.sort((a, b) => a - b)
-  nums2.sort((a, b) => a - b)
+  nums1.sort((a, b) => a - b);
+  nums2.sort((a, b) => a - b);
 
   while (i < len1 && j < len2) {
-    if (nums1[ i ] === nums2[ j ]) {
-      result.push(nums1[ i ])
-      i++
-      j++
-    } else if (nums1[ i ] < nums2[ j ]) {
-      i++
+    if (nums1[i] === nums2[j]) {
+      result.push(nums1[i]);
+      i++;
+      j++;
+    } else if (nums1[i] < nums2[j]) {
+      i++;
     } else {
-      j++
+      j++;
     }
   }
 
-  return result
-}
+  return result;
+};
 
-const n1 = [1,2,2,1]
-let n2 = [2,2]
+const n1 = [1, 2, 2, 1];
+let n2 = [2, 2];
 
-let m1 = [4,9,5]
-let m2 = [9,4,9,8,4]
+let m1 = [4, 9, 5];
+let m2 = [9, 4, 9, 8, 4];
 
-console.log(intersect1(n1, n2))
-console.log(intersect2(n1, n2))
+console.log(intersect1(n1, n2));
+console.log(intersect2(n1, n2));
 
-console.log(intersect1(m1, m2))
-console.log(intersect2(m1, m2))
+console.log(intersect1(m1, m2));
+console.log(intersect2(m1, m2));

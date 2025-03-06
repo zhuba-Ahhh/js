@@ -13,22 +13,22 @@
  * @returns {function} 防抖的函数
  */
 const debounce = (fn, delay = 1000) => {
-	//定时器 id
-	let timer = null;
+  //定时器 id
+  let timer = null;
 
-	return function () {
-		if (timer) {
-			clearTimeout(timer);
-			timer = null;
-		}
-		timer = setTimeout(() => {
-			fn.apply(this, arguments);
-		}, delay);
-	};
+  return function () {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, delay);
+  };
 };
 
 //test
-const test = () => void console.log('test');
+const test = () => void console.log("test");
 const debouncedTest = debounce(test);
 debouncedTest(11, 11); //这里会触发
 //中间这三个不会触发
@@ -37,5 +37,5 @@ debouncedTest(11, 11);
 debouncedTest(11, 11);
 
 setTimeout(() => {
-	debouncedTest(11, 11);
+  debouncedTest(11, 11);
 }, 2000); //这里会触发

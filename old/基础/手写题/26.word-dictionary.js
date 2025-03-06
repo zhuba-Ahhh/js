@@ -34,41 +34,40 @@ wordDictionary.search("b.."); // return True
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
-
 /**
  * Initialize your data structure here.
  */
 var WordDictionary = function () {
-  this.wordMap = {}
+  this.wordMap = {};
 };
 
-/** 
+/**
  * @param {string} word
  * @return {void}
  */
 WordDictionary.prototype.addWord = function (word) {
-  const len = word.length
-  const list = this.wordMap[ len ] || []
-  
-  this.wordMap[ len ] = [ ...list, word ]
+  const len = word.length;
+  const list = this.wordMap[len] || [];
+
+  this.wordMap[len] = [...list, word];
 };
 
-/** 
+/**
  * @param {string} word
  * @return {boolean}
  */
 WordDictionary.prototype.search = function (word) {
-  const len = word.length
+  const len = word.length;
 
-  if (!this.wordMap[ len ]) {
-    return false
+  if (!this.wordMap[len]) {
+    return false;
   }
 
-  if (word.includes('.')) {
-    const wordReg = new RegExp(word)
-    return this.wordMap[ len ].some((it) => wordReg.test(it))
+  if (word.includes(".")) {
+    const wordReg = new RegExp(word);
+    return this.wordMap[len].some((it) => wordReg.test(it));
   } else {
-    return this.wordMap[ len ].includes(word)
+    return this.wordMap[len].includes(word);
   }
 };
 

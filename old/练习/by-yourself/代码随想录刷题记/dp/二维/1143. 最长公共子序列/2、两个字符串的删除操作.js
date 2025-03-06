@@ -23,7 +23,7 @@
   word1 和 word2 只包含小写英文字母
  */
 
-  // 其实就是求最长公共子序列，进行一个减法而已
+// 其实就是求最长公共子序列，进行一个减法而已
 var minDistance = function (word1, word2) {
   const n = word1.length;
   const m = word2.length;

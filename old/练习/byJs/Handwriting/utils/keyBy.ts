@@ -20,27 +20,27 @@ _.keyBy(array, 'dir');
  * @returns
  */
 const keyBy = (list: Array<any>, by: Function | string) => {
-	return list.reduce((acc, x) => {
-		acc[typeof by === 'string' ? x[by] : by(x)] = x;
-		return acc;
-	}, {});
+  return list.reduce((acc, x) => {
+    acc[typeof by === "string" ? x[by] : by(x)] = x;
+    return acc;
+  }, {});
 };
 
 //test
 var array = [
-	{ dir: 'left', code: 97 },
-	{ dir: 'right', code: 100 },
+  { dir: "left", code: 97 },
+  { dir: "right", code: 100 },
 ];
-console.log(keyBy(array, 'dir'));
+console.log(keyBy(array, "dir"));
 /* 
 { left: { dir: 'left', code: 97 },
   right: { dir: 'right', code: 100 } }
 */
 
 console.log(
-	keyBy(array, function (o: { code: number }) {
-		return String.fromCharCode(o.code);
-	})
+  keyBy(array, function (o: { code: number }) {
+    return String.fromCharCode(o.code);
+  }),
 );
 /* 
 { a: { dir: 'left', code: 97 }, d: { dir: 'right', code: 100 } }

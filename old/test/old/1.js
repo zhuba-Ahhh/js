@@ -1,9 +1,11 @@
 function flatten2_1(arr, n = 1) {
   return arr.reduce((pre, next) => {
-    let time = n
+    let time = n;
     console.log(next, time);
-    return pre.concat(Array.isArray(next) && time > 0 ? flatten2_1(next, time - 1) : next)
-  }, [])
+    return pre.concat(
+      Array.isArray(next) && time > 0 ? flatten2_1(next, time - 1) : next,
+    );
+  }, []);
 }
 // let arr = [1, [2, [3, 4]]];
 // console.log(flatten2_1(arr));
@@ -11,10 +13,8 @@ function flatten2_1(arr, n = 1) {
 function QS(arr) {
   if (arr.length < 2) return arr;
   const cur = arr.splice(0, 1);
-  left = [],
-    right = [];
-  for (let item of arr)
-    item > cur ? right.push(item) : left.push(item);
+  (left = []), (right = []);
+  for (let item of arr) item > cur ? right.push(item) : left.push(item);
 
   return QS(left).concat(cur, QS(right));
 }
@@ -24,7 +24,6 @@ function QS(arr) {
 
 function removeSameItem(arr) {
   // return [...new Set(arr)];
-
 
   // let res = [];
   // for (let item of arr) {
@@ -39,8 +38,6 @@ function removeSameItem(arr) {
   // }
 
   // return res;
-
-
 
   // let res = [];
   // arr.map((item) => {
@@ -58,33 +55,32 @@ function removeSameItem(arr) {
 
   let map = new Map();
   let res = [];
-  arr.map(item => {
+  arr.map((item) => {
     if (!map.get(item)) {
       map.set(item, 1);
       res.push(item);
     }
-  })
+  });
 
   return res;
 }
 
-let arr2 = [2, 1, 1, 2, 3, 1, 2, 3]
+let arr2 = [2, 1, 1, 2, 3, 1, 2, 3];
 console.log(removeSameItem(arr2.sort((a, b) => a - b)));
-
 
 // 2 3 4 6 5 1
 setTimeout(() => {
   console.log(1);
-})
+});
 
 console.log(2);
 
 new Promise((reslove) => {
-  console.log(3)
+  console.log(3);
   reslove();
-  console.log(4)
+  console.log(4);
 }).then(() => {
   console.log(5);
-})
+});
 
 console.log(6);

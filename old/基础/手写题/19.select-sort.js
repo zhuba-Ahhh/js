@@ -4,26 +4,26 @@
  * 2. 如果有更小的就交换位置
  */
 
- const swap = (array, a, b) => [ array[ b ], array[ a ] ] = [ array[ a ], array[ b ] ]
- 
+const swap = (array, a, b) => ([array[b], array[a]] = [array[a], array[b]]);
+
 const selectSort = (array) => {
-  const length = array.length
+  const length = array.length;
 
   for (let i = 0; i < length; i++) {
-    let minIndex = i
+    let minIndex = i;
 
     for (let j = i + 1; j < length; j++) {
-      if (array[ j ] < array[ minIndex ]) {
-        minIndex = j
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
       }
     }
 
     if (minIndex !== i) {
-      swap(array, i, minIndex)
+      swap(array, i, minIndex);
     }
   }
 
-  return array
-}
+  return array;
+};
 
-console.log(selectSort([ -1, 10, 10, 2 ]))
+console.log(selectSort([-1, 10, 10, 2]));

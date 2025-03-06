@@ -16,7 +16,7 @@ var mergeTwoLists = function (list1, list2) {
     }
     res = res.next;
   }
-  
+
   while (left) {
     res.next = left;
     left = left.next;

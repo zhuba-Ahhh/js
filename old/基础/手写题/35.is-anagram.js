@@ -28,34 +28,35 @@ s 和 t 仅包含小写字母
 
 const isAnagram = (s, t) => {
   const calcStrCount = (s) => {
-    let cacheMap = {}
+    let cacheMap = {};
 
     for (let i = 0, len = s.length; i < len; i++) {
-      const value = s[ i ]
+      const value = s[i];
 
-      cacheMap[ value ] = typeof cacheMap[ value ] !== 'undefined' ? (cacheMap[ value ] + 1) : 1
+      cacheMap[value] =
+        typeof cacheMap[value] !== "undefined" ? cacheMap[value] + 1 : 1;
     }
 
-    return cacheMap
-  }
+    return cacheMap;
+  };
 
-  const sMap = calcStrCount(s)
-  const tMap = calcStrCount(t)
+  const sMap = calcStrCount(s);
+  const tMap = calcStrCount(t);
 
   const getResult = (map1, map2) => {
     if (Object.values(map1).length < Object.values(map2).length) {
-      return getResult(map2, map1)
+      return getResult(map2, map1);
     }
 
     for (const attr in map1) {
-      if (map1[ attr ] !== map2[ attr ]) {
-        return false
+      if (map1[attr] !== map2[attr]) {
+        return false;
       }
     }
 
-    return true
-  }
+    return true;
+  };
 
-  return getResult(sMap, tMap)
-}
-console.log(isAnagram('a', 'ab'))
+  return getResult(sMap, tMap);
+};
+console.log(isAnagram("a", "ab"));

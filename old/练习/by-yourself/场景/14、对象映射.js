@@ -10,7 +10,7 @@ const obj = {
     { name: "address", note: "" },
     { name: "registerTime", note: "" },
   ],
-}
+};
 /*
 [
   {
@@ -31,12 +31,12 @@ const obj = {
 */
 
 function map(arr1, arr2) {
-  return arr1.map(values => {
-    const obj = {}
+  return arr1.map((values) => {
+    const obj = {};
     values.forEach((value, index) => {
-      obj[arr2[index].name] = value
-    })
-    return obj
-  })
+      obj[arr2[index].name] = value;
+    });
+    return obj;
+  });
 }
-console.log(map(obj.data, obj.columns))
+console.log(map(obj.data, obj.columns));

@@ -16,7 +16,7 @@ var removeDuplicates = function (nums) {
         while (nums[rep] === currentNum && rep < nums.length) {
           rep++;
         }
-        if(rep === nums.length) break
+        if (rep === nums.length) break;
         count = 1;
         currentNum = nums[rep];
         nums[cur++] = nums[rep++];

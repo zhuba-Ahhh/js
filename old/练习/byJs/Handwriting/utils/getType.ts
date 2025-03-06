@@ -4,18 +4,18 @@
  * @returns {string} 类型字符串
  */
 const getType = (value: any): string => {
-	// 对象为 null
-	if (value === null) {
-		return value + '';
-	}
-	// 对象为引用类型（除函数外
-	if (typeof value === 'object') {
-		const toString = Object.prototype.toString;
-		return toString.call(value).slice(8, -1).toLowerCase();
-	} else {
-		//为基本类型或者函数
-		return typeof value;
-	}
+  // 对象为 null
+  if (value === null) {
+    return value + "";
+  }
+  // 对象为引用类型（除函数外
+  if (typeof value === "object") {
+    const toString = Object.prototype.toString;
+    return toString.call(value).slice(8, -1).toLowerCase();
+  } else {
+    //为基本类型或者函数
+    return typeof value;
+  }
 };
 
 //test

@@ -18,25 +18,25 @@
  * @return {number}
  */
 var maxLevelSum = function (root) {
-	let mxSum = -9999999,
-		ans,
-		depth = 1;
-	const q = [root];
-	while (q.length > 0) {
-		let tSum = 0;
-		let sz = q.length;
-		while (sz--) {
-			const t = q.shift();
-			if (t.left) q.push(t.left);
-			if (t.right) q.push(t.right);
-			tSum += t.val;
-		}
-		if (tSum > mxSum) {
-			mxSum = tSum;
-			ans = depth;
-		}
-		depth++;
-	}
-	return ans;
+  let mxSum = -9999999,
+    ans,
+    depth = 1;
+  const q = [root];
+  while (q.length > 0) {
+    let tSum = 0;
+    let sz = q.length;
+    while (sz--) {
+      const t = q.shift();
+      if (t.left) q.push(t.left);
+      if (t.right) q.push(t.right);
+      tSum += t.val;
+    }
+    if (tSum > mxSum) {
+      mxSum = tSum;
+      ans = depth;
+    }
+    depth++;
+  }
+  return ans;
 };
 // @lc code=end

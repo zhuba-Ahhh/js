@@ -4,17 +4,17 @@ function Curring(func) {
     if (!rest.length) return func(...arg);
     arg.push(...rest);
     return result;
-  }
+  };
 }
 
-var curry = function(fn) {
+var curry = function (fn) {
   const argsList = [];
   return function curried(...args) {
-      argsList.push(...args);
-      if (argsList.length >= fn.length) {
-          return fn(...argsList);
-      }
-      return curried;
+    argsList.push(...args);
+    if (argsList.length >= fn.length) {
+      return fn(...argsList);
+    }
+    return curried;
   };
 };
 
@@ -25,7 +25,7 @@ function Curring1(func) {
     } else {
       return function (...args2) {
         return curried.apply(this, args.concat(args2));
-      }
+      };
     }
   };
 }

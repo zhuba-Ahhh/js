@@ -18,7 +18,7 @@ var reverseBetween = function (head, left, right) {
   let slow = head; // slow
   let fast = head; // fast
 
-  let cnt = right - left; 
+  let cnt = right - left;
   // 先让fast走cnt步骤
   while (cnt && fast) {
     fast = fast.next;
@@ -33,7 +33,7 @@ var reverseBetween = function (head, left, right) {
     pre = pre.next;
   }
   const next = fast.next;
-  // 此时 slow = 2 .  fast = 4 . pre = 1 . next = 5  
+  // 此时 slow = 2 .  fast = 4 . pre = 1 . next = 5
 
   // 进行slow到fast的反转链表
   let fakepre = null;

@@ -12,7 +12,7 @@ function convertToCamelCase(obj) {
     }
 
     let value = obj[key];
-    let newKey = key.replace(/_(\w)/g, function(match, p1) {
+    let newKey = key.replace(/_(\w)/g, function (match, p1) {
       return p1.toUpperCase();
     });
 
@@ -35,13 +35,13 @@ let obj = {
     last_name: "Doe",
     contact_info: {
       phone_number: "1234567890",
-      email_address: "john.doe@example.com"
-    }
+      email_address: "john.doe@example.com",
+    },
   },
   order_info: {
     order_id: "123456",
-    order_date: "2023-04-30"
-  }
+    order_date: "2023-04-30",
+  },
 };
 
 // console.log(convertToCamelCase(obj));
@@ -59,7 +59,10 @@ function convertToCamelCase1(obj) {
     }
 
     let value = obj[key];
-    let newKey = key.split(/(?=[A-Z])/).join('_').toLowerCase();
+    let newKey = key
+      .split(/(?=[A-Z])/)
+      .join("_")
+      .toLowerCase();
 
     // 如果属性的值是一个对象，则递归调用本函数
     if (typeof value === "object") {
@@ -76,10 +79,13 @@ function convertToCamelCase1(obj) {
 
 let obj1 = {
   userInfo: {
-    firstName: 'John',
-    lastName: 'Doe',
-    contactInfo: { phoneNumber: '1234567890', emailAddress: 'john.doe@example.com' }
+    firstName: "John",
+    lastName: "Doe",
+    contactInfo: {
+      phoneNumber: "1234567890",
+      emailAddress: "john.doe@example.com",
+    },
   },
-  orderInfo: { orderId: '123456', orderDate: '2023-04-30' }
-}
+  orderInfo: { orderId: "123456", orderDate: "2023-04-30" },
+};
 console.log(convertToCamelCase1(obj1));

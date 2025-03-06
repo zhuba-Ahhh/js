@@ -37,10 +37,10 @@ for (int i = 0; i < len; i++) {
 
 const removeDuplicates = (nums) => {
   if (nums.length === 0 || nums.length === 1) {
-    return nums.length
+    return nums.length;
   }
 
-  const len = nums.length
+  const len = nums.length;
   // let slow = 1
   // let fast = 1
 
@@ -52,21 +52,21 @@ const removeDuplicates = (nums) => {
 
   //   fast++
   // }
-  let slow = 0
-  let fast = 1
+  let slow = 0;
+  let fast = 1;
 
   while (fast < len) {
-    if (nums[ slow ] !== nums[ fast ]) {
-      nums[ ++slow ] = nums[ fast ]
+    if (nums[slow] !== nums[fast]) {
+      nums[++slow] = nums[fast];
     }
 
-    fast++
+    fast++;
   }
 
-  return slow + 1
-}
+  return slow + 1;
+};
 
 // let nums = [1, 2, 1]
-let nums = [0,0,1,1,1,2,2,3,3,4]
+let nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 
-console.log(removeDuplicates(nums), nums)
+console.log(removeDuplicates(nums), nums);

@@ -7,19 +7,19 @@
  *
  */
 
-const quickSort = arr => {
-	const len = arr.length;
-	if (arr === null || len <= 1) return arr;
-	const pivotIdx = Math.floor(len / 2);
-	const pivot = arr.splice(pivotIdx, 1)[0];
-	const l = [],
-		r = [];
-	for (let i = 0; i < len - 1; i++) {
-		if (arr[i] < pivot) l.push(arr[i]);
-		else r.push(arr[i]);
-	}
-	// return quickSort(l).concat([pivot], quickSort(r));
-	return [...quickSort(l), pivot, ...quickSort(r)];
+const quickSort = (arr) => {
+  const len = arr.length;
+  if (arr === null || len <= 1) return arr;
+  const pivotIdx = Math.floor(len / 2);
+  const pivot = arr.splice(pivotIdx, 1)[0];
+  const l = [],
+    r = [];
+  for (let i = 0; i < len - 1; i++) {
+    if (arr[i] < pivot) l.push(arr[i]);
+    else r.push(arr[i]);
+  }
+  // return quickSort(l).concat([pivot], quickSort(r));
+  return [...quickSort(l), pivot, ...quickSort(r)];
 };
 
 //test

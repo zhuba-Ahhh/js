@@ -3,17 +3,17 @@
 // 并且判断也是left<right而不是left<=right
 function binarySearch(arr, target) {
   let left = 0;
-  let right = arr.length;  // [left,right)
+  let right = arr.length; // [left,right)
   while (left < right) {
     const mid = ~~((left + right) / 2);
     if (arr[mid] === target) return mid;
     else if (arr[mid] < target) left = mid + 1;
     else right = mid;
   }
-  return null
+  return null;
 }
 
-console.log(binarySearch([1,2,3],1))
-console.log(binarySearch([1,2,3],2))
-console.log(binarySearch([1,2,3],3))
-console.log(binarySearch([1,2,3],4))
+console.log(binarySearch([1, 2, 3], 1));
+console.log(binarySearch([1, 2, 3], 2));
+console.log(binarySearch([1, 2, 3], 3));
+console.log(binarySearch([1, 2, 3], 4));

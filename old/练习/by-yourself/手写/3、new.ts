@@ -15,4 +15,4 @@ function Person(this: any, name: string) {
 }
 
 console.log(myNew(Person, "jzsp"));
-export {}
+export {};

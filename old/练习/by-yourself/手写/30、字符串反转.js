@@ -1,5 +1,5 @@
 function reverse(str) {
-  return str.split("").reverse().join("")
+  return str.split("").reverse().join("");
 }
 
-console.log(reverse("jzsp"))
+console.log(reverse("jzsp"));

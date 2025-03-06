@@ -12,5 +12,5 @@ console.log(b2); // => <Buffer 00 00 00 00 00 00 00 00 00 00>
 // 不会重置数据，不太安全，谨慎使用
 let b3 = Buffer.allocUnsafe(10);
 console.log(b3);
-b3[0] = '1';
+b3[0] = "1";
 console.log(b3, b3[0].toString());

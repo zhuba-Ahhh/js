@@ -10,7 +10,7 @@ function myPromiseRace(promises) {
         },
         (err) => {
           reject(err);
-        }
+        },
       );
     });
   });

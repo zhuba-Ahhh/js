@@ -38,7 +38,7 @@ function track(target: object, key: string | symbol) {
 // 触发依赖
 function trigger(target: object, key: string | symbol) {
   const dep = getDep(target, key);
-  dep.forEach(effect => {
+  dep.forEach((effect) => {
     effect();
   });
 }
@@ -64,10 +64,10 @@ effect(() => {
   console.log("我是", a.name);
 });
 effect(() => {
-  console.log("wjj的friends是",a.friend.name);
+  console.log("wjj的friends是", a.friend.name);
 });
 
-a.name = 'jzsp';
-a.friend.name = 'jzsp2';
+a.name = "jzsp";
+a.friend.name = "jzsp2";
 
-export {}
+export {};

@@ -1,7 +1,7 @@
-Object.defineProperty(Object, 'assign', {
+Object.defineProperty(Object, "assign", {
   value: function (target, ...args) {
     if (target == null) {
-      return new TypeError('Cannot convert undefined or null to object');
+      return new TypeError("Cannot convert undefined or null to object");
     }
 
     // 目标对象需要统一是引用数据类型，若不是会自动转换
@@ -25,4 +25,4 @@ Object.defineProperty(Object, 'assign', {
   enumerable: false,
   writable: true,
   configurable: true,
-})
+});

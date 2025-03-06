@@ -26,5 +26,4 @@ const arr = [1, 2, 3, 344, 2, 2, 2, 2, 2, 2, 2, 2, 2, 22, 2, 2, 2, 1];
 //   return result
 // }
 
-
 console.log(removeSameItem(arr));

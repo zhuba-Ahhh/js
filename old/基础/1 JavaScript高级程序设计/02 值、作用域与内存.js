@@ -12,26 +12,25 @@ let arr = [];
 console.log(typeof arr === "object"); // true
 console.log(arr instanceof Array); // true
 
-
 // ==================== 垃圾回收 ====================
 
 // 1 内存泄漏
 
 // 意外声明全局变量
 function setName() {
-    name = "Dasen";
+  name = "Dasen";
 }
 
 // 定时器内存泄漏
 let name = "Dasen";
 setInterval(() => {
-    console.log(name);
+  console.log(name);
 }, 1000);
 
 // 闭包造成的内存泄漏
 let outer = function () {
-    let name = "Dasen";
-    return function () {
-        return name;
-    };
+  let name = "Dasen";
+  return function () {
+    return name;
+  };
 };

@@ -19,7 +19,7 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-	/* 哈希法
+  /* 哈希法
 	const st = new Set();
 	while (headA !== null) {
 		st.add(headA);
@@ -32,13 +32,13 @@ var getIntersectionNode = function (headA, headB) {
 	return null;
 	 */
 
-	/* 双指针法 */
-	let a = headA,
-		b = headB;
-	while (a !== b) {
-		a = a === null ? headB : a.next;
-		b = b === null ? headA : b.next;
-	}
-	return b;
+  /* 双指针法 */
+  let a = headA,
+    b = headB;
+  while (a !== b) {
+    a = a === null ? headB : a.next;
+    b = b === null ? headA : b.next;
+  }
+  return b;
 };
 // @lc code=end

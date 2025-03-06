@@ -10,13 +10,13 @@
  * @return {number}
  */
 var maxAscendingSum = function (nums) {
-	const len = nums.length;
-	let res = nums[0];
-	for (let i = 1, cur = nums[0]; i < len; i++) {
-		if (nums[i] > nums[i - 1]) cur += nums[i];
-		else cur = nums[i];
-		res = Math.max(res, cur);
-	}
-	return res;
+  const len = nums.length;
+  let res = nums[0];
+  for (let i = 1, cur = nums[0]; i < len; i++) {
+    if (nums[i] > nums[i - 1]) cur += nums[i];
+    else cur = nums[i];
+    res = Math.max(res, cur);
+  }
+  return res;
 };
 // @lc code=end

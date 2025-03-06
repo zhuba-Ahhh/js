@@ -1,21 +1,21 @@
 const simulateSetInterval = (func, timeout) => {
-  let timer = null
+  let timer = null;
   const interval = () => {
     timer = setTimeout(() => {
-      func()
-      interval()
-    }, timeout)
-  }
+      func();
+      interval();
+    }, timeout);
+  };
 
-  interval()
+  interval();
 
-  return () => clearTimeout(timer)
-}
+  return () => clearTimeout(timer);
+};
 
 const cancel = simulateSetInterval(() => {
-  console.log(1)
-}, 300)
+  console.log(1);
+}, 300);
 
 setTimeout(() => {
-  cancel()
-}, 1000)
+  cancel();
+}, 1000);

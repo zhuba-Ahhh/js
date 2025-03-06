@@ -11,20 +11,20 @@
  * @return {string[]}
  */
 var buildArray = function (target, n) {
-	const ss = [],
-		len = target.length;
-	let cnt = 0,
-		t = 0;
-	for (let i = 1; i <= n; i++) {
-		ss.push('Push');
-		if (target[t] === i) {
-			cnt++;
-			t++;
-		} else {
-			ss.push('Pop');
-		}
-		if (cnt === len) break;
-	}
-	return ss;
+  const ss = [],
+    len = target.length;
+  let cnt = 0,
+    t = 0;
+  for (let i = 1; i <= n; i++) {
+    ss.push("Push");
+    if (target[t] === i) {
+      cnt++;
+      t++;
+    } else {
+      ss.push("Pop");
+    }
+    if (cnt === len) break;
+  }
+  return ss;
 };
 // @lc code=end

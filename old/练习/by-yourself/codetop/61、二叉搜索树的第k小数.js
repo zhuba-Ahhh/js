@@ -2,13 +2,13 @@
 
 // 中序遍历即可
 var kthSmallest = function (root, k) {
-  const cache = []
+  const cache = [];
   function dfs(node) {
-    if (!node) return
-    dfs(node.left)
-    cache.push(node.val)
-    dfs(node.right)
+    if (!node) return;
+    dfs(node.left);
+    cache.push(node.val);
+    dfs(node.right);
   }
-  dfs(root)
-  return cache[k - 1]
-}
+  dfs(root);
+  return cache[k - 1];
+};

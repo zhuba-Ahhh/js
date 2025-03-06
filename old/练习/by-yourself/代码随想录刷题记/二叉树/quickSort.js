@@ -19,13 +19,12 @@ function partition(arr, left, right) {
 
 function sort(arr, l, r) {
   // 判断
-  if(l < r){
+  if (l < r) {
     const [left, right] = partition(arr, l, r);
     sort(arr, l, left - 1);
     sort(arr, right + 1, r);
     return arr;
   }
-
 }
 
 console.log(sort([1, 3, 2, 4, 1, 5, 2], 0, 6));
