@@ -7,9 +7,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{js,ts}\"",
+    "format": "prettier --write",
     "lint": "eslint . --ext .js,.ts",
-    "prepare": "husky install"
+    "prepare": "husky install && npx husky add .husky/pre-commit \"npx lint-staged\""
   },
   "keywords": ["algorithm", "leetcode", "javascript", "typescript"],
   "author": "",
@@ -30,7 +30,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "eslint --fix",
+      "eslint --fix --max-warnings=0",
       "prettier --write"
     ]
   }
