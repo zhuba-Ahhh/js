@@ -26,9 +26,9 @@
 - Three Sum (三数之和) - Medium
   - 解法：排序+双指针、哈希表法
   - 时间复杂度：O(n²)、O(n²)
-- Maximum Subarray (最大子数组和) - Medium
-  - 解法：动态规划、分治法
-  - 时间复杂度：O(n)、O(nlogn)
+- Maximum Subarray (最大子数组和) - Easy
+  - 解法：动态规划、分治法、Kadane算法
+  - 时间复杂度：O(n)、O(nlogn)、O(n)
 
 ### 哈希表
 - Two Sum (两数之和) - Easy
@@ -55,3 +55,13 @@
 - Merge Two Sorted Lists (合并两个有序链表) - Easy
   - 解法：递归法、迭代法
   - 时间复杂度：O(n+m)
+
+### 数组操作
+- Merge Sorted Array (合并两个有序数组) - Easy
+  - 解法：双指针法（从后往前）、双指针法（从前往后）、排序法
+  - 时间复杂度：O(m+n)、O(m+n)、O((m+n)log(m+n))
+
+### 动态规划
+- Climbing Stairs (爬楼梯) - Easy
+  - 解法：动态规划、递归+记忆化、矩阵快速幂
+  - 时间复杂度：O(n)、O(n)、O(logn)
