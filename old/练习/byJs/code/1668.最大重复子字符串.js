@@ -26,7 +26,7 @@ var maxRepeating = function (sequence, word) {
     }
     if (flag) dp[i] = i === m - 1 ? 1 : dp[i - m] + 1;
   }
-  const max = (arr) => arr.reduce((mx, x) => (mx > x ? mx : x), 0);
+  const max = arr => arr.reduce((mx, x) => (mx > x ? mx : x), 0);
   return max(dp);
 };
 // @lc code=end

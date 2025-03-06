@@ -1,7 +1,7 @@
 const create = (prop, props) => {
-  if (!["object", "function"].includes(typeof prop)) {
+  if (!['object', 'function'].includes(typeof prop)) {
     throw new TypeError(
-      `Object prototype may only be an Object or null: ${prop}`,
+      `Object prototype may only be an Object or null: ${prop}`
     );
   }
   // 创建构造函数
@@ -31,8 +31,8 @@ const person = {
 const me = Object.create(person);
 const me2 = create(person);
 
-me.name = "前端胖头鱼";
-me2.name = "前端胖头鱼";
+me.name = '前端胖头鱼';
+me2.name = '前端胖头鱼';
 
 me.showName();
 me2.showName();
@@ -50,7 +50,7 @@ const props = {
   foo: {
     writable: true,
     configurable: true,
-    value: "hello",
+    value: 'hello',
   },
   // bar会成为所创建对象的访问器属性
   bar: {
@@ -59,7 +59,7 @@ const props = {
       return 10;
     },
     set: function (value) {
-      console.log("Setting `o.bar` to", value);
+      console.log('Setting `o.bar` to', value);
     },
   },
 };
@@ -67,8 +67,8 @@ const props = {
 let o = Object.create(Object.prototype, props);
 let o2 = create(Object.prototype, props);
 
-o.bar = "前端胖头鱼";
-o2.bar = "前端胖头鱼";
+o.bar = '前端胖头鱼';
+o2.bar = '前端胖头鱼';
 
 console.log(o.foo);
 console.log(o.bar);

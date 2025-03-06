@@ -11,6 +11,6 @@ const SingleInstance = (function () {
   };
 })();
 
-const a = new SingleInstance("name", "age");
-const b = new SingleInstance("name", "age");
+const a = new SingleInstance('name', 'age');
+const b = new SingleInstance('name', 'age');
 console.log(a === b);

@@ -40,16 +40,16 @@ s 仅由括号 '()[]{}' 组成
  * 
  */
 
-const isValid = (s) => {
+const isValid = s => {
   // 空字符串符合条件
   if (!s) {
     return true;
   }
 
   const leftToRight = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
+    '(': ')',
+    '[': ']',
+    '{': '}',
   };
   const stack = [];
 
@@ -73,11 +73,11 @@ const isValid = (s) => {
   return !stack.length;
 };
 
-const isValid2 = (s) => {
+const isValid2 = s => {
   while (true) {
     let len = s.length;
 
-    s = s.replace("{}", "").replace("[]", "").replace("()", "");
+    s = s.replace('{}', '').replace('[]', '').replace('()', '');
 
     if (s.length == len) {
       return len === 0;
@@ -88,4 +88,4 @@ const isValid2 = (s) => {
 // ({}})
 // (})
 
-console.log(isValid("({[]})"));
+console.log(isValid('({[]})'));

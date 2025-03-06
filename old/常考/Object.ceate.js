@@ -1,5 +1,5 @@
-const ObjectCeate = (proto) => {
-  if (proto === null || typeof proto !== "object") return;
+const ObjectCeate = proto => {
+  if (proto === null || typeof proto !== 'object') return;
 
   // 判断传入参数是否不为空且不为实例
   // 新建一个空函数

@@ -4,7 +4,7 @@ function Person(name, age) {
 }
 
 Person.prototype.running = function () {
-  console.log("我会跑");
+  console.log('我会跑');
 };
 
 function Student(name, age, Number) {
@@ -16,7 +16,7 @@ inheritPrototype(Student, Person);
 
 function inheritPrototype(children, parent) {
   children.prototype = Object.create(parent.prototype);
-  Object.defineProperty(children.prototype, "constructor", {
+  Object.defineProperty(children.prototype, 'constructor', {
     value: children,
     enumerable: false,
     configurable: true,
@@ -24,6 +24,6 @@ function inheritPrototype(children, parent) {
   });
 }
 
-var stu1 = new Student("hdf", 20, 123456);
+var stu1 = new Student('hdf', 20, 123456);
 console.log(stu1);
 stu1.running();

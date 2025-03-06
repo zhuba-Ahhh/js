@@ -41,7 +41,7 @@ const intersect1 = (nums1, nums2) => {
 
   for (let i = 0; i < len1; i++) {
     const value = cacheMap[nums1[i]];
-    cacheMap[nums1[i]] = typeof value !== "undefined" ? value + 1 : 1;
+    cacheMap[nums1[i]] = typeof value !== 'undefined' ? value + 1 : 1;
   }
 
   for (let j = 0; j < len2; j++) {

@@ -1,11 +1,11 @@
 // 金额转千分位
-const formatPrice = (number) => {
-  number = "" + number;
+const formatPrice = number => {
+  number = '' + number;
 
-  const [integer, decimal = ""] = number.split(".");
+  const [integer, decimal = ''] = number.split('.');
 
   return (
-    integer.replace(/\B(?=(\d{3})+$)/g, ",") + (decimal ? "." + decimal : "")
+    integer.replace(/\B(?=(\d{3})+$)/g, ',') + (decimal ? '.' + decimal : '')
   );
 };
 

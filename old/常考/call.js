@@ -35,7 +35,7 @@ Function.prototype.MyBind = function (obj, ...args1) {
 };
 
 const obj = {
-  name: "caicai",
+  name: 'caicai',
   age: 19,
 };
 

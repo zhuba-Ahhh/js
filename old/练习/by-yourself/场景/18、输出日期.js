@@ -4,8 +4,8 @@ let year = d.getFullYear();
 // 获取月，月份比较特殊，0是1月，11是12月
 let month = d.getMonth() + 1;
 // 变成两位
-month = month < 10 ? "0" + month : month;
+month = month < 10 ? '0' + month : month;
 // 获取日
 let day = d.getDate();
-day = day < 10 ? "0" + day : day;
-console.log(year + "-" + month + "-" + day);
+day = day < 10 ? '0' + day : day;
+console.log(year + '-' + month + '-' + day);

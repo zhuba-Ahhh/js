@@ -6,13 +6,13 @@ function MyPromiseAll(_promises) {
     let count = 0;
     for (let i = 0; i < len; i++) {
       Promise.resolve(promises[o])
-        .then((res) => {
+        .then(res => {
           r[i] = res;
           if (len == ++count) {
             resolve(r);
           }
         })
-        .catch((e) => {
+        .catch(e => {
           reject(r);
         });
     }

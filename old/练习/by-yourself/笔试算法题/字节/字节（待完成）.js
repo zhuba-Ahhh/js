@@ -11,9 +11,9 @@
 // 15个点
 
 const matrix = [
-  [".", ".", "."],
-  [".", "O", "."],
-  [".", ".", "."],
+  ['.', '.', '.'],
+  ['.', 'O', '.'],
+  ['.', '.', '.'],
 ];
 // 9个点
 
@@ -21,7 +21,7 @@ const matrix = [
 // const matrix = [[".", ".", ".", "L", "O"]]
 const a = matrix.length;
 const b = matrix[0].length;
-const flags = new Array(a).fill(0).map((i) => new Array(b).fill(2));
+const flags = new Array(a).fill(0).map(i => new Array(b).fill(2));
 
 const endx = 1;
 const endy = 1;
@@ -30,7 +30,7 @@ let res = 0;
 function dfs(i, j) {
   if (i >= 0 && i < a && j >= 0 && j < b) {
     if (flags[i][j] === 2) {
-      if (matrix[i][j] === "O") {
+      if (matrix[i][j] === 'O') {
         res++;
         dfs(i - 1, j);
         dfs(i + 1, j);
@@ -39,7 +39,7 @@ function dfs(i, j) {
         flags[i][j] = 1;
         return 1;
       }
-      if (matrix[i][j] === ".") {
+      if (matrix[i][j] === '.') {
         let d = 0;
         d += dfs(i - 1, j);
         d += dfs(i + 1, j);
@@ -55,10 +55,10 @@ function dfs(i, j) {
         }
       } else {
         let d = 0;
-        if (matrix[i][j] === "U") d += dfs(i - 1, j);
-        if (matrix[i][j] === "R") d += dfs(i, j + 1);
-        if (matrix[i][j] === "D") d += dfs(i + 1, j);
-        if (matrix[i][j] === "L") d += dfs(i, j - 1);
+        if (matrix[i][j] === 'U') d += dfs(i - 1, j);
+        if (matrix[i][j] === 'R') d += dfs(i, j + 1);
+        if (matrix[i][j] === 'D') d += dfs(i + 1, j);
+        if (matrix[i][j] === 'L') d += dfs(i, j - 1);
         if (!d) {
           flags[i][j] = 0;
           return 0;

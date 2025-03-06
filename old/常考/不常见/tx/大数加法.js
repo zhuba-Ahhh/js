@@ -21,7 +21,7 @@ const addStrings = (num1, num2) => {
     j--;
   }
 
-  return result.reverse().join("") || "0";
+  return result.reverse().join('') || '0';
 };
 
-console.log(addStrings("11111111", "2222222222222222"));
+console.log(addStrings('11111111', '2222222222222222'));

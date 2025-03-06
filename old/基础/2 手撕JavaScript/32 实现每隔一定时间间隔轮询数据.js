@@ -13,7 +13,7 @@ function pollingByAjax(url, time, fn) {
   let next = true;
   const reqNext = () => {
     let xhr = new XMLHttpRequest();
-    xhr.open("get", url, true);
+    xhr.open('get', url, true);
     xhr.send(null);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -30,11 +30,11 @@ function pollingByAjax(url, time, fn) {
   };
   setNext();
   const suspend = () => {
-    console.log("轮询暂停");
+    console.log('轮询暂停');
     next = false;
   };
   const continueNext = () => {
-    console.log("轮询继续");
+    console.log('轮询继续');
     next = true;
     setNext();
   };
@@ -50,13 +50,13 @@ function pollingByFetch(url, time, fn) {
   let next = true;
   const reqNext = () =>
     fetch(url)
-      .then((res) => {
+      .then(res => {
         return res.text();
       })
-      .then((text) => {
+      .then(text => {
         fn(text);
       })
-      .catch((e) => {
+      .catch(e => {
         throw e;
       });
   const setNext = () => {
@@ -65,11 +65,11 @@ function pollingByFetch(url, time, fn) {
   };
   setNext();
   const suspend = () => {
-    console.log("轮询暂停");
+    console.log('轮询暂停');
     next = false;
   };
   const continueNext = () => {
-    console.log("轮询继续");
+    console.log('轮询继续');
     next = true;
     setNext();
   };
@@ -81,13 +81,12 @@ function pollingByFetch(url, time, fn) {
 
 // 3 测试
 
-const outputContent = (json) =>
-  console.log(JSON.parse(json)["data"]["content"]);
+const outputContent = json => console.log(JSON.parse(json)['data']['content']);
 
 const polling = pollingByFetch(
-  "https://api.xygeng.cn/one",
+  'https://api.xygeng.cn/one',
   3000,
-  outputContent,
+  outputContent
 );
 
 setTimeout(() => {

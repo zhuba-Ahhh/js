@@ -7,7 +7,7 @@ var cloneGraph = function (node, map = new Map()) {
   map.set(node, newNode);
 
   const neighbors = [];
-  node.neighbors.forEach((i) => {
+  node.neighbors.forEach(i => {
     const res = cloneGraph(i, map);
     neighbors.push(res);
   });

@@ -35,4 +35,4 @@ var minCut = function (s) {
   return dp[len] - 1;
 };
 
-console.log(minCut("aab"));
+console.log(minCut('aab'));

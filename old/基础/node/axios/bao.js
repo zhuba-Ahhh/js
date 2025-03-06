@@ -1,10 +1,10 @@
-let axios = require("axios");
-let cheerio = require("cheerio");
-let fs = require("fs");
-let path = require("path");
+let axios = require('axios');
+let cheerio = require('cheerio');
+let fs = require('fs');
+let path = require('path');
 
 let id = 7;
-let url = "https://fabiaoqing.com/biaoqing/lists/page/`${id}`";
+let url = 'https://fabiaoqing.com/biaoqing/lists/page/`${id}`';
 
 function axi(url) {
   return new Promise(function (resolve, reject) {
@@ -22,8 +22,8 @@ async function getUrl(url) {
   let data = await axi(url);
   let $ = cheerio.load(data.data); // 获取数据和axios一样的jQuery库
   // console.log($);
-  $(".lazy").each((i, element) => {
-    let imgs = $(element).attr("data-original");
+  $('.lazy').each((i, element) => {
+    let imgs = $(element).attr('data-original');
     // let p = path.parse(imgs);
     // console.log(p);
     let extName = path.extname(imgs);
@@ -31,7 +31,7 @@ async function getUrl(url) {
 
     axios
       .get(imgs, {
-        responseType: "stream",
+        responseType: 'stream',
       })
       .then(function (res) {
         res.data.pipe(ws); // 获取到的数据传给

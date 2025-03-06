@@ -46,7 +46,7 @@ function clearIntervalWithId(id) {
 // 2 实现限制次数的 setInterval
 
 function setIntervalWithCount(handler, timeout, count, ...args) {
-  if ((count !== 0 && !count) || typeof count !== "number") count = 0;
+  if ((count !== 0 && !count) || typeof count !== 'number') count = 0;
   let timer;
   let cnt = 0;
   const next = () => {

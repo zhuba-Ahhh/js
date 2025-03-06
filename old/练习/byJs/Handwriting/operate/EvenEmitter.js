@@ -26,7 +26,7 @@ class EventEmitter {
   off(type, listener) {
     this.events[type] = this.events[type] || [];
     this.events[type] = this.events[type].filter(
-      (callback) => listener !== callback,
+      callback => listener !== callback
     );
   }
 
@@ -42,25 +42,25 @@ class EventEmitter {
 
 //test
 const e = new EventEmitter();
-const f = (id) => void console.log("id:", id);
-const oncef = (id) => void console.log("once id:", id);
-e.on("a", f);
-e.once("a", oncef);
+const f = id => void console.log('id:', id);
+const oncef = id => void console.log('once id:', id);
+e.on('a', f);
+e.once('a', oncef);
 
-e.emit("a", { id: 1 }); //id: { id: 1 }  once id: { id: 1 }
-e.emit("a", { id: 2 }); //id: { id: 2 }
+e.emit('a', { id: 1 }); //id: { id: 1 }  once id: { id: 1 }
+e.emit('a', { id: 2 }); //id: { id: 2 }
 function test() {
   let sign1 = 0;
   let sign2 = 0;
   const emitter = new EventEmitter();
-  emitter.on("add", function () {
+  emitter.on('add', function () {
     sign1++;
   });
-  emitter.emit("add");
-  emitter.on("add", function () {
+  emitter.emit('add');
+  emitter.on('add', function () {
     sign2++;
   });
-  emitter.emit("add");
+  emitter.emit('add');
   const judge = sign1 === 2 && sign2 === 1;
   return judge;
 }

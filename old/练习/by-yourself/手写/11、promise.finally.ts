@@ -3,17 +3,17 @@
   // 并且finally链式调用返回的promise的状态是由cb的返回值决定的，所以用Promise.resolve()
   // 并且后面的promise会传入finally前的data或者err状态
   return this.then(
-    (value) => Promise.resolve(cb()).then(() => value),
-    (err) =>
+    value => Promise.resolve(cb()).then(() => value),
+    err =>
       Promise.resolve(cb()).then(() => {
         throw err;
-      }),
+      })
   );
 };
 
 function p2(): any {
   return new Promise((resolve, reject) => {
-    resolve("a");
+    resolve('a');
   });
 }
 
@@ -29,6 +29,6 @@ p2()
       console.log(data);
     },
     () => {
-      console.log("err");
-    },
+      console.log('err');
+    }
   );

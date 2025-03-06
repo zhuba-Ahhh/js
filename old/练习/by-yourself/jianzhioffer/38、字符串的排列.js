@@ -16,7 +16,7 @@ var permutation = function (s) {
   function swap(arr, i, j) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-  function dfs(index = 0, cache = "") {
+  function dfs(index = 0, cache = '') {
     if (index === s.length) {
       res.add(cache);
       return;

@@ -11,7 +11,7 @@ function getMaxLengthOfWords(str) {
   return maxLength;
 }
 
-console.log(getMaxLengthOfWords("help bed little0 work"));
+console.log(getMaxLengthOfWords('help bed little0 work'));
 
 // let str1 = "help bed little0 work";
 

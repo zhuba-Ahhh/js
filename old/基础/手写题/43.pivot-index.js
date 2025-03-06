@@ -12,7 +12,7 @@
 如果数组有多个中心下标，应该返回 最靠近左边 的那一个。如果数组不存在中心下标，返回 -1 。
  */
 
-const pivotIndex = (nums) => {
+const pivotIndex = nums => {
   let total = nums.reduce((ret, num) => ret + num, 0);
   let sum = 0;
 

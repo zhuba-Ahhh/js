@@ -6,7 +6,7 @@ People.prototype.getName = function () {
   console.log(this.name);
 };
 
-let people = new People("ZH");
+let people = new People('ZH');
 console.log(people.name);
 people.getName();
 
@@ -19,7 +19,7 @@ let protoType = Object.create(People.prototype);
 Student.prototype = protoType;
 protoType.contructor = Student;
 
-let XM = new Student("ZHUBA", 20);
+let XM = new Student('ZHUBA', 20);
 console.log(XM.name, XM.age);
 XM.getName();
 
@@ -32,19 +32,19 @@ Promise.All = function (promises) {
     promises.forEach((promise, index) => {
       promise
         .resolve(item)
-        .then((res) => {
+        .then(res => {
           arr[index] = res;
           cnt++;
           if (cnt === l) resolve(arr);
         })
-        .catch((err) => reject(err));
+        .catch(err => reject(err));
     });
   });
 };
 
 Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
-    promises.forEach((promise) => {
+    promises.forEach(promise => {
       Promise.resolve(promise).then(resolve, reject);
     });
   });
@@ -62,7 +62,7 @@ let __new = function (fn, ...args) {
 
   let res = fn.call(fn, args);
   console.log(typeof res);
-  return typeof res == "object" ? res : newObj;
+  return typeof res == 'object' ? res : newObj;
 };
 
 function curry(fn) {
@@ -96,7 +96,7 @@ Function.prototype.Bind = function (context, ...bindArgs) {
 
 function getType(x) {
   const originType = Object.prototype.toString.call(x);
-  const spaceIndex = originType.indexOf(" ");
+  const spaceIndex = originType.indexOf(' ');
   const type = originType.slice(spaceIndex + 1, -1);
 
   return type.toLowerCase();

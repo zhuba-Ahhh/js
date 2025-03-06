@@ -5,7 +5,7 @@
  * @returns true false
  */
 const instanceOf1 = (obj, func) => {
-  if (!(obj && ["object", "function"].includes(typeof obj))) {
+  if (!(obj && ['object', 'function'].includes(typeof obj))) {
     return false;
   }
 
@@ -26,7 +26,7 @@ const instanceOf1 = (obj, func) => {
  * @returns true false
  */
 const instanceOf2 = (obj, func) => {
-  if (!(obj && ["object", "function"].includes(typeof obj))) {
+  if (!(obj && ['object', 'function'].includes(typeof obj))) {
     return false;
   }
 

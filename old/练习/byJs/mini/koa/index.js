@@ -1,4 +1,4 @@
-const http = require("http"); //https://nodejs.org/api/http.html
+const http = require('http'); //https://nodejs.org/api/http.html
 
 /* Application */
 module.exports = class Application {
@@ -36,13 +36,13 @@ class Context {
  * @returns 串联后的函数
  */
 function compose(middlewares) {
-  return (ctx) => {
+  return ctx => {
     /**
      * 执行第 i 个 中间件
      * @param {number} i 中间件数组下标
      * @returns 中间件函数
      */
-    const dispatch = (i) => {
+    const dispatch = i => {
       const middleware = middlewares[i];
       if (i === middlewares.length) return; // 搞完全部中间件
       return middleware(ctx, () => dispatch(i + 1)); // 这里调用下一个

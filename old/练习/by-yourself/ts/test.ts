@@ -7,4 +7,4 @@ type Flat<T extends Array<unknown>, Cache = never> = T extends [
     : Flat<R, Cache | F>
   : Cache;
 
-type res = Flat<[1, [2, "3"], Symbol]>[];
+type res = Flat<[1, [2, '3'], Symbol]>[];

@@ -25,6 +25,6 @@ function compose(...fn) {
         return result(it(...args));
       };
     },
-    (it) => it,
+    it => it
   );
 }

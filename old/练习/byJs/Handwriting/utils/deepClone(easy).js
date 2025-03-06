@@ -5,8 +5,8 @@
 2. 无需考虑循环引用问题
 */
 
-const _sampleDeepClone = (target) => {
-  if (typeof target === "object" && target !== null) {
+const _sampleDeepClone = target => {
+  if (typeof target === 'object' && target !== null) {
     const o = Array.isArray(target) ? [] : {};
     for (const k in target) {
       if (target.hasOwnProperty(k)) {
@@ -19,7 +19,7 @@ const _sampleDeepClone = (target) => {
 
 //test
 function test() {
-  const o1 = { name: "g", age: 18, o: { name: "o" }, a: [1, 2] };
+  const o1 = { name: 'g', age: 18, o: { name: 'o' }, a: [1, 2] };
   const o2 = _sampleDeepClone(o1);
   const judge =
     JSON.stringify(o1) === JSON.stringify(o2) && o1.o !== o2.o && o1.a !== o2.a;
@@ -33,7 +33,7 @@ console.log(test()); //true
 2. 需要考虑循环引用问题 —— 用一个 Map 作为缓存记录一下
 */
 const _completeDeepClone = (target, map = new Map()) => {
-  if (typeof target !== "object" && typeof target !== "function") return target;
+  if (typeof target !== 'object' && typeof target !== 'function') return target;
   if (/^(Function|RegExp|Date|Map|Set)$/i.test(constructor.name))
     return new constructor(target);
   // if (map.has(target)) return target;
@@ -52,16 +52,16 @@ const _completeDeepClone = (target, map = new Map()) => {
 //test
 function test2() {
   const o1 = {
-    name: "g",
+    name: 'g',
     age: 18,
-    o: { name: "o" },
+    o: { name: 'o' },
     a: [1, 2],
     r: new RegExp(),
     d: new Date(),
   };
   o1.self = o1;
   const o2 = _completeDeepClone(o1);
-  o1.name = "z";
+  o1.name = 'z';
   o1.age = 1;
   const judge =
     o1.name !== o2.name &&
@@ -77,9 +77,9 @@ function test2() {
 
 console.log(test2()); //true
 const o1 = {
-  name: "g",
+  name: 'g',
   age: 18,
-  o: { name: "o" },
+  o: { name: 'o' },
   a: [1, 2],
   r: new RegExp(),
   d: new Date(),

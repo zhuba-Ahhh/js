@@ -15,8 +15,8 @@ function getUrlParams(url) {
   });
   return dict;
 }
-console.log(getUrlParams("https://example.com?name=%E5%B7%9E")); //{ name: '州' }
-console.log(getUrlParams("http://example.com?tag=test&title=1%2B1%3D2")); //{ tag: 'test', title: '1+1=2' }
-console.log(getUrlParams("http://example.com?tag=")); //{ tag: '' }
-console.log(getUrlParams("http://example.com?tag=test&title=1+1=2")); //{ tag: 'test', 'title=1+1': '2' }
-console.log(getUrlParams("http://example.com?arr=2&arr=1")); //{ arr: [ '2', '1' ] }
+console.log(getUrlParams('https://example.com?name=%E5%B7%9E')); //{ name: '州' }
+console.log(getUrlParams('http://example.com?tag=test&title=1%2B1%3D2')); //{ tag: 'test', title: '1+1=2' }
+console.log(getUrlParams('http://example.com?tag=')); //{ tag: '' }
+console.log(getUrlParams('http://example.com?tag=test&title=1+1=2')); //{ tag: 'test', 'title=1+1': '2' }
+console.log(getUrlParams('http://example.com?arr=2&arr=1')); //{ arr: [ '2', '1' ] }

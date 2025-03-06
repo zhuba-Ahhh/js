@@ -14,9 +14,9 @@ function dd(template, data) {
   return template;
 }
 
-let template = "我是{{name}}，年龄{{age}}，性别{{sex}}";
+let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
 let person = {
-  name: "布兰",
+  name: '布兰',
   age: 12,
 };
 console.log(dd(template, person)); // 我是布兰，年龄12，性别undefined

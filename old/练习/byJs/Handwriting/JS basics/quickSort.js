@@ -7,7 +7,7 @@
  *
  */
 
-const quickSort = (arr) => {
+const quickSort = arr => {
   const len = arr.length;
   if (arr === null || len <= 1) return arr;
   const pivotIdx = Math.floor(len / 2);

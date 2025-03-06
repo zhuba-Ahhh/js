@@ -9,13 +9,13 @@ var restoreIpAddresses = function (s) {
     const len = cache.length;
     if (current === s.length) {
       if (len === SEG_COUNT) {
-        ans.push(cache.join("."));
+        ans.push(cache.join('.'));
       }
       return;
     }
 
     if (len === SEG_COUNT) return; //剪枝
-    if (s[current] === "0") {
+    if (s[current] === '0') {
       //如果是0，因为不能有前导0，直接push
       cache.push(0);
       dfs(current + 1);
@@ -37,7 +37,7 @@ var restoreIpAddresses = function (s) {
   dfs();
   return ans;
 };
-console.log(restoreIpAddresses("25525511135"));
+console.log(restoreIpAddresses('25525511135'));
 
 //自己写的
 /**
@@ -49,7 +49,7 @@ var restoreIpAddresses = function (s) {
   function dfs(s, i = 0, sum = 0, cache = []) {
     // 如果长度为0，或者当前i已经到末尾的后一个了，就直接返回
     if (cache.length === 4 || i === s.length) {
-      cache.length === 4 && i === s.length && res.add(cache.join("."));
+      cache.length === 4 && i === s.length && res.add(cache.join('.'));
       return;
     }
 

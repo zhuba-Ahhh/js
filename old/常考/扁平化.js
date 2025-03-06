@@ -19,7 +19,7 @@ var flatOne = function (arr, n) {
 };
 
 function flatten1(arr) {
-  while (arr.some((item) => Array.isArray(item))) {
+  while (arr.some(item => Array.isArray(item))) {
     arr = [].concat(...arr);
   }
   return arr;
@@ -37,7 +37,7 @@ function flatten2_1(arr, n = 1) {
   return arr.reduce((pre, next) => {
     let time = n;
     return pre.concat(
-      Array.isArray(next) && n > 0 ? flatten2_1(next, time - 1) : next,
+      Array.isArray(next) && n > 0 ? flatten2_1(next, time - 1) : next
     );
   }, []);
 }
@@ -58,7 +58,7 @@ function flatten3(arr) {
 flatten3(arr); //  [1, 2, 3, 4，5]
 
 function flatten4(arr) {
-  return arr.toString().split(",");
+  return arr.toString().split(',');
 }
 console.log(flatten4(arr)); //  [1, 2, 3, 4，5]
 

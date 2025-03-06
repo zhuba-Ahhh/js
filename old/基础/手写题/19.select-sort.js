@@ -6,7 +6,7 @@
 
 const swap = (array, a, b) => ([array[b], array[a]] = [array[a], array[b]]);
 
-const selectSort = (array) => {
+const selectSort = array => {
   const length = array.length;
 
   for (let i = 0; i < length; i++) {

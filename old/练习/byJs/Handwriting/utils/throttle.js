@@ -25,7 +25,7 @@ const throttle = (fn, delay) => {
 };
 
 //test
-const test = (id) => void console.log("test" + id);
+const test = id => void console.log('test' + id);
 const testThrorrle = throttle(test, 200);
 
 // setInterval(() => void testThrorrle(), 100);

@@ -2,20 +2,20 @@
 
 // 1 显示当前窗口大小
 
-document.getElementById("view1").innerText = window.screenLeft.toString();
-document.getElementById("view2").innerText = window.screenTop.toString();
+document.getElementById('view1').innerText = window.screenLeft.toString();
+document.getElementById('view2').innerText = window.screenTop.toString();
 
 // 2 显示当前浏览器像素比
 
-document.getElementById("view").innerText = window.devicePixelRatio.toString();
+document.getElementById('view').innerText = window.devicePixelRatio.toString();
 
 // 3 获取视口尺寸
 
 // 常规做法
 let pageWidth = window.innerWidth,
   pageHeight = window.innerHeight;
-if (typeof pageWidth != "number") {
-  if (document.compatMode == "CSS1Compat") {
+if (typeof pageWidth != 'number') {
+  if (document.compatMode == 'CSS1Compat') {
     pageWidth = document.documentElement.clientWidth;
     pageHeight = document.documentElement.clientHeight;
   } else {
@@ -40,26 +40,26 @@ var pageHeight =
 window.scrollTo({
   left: 100,
   top: 100,
-  behavior: "auto",
+  behavior: 'auto',
 });
 
 // 平滑滚动
 window.scrollTo({
   left: 100,
   top: 100,
-  behavior: "smooth",
+  behavior: 'smooth',
 });
 
 // 5 跳转与打开
 
 // 打开链接
-window.open("https://sadose.github.io/", "myFrame");
+window.open('https://sadose.github.io/', 'myFrame');
 
 // 新窗口打开
 window.open(
-  "https://sadose.github.io/",
-  "blogWindow",
-  "height=800, width=800, top=10, left=10, resizable=yes",
+  'https://sadose.github.io/',
+  'blogWindow',
+  'height=800, width=800, top=10, left=10, resizable=yes'
 );
 
 // 6 定时器
@@ -113,12 +113,12 @@ history.forward();
 
 // push状态
 let stateObject = {
-  description: "这是一个描述",
+  description: '这是一个描述',
 };
-history.pushState(stateObject, "Title", "baz.html");
+history.pushState(stateObject, 'Title', 'baz.html');
 
 // 状态后退
-window.addEventListener("popstate", (event) => {
+window.addEventListener('popstate', event => {
   let state = event.state;
   if (state) {
     processState(state);

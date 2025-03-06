@@ -1,5 +1,5 @@
 const store = {
-  timeSign: "|-expires-|",
+  timeSign: '|-expires-|',
   storage: localStorage || window.localStorage,
   set(key, value, time) {
     let _time;

@@ -1,5 +1,5 @@
 function isObject(raw: any) {
-  return typeof raw === "object" && raw !== null;
+  return typeof raw === 'object' && raw !== null;
 }
 function myNew(fn: any, ...args: any) {
   // 创建一个对象，这个对象的原型指向构造函数的prototype
@@ -14,5 +14,5 @@ function Person(this: any, name: string) {
   this.name = name;
 }
 
-console.log(myNew(Person, "jzsp"));
+console.log(myNew(Person, 'jzsp'));
 export {};

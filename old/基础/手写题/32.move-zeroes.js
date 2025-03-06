@@ -18,7 +18,7 @@
  */
 
 // 思路就是将非零的不断往前移动，零的不断往后移动
-const moveZeroes = (nums) => {
+const moveZeroes = nums => {
   let len = nums.length;
   let j = 0;
 

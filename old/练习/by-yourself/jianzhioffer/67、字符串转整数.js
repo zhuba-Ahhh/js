@@ -15,7 +15,7 @@ var strToInt = function (str) {
   let res = 0;
   let flag; // 判断是否是正数
   let isStart = false; // 判断是否已经到了数字
-  const number = new Set(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]);
+  const number = new Set(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']);
   for (let i = 0; i < cache.length; i++) {
     // 如果是数字，就累加
     if (number.has(cache[i])) {
@@ -23,12 +23,12 @@ var strToInt = function (str) {
       if (!isStart) isStart = true;
     } else {
       if (
-        (cache[i] === "-" || cache[i] === "+") &&
+        (cache[i] === '-' || cache[i] === '+') &&
         flag === undefined &&
         !isStart
       ) {
-        if (cache[i] === "-") flag = true;
-        if (cache[i] === "+") flag = false;
+        if (cache[i] === '-') flag = true;
+        if (cache[i] === '+') flag = false;
       } else return judge(res, flag);
     }
   }

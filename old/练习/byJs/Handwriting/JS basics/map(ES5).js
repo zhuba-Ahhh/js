@@ -5,8 +5,8 @@
  * @returns 新数组
  */
 Array.prototype._map = function (callback, thisArg) {
-  if (typeof callback !== "function")
-    throw Error("callback must be a function");
+  if (typeof callback !== 'function')
+    throw Error('callback must be a function');
   var arr = [];
   for (var i = 0; i < this.length; i++) arr[i] = callback(this[i], i, this);
   return arr;

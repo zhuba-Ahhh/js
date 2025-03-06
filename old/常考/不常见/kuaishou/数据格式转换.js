@@ -1,4 +1,4 @@
-const input = ["a", "b", "c", "d", "e", "f"];
+const input = ['a', 'b', 'c', 'd', 'e', 'f'];
 
 // function handler(arr) {
 //   let prev = null;

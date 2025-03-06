@@ -8,6 +8,6 @@ type Permutation<T, U = T> = [T] extends [never]
   : U extends U
     ? [U, ...Permutation<Exclude<T, U>>]
     : never;
-type perm = Permutation<"A" | "B" | "C">;
+type perm = Permutation<'A' | 'B' | 'C'>;
 
 export {};

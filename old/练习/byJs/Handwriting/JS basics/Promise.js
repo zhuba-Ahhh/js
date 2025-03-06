@@ -4,9 +4,9 @@ Promise A+ 规定回调为微任务，这里用 setTimeout 模拟
 */
 
 /* 三种状态 */
-const PENDING = "pending";
-const FULFILLED = "fulfilled";
-const REJECTED = "rejected";
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = 'rejected';
 
 /* 构造函数 */
 function MyPromise(executor) {
@@ -18,7 +18,7 @@ function MyPromise(executor) {
   self.onFulfilledCallbacks = [];
   self.onRejectedCallbacks = [];
 
-  const resolve = (value) => {
+  const resolve = value => {
     if (value instanceof MyPromise) {
       return value.then(resolve, reject);
     }
@@ -27,16 +27,16 @@ function MyPromise(executor) {
       if (self.status !== PENDING) return;
       self.status = FULFILLED;
       self.value = value;
-      self.onFulfilledCallbacks.forEach((callback) => void callback(value));
+      self.onFulfilledCallbacks.forEach(callback => void callback(value));
     }, 0);
   };
 
-  const reject = (error) => {
+  const reject = error => {
     setTimeout(() => {
       if (self.status !== PENDING) return;
       self.status = REJECTED;
       self.error = error;
-      self.onRejectedCallbacks.forEach((callback) => void callback(error));
+      self.onRejectedCallbacks.forEach(callback => void callback(error));
     }, 0);
   };
   try {
@@ -54,11 +54,11 @@ function MyPromise(executor) {
  */
 MyPromise.prototype.then = function (onFulfilled, onRejected) {
   onFulfilled =
-    typeof onFulfilled === "function" ? onFulfilled : (value) => value;
+    typeof onFulfilled === 'function' ? onFulfilled : value => value;
   onRejected =
-    typeof onRejected === "function"
+    typeof onRejected === 'function'
       ? onRejected
-      : (error) => {
+      : error => {
           throw error;
         };
   const self = this;
@@ -109,23 +109,23 @@ MyPromise.prototype.catch = function (onRejected) {
 };
 
 /* test */
-let f = (a) => {
+let f = a => {
   return new MyPromise((resolve, reject) => {
     resolve(a);
   });
 };
 
 const t = f(1)
-  .then((v) => {
+  .then(v => {
     console.log(v); //1
     return f(2);
   })
-  .then((v) => {
+  .then(v => {
     console.log(v); //2
     return 9;
   })
-  .then((v) => {
+  .then(v => {
     console.log(v); //9
-    throw new Error("ee");
+    throw new Error('ee');
   })
-  .catch((e) => console.log(e)); //[Error: ee]
+  .catch(e => console.log(e)); //[Error: ee]

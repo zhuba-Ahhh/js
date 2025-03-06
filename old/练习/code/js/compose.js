@@ -19,7 +19,7 @@ function compose(...fn) {
     (pre, cur) => {
       return (...args) => pre(cur(...args));
     },
-    (cur) => cur,
+    cur => cur
   );
 }
 

@@ -30,7 +30,7 @@ var buildTree = function (preorder, inorder) {
   if (preorder.length === 0) return null;
   // 找到根节点
   const root = new TreeNode(preorder[0]);
-  const index = inorder.findIndex((i) => i === root.val);
+  const index = inorder.findIndex(i => i === root.val);
   // 找到左子树的先和中
   const leftInorder = inorder.slice(0, index);
   const leftPreorder = preorder.slice(1, 1 + leftInorder.length);

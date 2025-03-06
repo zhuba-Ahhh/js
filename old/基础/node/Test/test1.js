@@ -9,17 +9,17 @@ function setArr(arr) {
     if (arr[r] == arr[r - 1] || arr[r] == arr[r - 1] + 1) {
       r++;
     } else {
-      let str = "";
+      let str = '';
       str += arr[l];
-      if (arr[r - 1] != arr[l]) str += "-" + arr[r - 1];
+      if (arr[r - 1] != arr[l]) str += '-' + arr[r - 1];
       res.push(str);
       l = r;
       r = r + 1;
     }
   }
-  let str = "";
+  let str = '';
   str += arr[l];
-  if (arr[r - 1] != arr[l]) str += "-" + arr[r - 1];
+  if (arr[r - 1] != arr[l]) str += '-' + arr[r - 1];
   res.push(str);
   return res;
 }

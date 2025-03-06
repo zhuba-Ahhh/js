@@ -15,9 +15,9 @@
 0 <= s 的长度 <= 10000
  */
 var replaceSpace = function (s) {
-  let res = "";
+  let res = '';
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === " ") res += "%20";
+    if (s[i] === ' ') res += '%20';
     else res += s[i];
   }
   return res;

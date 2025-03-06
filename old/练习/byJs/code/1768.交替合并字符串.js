@@ -13,7 +13,7 @@
 var mergeAlternately = function (word1, word2) {
   let i = 0,
     j = 0;
-  let s = "";
+  let s = '';
   const l1 = word1.length,
     l2 = word2.length;
   while (i < l1 || j < l2) {

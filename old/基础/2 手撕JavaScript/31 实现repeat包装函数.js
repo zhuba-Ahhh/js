@@ -15,7 +15,7 @@ function repeat(fn, cnt, time) {
   return function inner(...args) {
     fn(...args);
     count++;
-    new Promise((resolve) => {
+    new Promise(resolve => {
       setTimeout(resolve, time);
     }).then(() => {
       if (count <= cnt) inner(...args);
@@ -26,4 +26,4 @@ function repeat(fn, cnt, time) {
 // 测试
 
 const repeatFn = repeat(console.log, 4, 3000);
-repeatFn("Dasen");
+repeatFn('Dasen');

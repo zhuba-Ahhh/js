@@ -1,10 +1,10 @@
 // 1. 最简短方便的方式
-const uniqueArray1 = (array) => {
+const uniqueArray1 = array => {
   return [...new Set(array)];
 };
 
 // 2. indexOf去重
-const uniqueArray2 = (array) => {
+const uniqueArray2 = array => {
   let result = [];
 
   array.forEach((it, i) => {
@@ -17,12 +17,12 @@ const uniqueArray2 = (array) => {
 };
 
 // 3. indexOf去重另一个版本
-const uniqueArray3 = (array) => {
+const uniqueArray3 = array => {
   return array.filter((it, i) => array.indexOf(it) === i);
 };
 
 // 4. Array.from去重
-const uniqueArray4 = (array) => {
+const uniqueArray4 = array => {
   return Array.from(new Set(array));
 };
 

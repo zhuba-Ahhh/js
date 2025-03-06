@@ -1,6 +1,6 @@
 var partition = function (s) {
   // 回溯找到所有的可能性
-  const dfs = (i) => {
+  const dfs = i => {
     if (i === n) {
       ret.push(ans.slice());
       return;

@@ -4,22 +4,22 @@
  */
 var reverseWords = function (s) {
   const stack = [];
-  s = s.trim() + " ";
-  let str = "";
+  s = s.trim() + ' ';
+  let str = '';
   for (let i = 0; i < s.length; i++) {
-    if (s[i] !== " ") str += s[i];
+    if (s[i] !== ' ') str += s[i];
     else {
       if (str.length) stack.push(str);
-      str = "";
+      str = '';
     }
   }
 
-  let res = "";
+  let res = '';
   while (stack.length) {
     const item = stack.pop();
     res += item;
     if (stack.length !== 0) {
-      res += " ";
+      res += ' ';
     }
   }
   return res;

@@ -13,7 +13,7 @@
  */
 var countMatches = function (items, ruleKey, ruleValue) {
   let ans = 0,
-    idx = ruleKey[0] === "t" ? 0 : ruleKey[0] === "c" ? 1 : 2;
+    idx = ruleKey[0] === 't' ? 0 : ruleKey[0] === 'c' ? 1 : 2;
   for (const item of items) {
     if (item[idx] === ruleValue) ans++;
   }

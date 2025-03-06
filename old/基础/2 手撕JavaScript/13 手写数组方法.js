@@ -9,10 +9,10 @@
 Array.prototype.myFilter = function (callback, thisArg) {
   // 判断合法性
   if (this == undefined) {
-    throw new TypeError("this is null or not undefined");
+    throw new TypeError('this is null or not undefined');
   }
-  if (typeof callback !== "function") {
-    throw new TypeError(callback + "is not a function");
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + 'is not a function');
   }
   // 结果数组
   const res = [];
@@ -39,10 +39,10 @@ Array.prototype.myFilter = function (callback, thisArg) {
 Array.prototype.myMap = function (callback, thisArg) {
   // 判断合法性
   if (this == undefined) {
-    throw new TypeError("this is null or not defined");
+    throw new TypeError('this is null or not defined');
   }
-  if (typeof callback !== "function") {
-    throw new TypeError(callback + " is not a function");
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + ' is not a function');
   }
   // 结果数组
   const res = [];
@@ -64,10 +64,10 @@ Array.prototype.myMap = function (callback, thisArg) {
 Array.prototype.myReduce = function (callback, initialValue) {
   // 判断合法性
   if (this == undefined) {
-    throw new TypeError("this is null or not defined");
+    throw new TypeError('this is null or not defined');
   }
-  if (typeof callback !== "function") {
-    throw new TypeError(callback + " is not a function");
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + ' is not a function');
   }
   // 支持类数组对象
   const obj = Object(this);
@@ -81,7 +81,7 @@ Array.prototype.myReduce = function (callback, initialValue) {
     }
     // 超出数组界限还没有找到累加器的初始值
     if (k >= len) {
-      throw new TypeError("Reduce of empty array with no initial value");
+      throw new TypeError('Reduce of empty array with no initial value');
     }
     accumulator = O[k++];
   }

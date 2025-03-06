@@ -1,14 +1,14 @@
 function isSpreadable(obj) {
   return (
-    typeof obj === "object" &&
+    typeof obj === 'object' &&
     obj !== null &&
-    typeof obj[Symbol.iterator] === "function"
+    typeof obj[Symbol.iterator] === 'function'
   );
 }
 
 const arr = [1, 2, 3];
 const obj = { a: 1, b: 2 };
-const str = "hello";
+const str = 'hello';
 console.log({ ...obj });
 
 console.log(isSpreadable(arr)); // true

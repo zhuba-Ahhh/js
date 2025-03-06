@@ -12,7 +12,7 @@ function flat(arr: Array<any>, depth = 1): Array<any> {
   if (depth === 0) return arr;
   return arr.reduce(
     (res, cur) => res.concat(Array.isArray(cur) ? flat(cur, depth - 1) : cur),
-    [],
+    []
   );
 }
 

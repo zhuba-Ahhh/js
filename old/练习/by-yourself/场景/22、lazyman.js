@@ -13,25 +13,25 @@ class lazyMan {
     // 这里不能把返回的promise放到一个单独的const中，因为他会立即执行
     this.promises.push(
       () =>
-        new Promise((resolve) => {
-          console.log("sleep");
+        new Promise(resolve => {
+          console.log('sleep');
           setTimeout(() => {
             resolve();
-            console.log("sleep end");
+            console.log('sleep end');
           }, time);
-        }),
+        })
     );
     return this;
   }
   eat() {
     this.promises.push(
       () =>
-        new Promise((resolve) => {
+        new Promise(resolve => {
           setTimeout(() => {
             resolve();
-            console.log("eat end");
+            console.log('eat end');
           });
-        }),
+        })
     );
     return this;
   }

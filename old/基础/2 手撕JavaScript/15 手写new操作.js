@@ -17,15 +17,15 @@
 
 function newOperator(constructorFn, ...args) {
   // 检查合法性
-  if (typeof constructorFn !== "function") {
-    throw new TypeError("Type Error");
+  if (typeof constructorFn !== 'function') {
+    throw new TypeError('Type Error');
   }
   // 以 constructor 的 prototype 为原型创造一个对象
   const obj = Object.create(constructorFn.prototype);
   // 以该对象为 this 调用 constructor
   const res = constructorFn.apply(obj, args);
   // 返回创建的对象
-  return (typeof res === "object" && res !== null) || typeof res === "function"
+  return (typeof res === 'object' && res !== null) || typeof res === 'function'
     ? res
     : obj;
 }

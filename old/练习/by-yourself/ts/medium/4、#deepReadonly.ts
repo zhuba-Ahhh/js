@@ -1,17 +1,17 @@
 type X = {
   x: {
     a: 1;
-    b: "hi";
+    b: 'hi';
   };
-  y: "hey";
+  y: 'hey';
 };
 
 type Expected = {
   readonly x: {
     readonly a: 1;
-    readonly b: "hi";
+    readonly b: 'hi';
   };
-  readonly y: "hey";
+  readonly y: 'hey';
 };
 
 // 使用[raw] extends [never]让编译器触发计算

@@ -1,7 +1,7 @@
 // 使用Promise.race来优化并发控制
 async function asyncPool(
   limit: number,
-  fetchDataFns: Array<() => Promise<any>>,
+  fetchDataFns: Array<() => Promise<any>>
 ) {
   const executing = [] as Promise<any>[]; //并发池
   const results = [] as Promise<any>[]; // 保存状态
@@ -23,34 +23,34 @@ async function asyncPool(
 
 const promises = [
   () =>
-    new Promise((resolve) => {
-      console.log("1000ms后结束,第一个请求被加入");
+    new Promise(resolve => {
+      console.log('1000ms后结束,第一个请求被加入');
       setTimeout(() => {
         resolve(1);
       }, 1000);
     }),
   () =>
-    new Promise((resolve) => {
-      console.log("2000ms后结束,第二个请求被加入");
+    new Promise(resolve => {
+      console.log('2000ms后结束,第二个请求被加入');
       setTimeout(() => {
         resolve(2);
       }, 2000);
     }),
   () =>
-    new Promise((resolve) => {
-      console.log("1000ms后结束,第三个请求被加入");
+    new Promise(resolve => {
+      console.log('1000ms后结束,第三个请求被加入');
       setTimeout(() => {
         resolve(3);
       }, 1000);
     }),
   () =>
-    new Promise((resolve) => {
-      console.log("1000ms后结束,第四个请求被加入");
+    new Promise(resolve => {
+      console.log('1000ms后结束,第四个请求被加入');
       setTimeout(() => {
         resolve(4);
       }, 1000);
     }),
 ];
-asyncPool(2, promises).then((res) => {
+asyncPool(2, promises).then(res => {
   console.log(res);
 });

@@ -7,8 +7,8 @@
  */
 const join = (arr1, arr2) => {
   const mp = new Map();
-  arr1.forEach((obj) => mp.set(obj.id, obj));
-  arr2.forEach((obj) => mp.set(obj.id, { ...(mp.get(obj.id) || {}), ...obj }));
+  arr1.forEach(obj => mp.set(obj.id, obj));
+  arr2.forEach(obj => mp.set(obj.id, { ...(mp.get(obj.id) || {}), ...obj }));
   return [...mp.values()].sort((a, b) => a.id - b.id);
 };
 
@@ -21,6 +21,6 @@ console.log(
     [
       { id: 2, x: 10, y: 20 },
       { id: 3, x: 0, y: 0 },
-    ],
-  ),
+    ]
+  )
 );

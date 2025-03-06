@@ -5,7 +5,7 @@ function myFlatMap(arr, deep) {
       Array.isArray(item) && deep
         ? [...pre, ...myFlatMap(item, deep - 1)]
         : [...pre, item],
-    [],
+    []
   );
   return res;
 }

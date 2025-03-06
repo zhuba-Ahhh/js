@@ -11,7 +11,7 @@ function MyInstanceOf(obj, createFnc) {
 }
 
 let stu1 = {
-  name: "xx",
+  name: 'xx',
   age: 20,
 };
 console.log(MyInstanceOf(stu1, Object));

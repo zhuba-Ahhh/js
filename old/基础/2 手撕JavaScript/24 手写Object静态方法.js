@@ -34,7 +34,7 @@ console.log(Object.myIs(NaN, NaN)); // true
 Object.myAssign = function (obj, ...args) {
   // 检查合法性
   if (obj == null) {
-    return new TypeError("Cannot convert undefined or null to object");
+    return new TypeError('Cannot convert undefined or null to object');
   }
   // 将原始值转换为对象
   const target = Object(obj);
@@ -56,11 +56,11 @@ console.log(
   Object.myAssign(
     {},
     {
-      name: "Dasen",
+      name: 'Dasen',
       age: 23,
     },
     {
-      secondName: "Sun",
-    },
-  ),
+      secondName: 'Sun',
+    }
+  )
 ); // {name: 'Dasen', age: 23, secondName: 'Sun'}

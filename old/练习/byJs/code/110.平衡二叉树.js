@@ -18,7 +18,7 @@
  * @return {boolean}
  */
 var isBalanced = function (root) {
-  const recur = (root) => {
+  const recur = root => {
     if (root === null) return 0;
     const left = recur(root.left);
     if (left === -1) return -1;

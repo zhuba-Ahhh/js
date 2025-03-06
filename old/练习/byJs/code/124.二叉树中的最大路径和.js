@@ -20,7 +20,7 @@
 var maxPathSum = function (root) {
   if (root === null) return 0;
   let maxSum = -9999;
-  const dfs = (root) => {
+  const dfs = root => {
     if (root === null) return 0;
     const left = dfs(root.left),
       right = dfs(root.right);

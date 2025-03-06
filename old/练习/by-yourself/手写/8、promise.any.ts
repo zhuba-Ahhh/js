@@ -2,8 +2,8 @@
 function myPrmoiseAny(promises: Promise<any>[]) {
   return new Promise((resolve, reject) => {
     const results = [] as any[];
-    promises.forEach((promise) => {
-      promise.then(resolve, (err) => {
+    promises.forEach(promise => {
+      promise.then(resolve, err => {
         results.push(err);
         if (results.length === promises.length) reject(results);
       });

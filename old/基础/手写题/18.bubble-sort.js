@@ -6,7 +6,7 @@
  *
  */
 const swap = (array, a, b) => ([array[b], array[a]] = [array[a], array[b]]);
-const bubbleSort = (array) => {
+const bubbleSort = array => {
   const length = array.length;
   for (let i = 0; i < length - 1; i++) {
     for (let j = 0; j < length - 1 - i; j++) {

@@ -5,7 +5,7 @@
  */
 function promiseRace(promises) {
   return new Promise((resolve, reject) => {
-    promises.forEach((p) => {
+    promises.forEach(p => {
       //把 上面的 resolve 注入数组中的每一个 Promise实例中的回调函数
       // 实现 只返回 第一个 Promise 执行完返回的 promise
       p.then(resolve, reject);
@@ -31,5 +31,5 @@ let p3 = new Promise(function (resolve, reject) {
 });
 
 promiseRace([p3, p2, p1])
-  .then((res) => console.log(res))
-  .catch((err) => console.log("err:", err)); //err:1
+  .then(res => console.log(res))
+  .catch(err => console.log('err:', err)); //err:1

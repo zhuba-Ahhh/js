@@ -39,5 +39,5 @@ function test(name: string, cb: any) {
 }
 
 const p = promisify(test);
-test("name", (err: any, data: any) => console.log(data)); //原本用法，需要手动传入参数
-p("name").then((res) => console.log(res)); //现在只需要在then后链式调用即可
+test('name', (err: any, data: any) => console.log(data)); //原本用法，需要手动传入参数
+p('name').then(res => console.log(res)); //现在只需要在then后链式调用即可

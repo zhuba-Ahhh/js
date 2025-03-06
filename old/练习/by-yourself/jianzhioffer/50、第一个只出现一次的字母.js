@@ -21,5 +21,5 @@ var firstUniqChar = function (s) {
   for (let i = 0; i < s.length; i++) {
     if (map[s[i]] === 1) return s[i];
   }
-  return " ";
+  return ' ';
 };

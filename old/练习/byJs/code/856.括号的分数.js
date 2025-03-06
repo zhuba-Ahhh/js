@@ -14,11 +14,11 @@ var scoreOfParentheses = function (s) {
   let res = 0;
   for (let i = 0; i < s.length; i++) {
     const c = s[i];
-    if (c === "(") {
+    if (c === '(') {
       stk.push(c);
-    } else if (c === ")") {
+    } else if (c === ')') {
       stk.pop();
-      if (s[i - 1] === "(") res += 1 << stk.length;
+      if (s[i - 1] === '(') res += 1 << stk.length;
     }
   }
   return res;

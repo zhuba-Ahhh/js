@@ -1,6 +1,6 @@
 Array.prototype.reduce = function (cb, init = 0) {
   let pre = init;
-  console.log("1");
+  console.log('1');
   const arr = this;
   arr.forEach((item, index) => {
     const res = cb(pre, item, index);

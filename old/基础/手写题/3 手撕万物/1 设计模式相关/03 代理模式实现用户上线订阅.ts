@@ -6,12 +6,12 @@ type Notify = (user: User) => void;
 
 class User {
   name: string;
-  status: "offline" | "online";
+  status: 'offline' | 'online';
   followers: { user: User; notify: Notify }[];
 
   constructor(name: string) {
     this.name = name;
-    this.status = "offline";
+    this.status = 'offline';
     this.followers = [];
   }
 
@@ -21,7 +21,7 @@ class User {
 
   // online 方法只负责用户状态变更
   online() {
-    this.status = "online";
+    this.status = 'online';
   }
 }
 
@@ -29,9 +29,9 @@ class User {
 export const createProxyUser = (name: string) => {
   const user = new User(name);
 
-  const notifyStatusHandles = (user: User, status: "offline" | "online") => {
+  const notifyStatusHandles = (user: User, status: 'offline' | 'online') => {
     // 判断是否对用户进行通知
-    if (status === "online") {
+    if (status === 'online') {
       user.followers.forEach(({ notify }) => {
         notify(user);
       });
@@ -41,7 +41,7 @@ export const createProxyUser = (name: string) => {
   const proxyUser = new Proxy(user, {
     set(target, property: keyof User, value) {
       target[property] = value;
-      if (property === "status") {
+      if (property === 'status') {
         // 改变的属性是 status 时，进入通知流程
         notifyStatusHandles(target, value);
         // 可以通过定义使用更多 handles 来方便地实现功能的扩展

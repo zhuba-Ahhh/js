@@ -18,7 +18,7 @@ const _instanceof = (obj, fun) => {
 };
 
 //test
-const a = new Number("1");
+const a = new Number('1');
 console.log(a instanceof Number); //true
 console.log(a instanceof Object); //true
 console.log(a instanceof String); //false

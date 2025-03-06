@@ -13,7 +13,7 @@
 var longestCommonSubsequence = function (text1, text2) {
   const n = text1.length,
     m = text2.length;
-  const dp = new Array(n + 1).fill(0).map((item) => new Array(m + 1).fill(0));
+  const dp = new Array(n + 1).fill(0).map(item => new Array(m + 1).fill(0));
 
   for (let i = 1; i <= n; i++) {
     const c1 = text1[i - 1];

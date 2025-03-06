@@ -1,15 +1,15 @@
 (function (global, factory) {
-  typeof exports === "object" && typeof module !== "undefined"
+  typeof exports === 'object' && typeof module !== 'undefined'
     ? factory(exports)
-    : typeof define === "function" && define.amd
-      ? define(["exports"], factory)
+    : typeof define === 'function' && define.amd
+      ? define(['exports'], factory)
       : ((global = global || self), factory((global.Reactz = {})));
 })(this, function (exports) {
-  "use strict";
+  'use strict';
   /* 单纯为 debug 输出，方便理解 */
   const debug = () => {
     const type_time = {};
-    return (type) => {
+    return type => {
       type_time[type] = (type_time[type] || 0) + 1;
       console.log(type, type_time[type]);
     };
@@ -19,14 +19,14 @@
 
   /* createElement */
   function createElement(type, props, ...children) {
-    clog("createElement");
+    clog('createElement');
 
     return {
       type,
       props: {
         ...props,
-        children: children.map((child) =>
-          typeof child === "object" ? child : createTextElement(child),
+        children: children.map(child =>
+          typeof child === 'object' ? child : createTextElement(child)
         ),
       },
     };
@@ -38,10 +38,10 @@
    * @returns 包裹为 type 为特殊类型 TEXT_ELEMENT 的JS对象
    */
   function createTextElement(text) {
-    clog("createTextElement");
+    clog('createTextElement');
 
     return {
-      type: "TEXT_ELEMENT",
+      type: 'TEXT_ELEMENT',
       props: {
         nodeValue: text,
         children: [],
@@ -50,19 +50,19 @@
   }
 
   /* utils 后面用到的小工具方法*/
-  const isEvent = (key) => key.startsWith("on");
-  const isProperty = (key) => key !== "children" && !isEvent(key); // 属性除了 children、事件属性
-  const isNew = (prev, next) => (key) => prev[key] !== next[key]; // 属性更新了
-  const isGone = (prev, next) => (key) => !(key in next); // 属性删除了
+  const isEvent = key => key.startsWith('on');
+  const isProperty = key => key !== 'children' && !isEvent(key); // 属性除了 children、事件属性
+  const isNew = (prev, next) => key => prev[key] !== next[key]; // 属性更新了
+  const isGone = (prev, next) => key => !(key in next); // 属性删除了
 
   /* 创建一个 DOM 节点，抽离出来当一个函数 */
   function createDom(fiber) {
-    clog("createDom");
+    clog('createDom');
 
     //根据 element.type 属性创建 DOM 节点
     const dom =
-      fiber.type === "TEXT_ELEMENT"
-        ? document.createTextNode("") //特殊处理 text 节点
+      fiber.type === 'TEXT_ELEMENT'
+        ? document.createTextNode('') //特殊处理 text 节点
         : document.createElement(fiber.type);
 
     // 一开始要调用一下 初始化一些东西
@@ -71,7 +71,7 @@
     // element props 给到 dom 除了 children
     Object.keys(fiber.props)
       .filter(isProperty)
-      .forEach((name) => {
+      .forEach(name => {
         dom[name] = fiber.props[name];
       });
 
@@ -80,7 +80,7 @@
 
   /* ReactDOM.render  */
   function render(element, container) {
-    clog("render");
+    clog('render');
 
     // 先记录到 wipRoot 上
     wipRoot = {
@@ -96,13 +96,13 @@
   }
 
   function updateDom(dom, prevProps, nextProps) {
-    clog("updateDom");
+    clog('updateDom');
 
     // 删除过时的事件监听（已经删除或者更新）
     Object.keys(prevProps)
       .filter(isEvent)
-      .filter((key) => !(key in nextProps) || isNew(prevProps, nextProps)(key))
-      .forEach((name) => {
+      .filter(key => !(key in nextProps) || isNew(prevProps, nextProps)(key))
+      .forEach(name => {
         const eventType = name.toLowerCase().substring(2);
         dom.removeEventListener(eventType, prevProps[name]);
       });
@@ -110,15 +110,15 @@
     Object.keys(prevProps)
       .filter(isProperty)
       .filter(isGone(prevProps, nextProps))
-      .forEach((name) => {
-        dom[name] = "";
+      .forEach(name => {
+        dom[name] = '';
       });
 
     // 添加 or 更新属性
     Object.keys(nextProps)
       .filter(isProperty)
       .filter(isNew(prevProps, nextProps))
-      .forEach((name) => {
+      .forEach(name => {
         dom[name] = nextProps[name];
       });
 
@@ -126,7 +126,7 @@
     Object.keys(nextProps)
       .filter(isEvent)
       .filter(isNew(prevProps, nextProps))
-      .forEach((name) => {
+      .forEach(name => {
         const eventType = name.toLowerCase().substring(2);
         dom.addEventListener(eventType, nextProps[name]);
       });
@@ -134,7 +134,7 @@
 
   /* commitRoot 提交变更到真实 DOM 树上 */
   function commitRoot() {
-    clog("commitRoot");
+    clog('commitRoot');
 
     // 将删除旧 DOM 的变更提交
     deletions.forEach(commitWork);
@@ -144,7 +144,7 @@
   }
 
   function commitWork(fiber) {
-    clog("commitWork");
+    clog('commitWork');
 
     if (!fiber) return;
     let domParentFiber = fiber.parent;
@@ -154,11 +154,11 @@
     const domParent = domParentFiber.dom;
 
     // 根据 fiber.effectTag 执行对应的操作 增、删、改
-    if (fiber.effectTag === "PLACEMENT" && fiber.dom != null) {
+    if (fiber.effectTag === 'PLACEMENT' && fiber.dom != null) {
       domParent.appendChild(fiber.dom);
-    } else if (fiber.effectTag === "DELETION") {
+    } else if (fiber.effectTag === 'DELETION') {
       commitDeletion(fiber, domParent);
-    } else if (fiber.effectTag === "UPDATE" && fiber.dom != null) {
+    } else if (fiber.effectTag === 'UPDATE' && fiber.dom != null) {
       updateDom(fiber.dom, fiber.alternate.props, fiber.props);
     }
     // 递归地将所有节点添加到 dom 上
@@ -167,7 +167,7 @@
   }
 
   function commitDeletion(fiber, domParent) {
-    clog("commitDeletion");
+    clog('commitDeletion');
 
     //找到该 fiber 下第一个有 DOM 节点的 fiber 节点进行删除
     if (fiber.dom) {
@@ -208,7 +208,7 @@
 
   // 执行每一小块的任务单元，并返回下一个任务单元
   function performUnitOfWork(fiber) {
-    clog("performUnitOfWork");
+    clog('performUnitOfWork');
     const isFunctionComponent = fiber.type instanceof Function;
     if (isFunctionComponent) {
       updateFunctionComponent(fiber);
@@ -231,7 +231,7 @@
 
   // 用于从函数组件中生成子组件
   function updateFunctionComponent(fiber) {
-    clog("updateFunctionComponent");
+    clog('updateFunctionComponent');
 
     wipFiber = fiber;
     hookIndex = 0;
@@ -242,7 +242,7 @@
   }
 
   function useState(initial) {
-    clog("useState");
+    clog('useState');
 
     const oldHook =
       wipFiber.alternate &&
@@ -256,10 +256,10 @@
     // 第二次渲染开始就会将所有 action 从旧的 hook 队列中取出
     const actions = oldHook ? oldHook.queue : [];
     // 依次调用 action
-    actions.forEach((action) => {
+    actions.forEach(action => {
       hook.state = action(hook.state);
     });
-    const setState = (action) => {
+    const setState = action => {
       hook.queue.push(action);
       wipRoot = {
         dom: currentRoot.dom,
@@ -275,7 +275,7 @@
   }
 
   function updateHostComponent(fiber) {
-    clog("updateHostComponent");
+    clog('updateHostComponent');
 
     // add DOM node
     if (!fiber.dom) {
@@ -292,7 +292,7 @@
    * @param {*} elements
    */
   function reconcileChildren(wipFiber, elements) {
-    clog("reconcileChildren");
+    clog('reconcileChildren');
 
     // create new fibers
     let index = 0;
@@ -315,7 +315,7 @@
           dom: oldFiber.dom,
           parent: wipFiber,
           alternate: oldFiber,
-          effectTag: "UPDATE", // 在 commit 时会用到
+          effectTag: 'UPDATE', // 在 commit 时会用到
         };
       }
       if (element && !sameType) {
@@ -326,12 +326,12 @@
           dom: null,
           parent: wipFiber,
           alternate: null,
-          effectTag: "PLACEMENT",
+          effectTag: 'PLACEMENT',
         };
       }
       if (oldFiber && !sameType) {
         // 如果有旧节点，还要删除旧节点
-        oldFiber.effectTag = "DELETION"; // 不用生成新的 fiber，在旧 fiber 中标记即可
+        oldFiber.effectTag = 'DELETION'; // 不用生成新的 fiber，在旧 fiber 中标记即可
         deletions.push(oldFiber); // 将要删除 fiber 节点的收集起来，就不用在 commit 时遍历旧 fiber 了
       }
       if (oldFiber) {

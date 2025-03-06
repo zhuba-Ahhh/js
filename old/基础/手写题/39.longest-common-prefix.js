@@ -19,9 +19,9 @@
  * 
  */
 // 横向扫描 也可以想起 版本比较的算法题，第一个和第二个比较，再拿结果和第三个比较
-const longestCommonPrefix = (strs) => {
+const longestCommonPrefix = strs => {
   if (strs.length === 0) {
-    return "";
+    return '';
   }
 
   let prefix = strs[0];
@@ -50,12 +50,12 @@ const longestCommonPrefix = (strs) => {
   for (let i = 1; i < len; i++) {
     prefix = getPrevfix(prefix, strs[i]);
 
-    if (prefix === "") {
-      return "";
+    if (prefix === '') {
+      return '';
     }
   }
 
   return prefix;
 };
 
-console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+console.log(longestCommonPrefix(['flower', 'flow', 'flight']));

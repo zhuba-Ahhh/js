@@ -1,9 +1,9 @@
-const str = "?a=1&b=2&c=3";
+const str = '?a=1&b=2&c=3';
 function parse(url) {
-  const arr = str.slice(1).split("&");
+  const arr = str.slice(1).split('&');
   const res = {};
-  arr.forEach((it) => {
-    const [key, value] = it.split("=");
+  arr.forEach(it => {
+    const [key, value] = it.split('=');
     res[key] = value;
   });
   return res;
@@ -17,4 +17,4 @@ function parseOne(url) {
   });
   return res;
 }
-console.log("res", parseOne("?name=pp&hh=oo&uu"));
+console.log('res', parseOne('?name=pp&hh=oo&uu'));

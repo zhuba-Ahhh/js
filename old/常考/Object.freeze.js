@@ -1,5 +1,5 @@
 let myFreeze = function (object) {
-  let freeze = (item) => {
+  let freeze = item => {
     Object.defineProperty(object, item, {
       writable: false,
       configurable: false,

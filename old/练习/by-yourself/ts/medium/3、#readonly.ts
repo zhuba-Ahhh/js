@@ -10,14 +10,14 @@ interface Todo {
 type MyReadonly2<raw, K extends keyof raw> = Omit<raw, K> & {
   readonly [k in K]: raw[k];
 };
-const todo: MyReadonly2<Todo, "title" | "description"> = {
-  title: "Hey",
-  description: "foobar",
+const todo: MyReadonly2<Todo, 'title' | 'description'> = {
+  title: 'Hey',
+  description: 'foobar',
   completed: false,
 };
 
-todo.title = "Hello"; // Error: cannot reassign a readonly property
-todo.description = "barFoo"; // Error: cannot reassign a readonly property
+todo.title = 'Hello'; // Error: cannot reassign a readonly property
+todo.description = 'barFoo'; // Error: cannot reassign a readonly property
 todo.completed = true; // OK
 
 export {};

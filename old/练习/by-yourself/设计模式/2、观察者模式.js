@@ -7,8 +7,8 @@ class Subject {
   setState(state) {
     this.state = state;
     // 触发观察者（trigger响应式依赖）
-    this.observers.forEach((observer) =>
-      observer.updateStateCallback(this.state, this.name),
+    this.observers.forEach(observer =>
+      observer.updateStateCallback(this.state, this.name)
     );
   }
   attach(observer) {
@@ -24,7 +24,7 @@ class Observer {
 }
 
 const observer = new Observer();
-const sub1 = new Subject("jzsp1");
+const sub1 = new Subject('jzsp1');
 sub1.attach(observer);
 // 修改状态时，会trigger依赖
 sub1.setState(2);

@@ -10,15 +10,15 @@
  * @return {string}
  */
 var thousandSeparator = function (n) {
-  const s = n + "";
+  const s = n + '';
   let res = [];
   for (let i = s.length - 1; i >= 0; i = i - 3) {
     res.push(s[i]);
     res.push(s[i - 1]);
     res.push(s[i - 2]);
-    res.push(".");
+    res.push('.');
   }
   res.pop();
-  return res.reverse().join("");
+  return res.reverse().join('');
 };
 // @lc code=end

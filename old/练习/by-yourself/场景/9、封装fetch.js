@@ -1,5 +1,5 @@
 class Request {
-  baseURL = "localhost:3000/";
+  baseURL = 'localhost:3000/';
   async get(url) {
     const res = fetch(this.baseURL + url);
     const data = await res.json();
@@ -7,9 +7,9 @@ class Request {
   }
   async post(url, data) {
     const res = fetch(this.baseURL + url, {
-      method: "post",
+      method: 'post',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });

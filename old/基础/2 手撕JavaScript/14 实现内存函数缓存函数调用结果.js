@@ -23,7 +23,7 @@ function memoizeInvariable(fn) {
 }
 
 function test1() {
-  console.log("进行计算...");
+  console.log('进行计算...');
   return 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10;
 }
 
@@ -44,7 +44,7 @@ console.log(memoizeTest1());
 function memoize(fn) {
   const map = new Map();
   return function (...args) {
-    const key = args.map((val) => String(val)).join(",");
+    const key = args.map(val => String(val)).join(',');
     if (!map.has(key)) {
       map.set(key, fn(...args));
     }
@@ -53,7 +53,7 @@ function memoize(fn) {
 }
 
 function test2(a, b) {
-  console.log("进行计算...");
+  console.log('进行计算...');
   return a * b;
 }
 

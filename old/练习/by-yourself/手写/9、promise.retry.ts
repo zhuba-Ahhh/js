@@ -4,7 +4,7 @@ function myPromiseRetry(fetcher: () => Promise<any>, times: number) {
     // 如果成功了就直接调用resolve
     // 否则就多次重新调用该函数，重新执行fetcher，直到times为0
     function doFetcher() {
-      fetcher().then(resolve, (err) => {
+      fetcher().then(resolve, err => {
         if (times--) {
           doFetcher();
         } else {

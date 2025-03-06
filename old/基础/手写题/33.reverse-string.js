@@ -3,7 +3,7 @@
  *
  */
 // 双指针
-const reverseString = (s) => {
+const reverseString = s => {
   let i = 0;
   let j = s.length - 1;
 
@@ -21,7 +21,7 @@ const reverseString = (s) => {
   return s;
 };
 // 单指针，做对称交换
-const reverseString2 = (s) => {
+const reverseString2 = s => {
   const len = s.length;
   const halfLen = len / 2;
   let i = 0;
@@ -39,7 +39,7 @@ const reverseString2 = (s) => {
   return s;
 };
 // 结构交换两个值
-const reverseString3 = (s) => {
+const reverseString3 = s => {
   const len = s.length;
 
   for (let left = 0, right = len - 1; left < right; left++, right--) {
@@ -49,6 +49,6 @@ const reverseString3 = (s) => {
   return s;
 };
 
-console.log(reverseString(["h", "e", "l", "l", "o"]));
-console.log(reverseString2(["h", "e", "l", "l", "o"]));
-console.log(reverseString3(["h", "e", "l", "l", "o"]));
+console.log(reverseString(['h', 'e', 'l', 'l', 'o']));
+console.log(reverseString2(['h', 'e', 'l', 'l', 'o']));
+console.log(reverseString3(['h', 'e', 'l', 'l', 'o']));

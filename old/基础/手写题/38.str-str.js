@@ -33,7 +33,7 @@
  */
 
 const strStr = (haystack, needle) => {
-  if (needle === "") {
+  if (needle === '') {
     return 0;
   }
   const len = haystack.length;
@@ -53,4 +53,4 @@ const strStr = (haystack, needle) => {
   return -1;
 };
 
-console.log(strStr("a", "a"));
+console.log(strStr('a', 'a'));

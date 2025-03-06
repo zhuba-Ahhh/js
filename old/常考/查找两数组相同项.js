@@ -1,5 +1,5 @@
 function compare(a, b) {
-  return a.filter((item) => {
+  return a.filter(item => {
     // return b.indexOf(item) !== -1;
     return b.includes(item);
   });

@@ -6,8 +6,8 @@
 //   return fib(n -2) + fib(n - 1)
 // }
 
-const fib = (n) => {
-  if (typeof fib[n] !== "undefined") {
+const fib = n => {
+  if (typeof fib[n] !== 'undefined') {
     return fib[n];
   }
 

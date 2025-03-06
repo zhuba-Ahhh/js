@@ -14,17 +14,17 @@ var countBattleships = function (board) {
   const row = board.length;
   const column = board[0].length;
   function clear(i, j) {
-    if (board[i][j] === "X") {
+    if (board[i][j] === 'X') {
       // 清空岛屿
-      board[i][j] = ".";
-      if (i + 1 < row && board[i + 1][j] === "X") clear(i + 1, j);
-      if (j + 1 < column && board[i][j + 1] === "X") clear(i, j + 1);
+      board[i][j] = '.';
+      if (i + 1 < row && board[i + 1][j] === 'X') clear(i + 1, j);
+      if (j + 1 < column && board[i][j + 1] === 'X') clear(i, j + 1);
     }
   }
   let res = 0;
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < column; j++) {
-      if (board[i][j] === "X") {
+      if (board[i][j] === 'X') {
         res++;
         clear(i, j);
       }

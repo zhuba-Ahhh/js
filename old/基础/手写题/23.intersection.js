@@ -23,7 +23,7 @@
  */
 // 直觉做法
 const intersection1 = (nums1, nums2) => {
-  return [...new Set(nums1.filter((it) => nums2.includes(it)))];
+  return [...new Set(nums1.filter(it => nums2.includes(it)))];
 };
 // 排序 + 双指针
 const intersection2 = (nums1, nums2) => {

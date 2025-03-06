@@ -5,7 +5,7 @@ function myAssign(target, source) {
     return target;
   }
   source = Array.prototype.slice.call(arguments, 1);
-  source.forEach((obj) => {
+  source.forEach(obj => {
     for (key in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
         target[key] = obj[key];
@@ -18,7 +18,7 @@ function myAssign(target, source) {
 function assign(target, source) {
   if (arguments.length < 2) return target;
   source = Array.prototype.slice.call(arguments, 1);
-  source.forEach((obj) => {
+  source.forEach(obj => {
     for (let i of key) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
         target[key] = obj[key];
@@ -30,12 +30,12 @@ function assign(target, source) {
 
 // 深拷贝
 // 1. JSON
-let obj = "x";
+let obj = 'x';
 let obj1 = JSON.parse(JSON.stringify(obj));
 
 // 2. 递归
 function deepClone(obj, cache = new WeakMap()) {
-  if (obj === null || typeof obj !== "object") return obj;
+  if (obj === null || typeof obj !== 'object') return obj;
   if (obj instanceof Date) return new Date(obj);
   if (obj instanceof RegExp) return new RegExp(obj);
 

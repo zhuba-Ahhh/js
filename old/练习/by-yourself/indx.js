@@ -1,4 +1,4 @@
-var string = "string";
+var string = 'string';
 var number = 0;
 var bool = true;
 console.log(number || string);

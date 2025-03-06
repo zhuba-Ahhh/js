@@ -9,7 +9,7 @@ type MyOmit<raw, K extends keyof raw> = {
   [k in keyof raw as k extends K ? never : k]: raw[k];
 };
 
-type TodoPreview = MyOmit<Todo, "description" | "title">;
+type TodoPreview = MyOmit<Todo, 'description' | 'title'>;
 
 const todo: TodoPreview = {
   completed: false,

@@ -1,7 +1,7 @@
 function sendAjax(url) {
   return new Promise(function (resolve, reject) {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
+    xhr.open('GET', url);
     // xhr.responseType = 'json';
     xhr.send();
     xhr.onreadystatechange = function () {
@@ -15,9 +15,9 @@ function sendAjax(url) {
       }
     };
   }).then(
-    (data) => console.log(data),
-    (err) => console.warn(err),
+    data => console.log(data),
+    err => console.warn(err)
   );
 }
 
-sendAjax("https://api.apiopen.top/api/getHaoKanVideo?page=0&size=10");
+sendAjax('https://api.apiopen.top/api/getHaoKanVideo?page=0&size=10');

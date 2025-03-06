@@ -1,7 +1,7 @@
 // Promise/A+ 规范的三种状态
-const PENDING = "pending";
-const FULFILLED = "fulfilled";
-const REJECTED = "rejected";
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = 'rejected';
 
 class MyPromise {
   constructor(executor) {
@@ -10,7 +10,7 @@ class MyPromise {
     this._rejectQueue = []; // 失败队列
 
     // 由于 resolve/reject 是在 executor 内部被调用，因此需要使用箭头函数固定this指向
-    let _resolve = (val) => {
+    let _resolve = val => {
       if (this._status !== PENDING) return; // 状态只能由 pending 到 fulfilled 或 rejected
       this._status = FULFILLED; // 变更状态
       while (this._resolveQueue.length) {
@@ -20,7 +20,7 @@ class MyPromise {
     };
 
     // reject 的实现同理
-    let _reject = (val) => {
+    let _reject = val => {
       if (this._status !== PENDING) return;
       this._status = REJECTED;
       while (this._rejectQueue.length) {
@@ -37,7 +37,7 @@ class MyPromise {
     // return 一个新的 promise ，支持链式调用
     return new MyPromise((resolve, reject) => {
       // 把 resolveFn 重新包装一下再 push 进 resolve 执行队列，为了变更返回的 promise 的状态
-      const fulfilledFn = (value) => {
+      const fulfilledFn = value => {
         try {
           // 执行 promise1 的成功回调，并获取返回值
           let x = resolveFn(value);
@@ -52,7 +52,7 @@ class MyPromise {
       this._resolveQueue.push(fulfilledFn);
 
       // reject 的实现同理
-      const rejectedFn = (error) => {
+      const rejectedFn = error => {
         try {
           let x = rejectFn(error);
           x instanceof MyPromise ? x.then(resolve, reject) : resolve(x);

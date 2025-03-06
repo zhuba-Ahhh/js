@@ -15,7 +15,7 @@
 // 方式2：利用Object.defineProperty劫持的方式
 (() => {
   let _a = 1;
-  Object.defineProperty(window, "a", {
+  Object.defineProperty(window, 'a', {
     get() {
       return _a++;
     },
@@ -34,7 +34,7 @@
       get(target) {
         return () => target.i++;
       },
-    },
+    }
   );
 
   console.log(a == 1 && a == 2 && a == 3);
@@ -79,6 +79,6 @@
   };
 
   if (a == 1 && a == 2 && a == 3) {
-    console.log("hello world");
+    console.log('hello world');
   }
 })();

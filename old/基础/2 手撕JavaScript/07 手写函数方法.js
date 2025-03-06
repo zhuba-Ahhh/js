@@ -2,9 +2,9 @@
 
 Function.prototype.myApply = function (thisArg, argArray) {
   // 容错处理
-  if (typeof thisArg === "undefined" || thisArg === null) {
+  if (typeof thisArg === 'undefined' || thisArg === null) {
     thisArg = window;
-  } else if (typeof thisArg !== "function" && typeof thisArg !== "object") {
+  } else if (typeof thisArg !== 'function' && typeof thisArg !== 'object') {
     thisArg = Object(thisArg);
   }
   argArray = argArray ? argArray : [];
@@ -23,9 +23,9 @@ Function.prototype.myApply = function (thisArg, argArray) {
 
 Function.prototype.myCall = function (thisArg, ...args) {
   // 容错处理
-  if (typeof thisArg === "undefined" || thisArg === null) {
+  if (typeof thisArg === 'undefined' || thisArg === null) {
     thisArg = window;
-  } else if (typeof thisArg !== "function" && typeof thisArg !== "object") {
+  } else if (typeof thisArg !== 'function' && typeof thisArg !== 'object') {
     thisArg = Object(thisArg);
   }
   // 创建一个独一无二的键，防止原有的键被覆盖
@@ -58,23 +58,23 @@ function test(a, b, c) {
 }
 
 const obj = {
-  name: "obj",
+  name: 'obj',
 };
 
 test.apply(obj, [1, 2, 3]); // obj 3 2 1
 test.myApply(obj, [1, 2, 3]); // obj 3 2 1
-test.apply("Dasen", [4, 5, 6]); // String ('Dasen') 6 5 4
-test.myApply("Dasen", [4, 5, 6]); // String ('Dasen') 6 5 4
+test.apply('Dasen', [4, 5, 6]); // String ('Dasen') 6 5 4
+test.myApply('Dasen', [4, 5, 6]); // String ('Dasen') 6 5 4
 
 test.call(obj, 1, 2, 3); // obj 3 2 1
 test.myCall(obj, 1, 2, 3); // obj 3 2 1
-test.call("Dasen", 4, 5, 6); // String ('Dasen') 6 5 4
-test.myCall("Dasen", 4, 5, 6); // String ('Dasen') 6 5 4
+test.call('Dasen', 4, 5, 6); // String ('Dasen') 6 5 4
+test.myCall('Dasen', 4, 5, 6); // String ('Dasen') 6 5 4
 
 const newTest1 = test.bind(obj, 1, 2);
 const newTest2 = test.myBind(obj, 1, 2);
-const newTest3 = test.bind("Dasen", 4, 5);
-const newTest4 = test.myBind("Dasen", 4, 5);
+const newTest3 = test.bind('Dasen', 4, 5);
+const newTest4 = test.myBind('Dasen', 4, 5);
 newTest1(3); // obj 3 2 1
 newTest2(3); // obj 3 2 1
 newTest3(6); // String ('Dasen') 6 5 4

@@ -8,15 +8,15 @@
 // 而 JavaScript 又无法实现真正的阻塞主线程的 sleep 函数，因此只能实现阻塞异步函数的 sleep函数
 
 async function sleep(time) {
-  await new Promise((resolve) => setTimeout(resolve, time * 1000));
+  await new Promise(resolve => setTimeout(resolve, time * 1000));
 }
 
 async function test() {
-  console.log("111");
+  console.log('111');
   await sleep(1); // sleep 1秒
-  console.log("222");
+  console.log('222');
   await sleep(2); // sleep 2秒
-  console.log("333");
+  console.log('333');
 }
 
 test();

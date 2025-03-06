@@ -25,7 +25,7 @@ function find1(arr) {
 console.log(find1(arr));
 
 function sleep(tiem) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       return resolve();
     }, tiem);
@@ -35,6 +35,6 @@ let D = Date.now();
 async function p() {
   await sleep(1000);
   console.log();
-  console.log(Date.now() - D, "ms...", 1);
+  console.log(Date.now() - D, 'ms...', 1);
 }
 p();

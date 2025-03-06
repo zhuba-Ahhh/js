@@ -11,7 +11,7 @@ function createThunkMiddleware(extraArument) {
     return function (next) {
       return function (action) {
         //如果 action 是函数，就传入 dispatch 和 getSate 作为参数执行
-        if (typeof action === "function") {
+        if (typeof action === 'function') {
           return action(dispatch, getState, extraArument);
         }
         //否则传给下一个中间件

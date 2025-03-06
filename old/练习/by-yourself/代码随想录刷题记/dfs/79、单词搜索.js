@@ -47,4 +47,4 @@ var exist = function (board, word) {
   return res;
 };
 
-console.log(exist([["a", "a"]], "aaa"));
+console.log(exist([['a', 'a']], 'aaa'));

@@ -1,5 +1,5 @@
 const jzsp = {
-  name: "wjj",
+  name: 'wjj',
 };
 
 // 原型式继承就是通过改变原型来实现继承的方法

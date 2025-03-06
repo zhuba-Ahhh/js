@@ -7,9 +7,9 @@
 // 1 实现 getValue 函数来读取对象路径上的值
 
 const getValue = function (obj, query) {
-  if (query === "" || query === undefined) return obj;
-  if (typeof query === "string") {
-    query = query.split(".");
+  if (query === '' || query === undefined) return obj;
+  if (typeof query === 'string') {
+    query = query.split('.');
   }
   if (query.length === 1) {
     return obj[query.shift()];
@@ -26,13 +26,13 @@ const getValue = function (obj, query) {
 
 const setValue = function (obj, query, val) {
   let t = obj;
-  const rawp = query.split(".");
+  const rawp = query.split('.');
   const properties = rawp.slice(0, -1);
   for (const p of properties) {
     if (t === null || t === undefined) return false;
     t = obj[p];
   }
-  if (typeof t !== "object") return false;
+  if (typeof t !== 'object') return false;
   t[rawp[rawp.length - 1]] = val;
   return true;
 };
@@ -40,26 +40,26 @@ const setValue = function (obj, query, val) {
 // 3 测试
 
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
   bestFriend: {
-    name: "Tiantian",
+    name: 'Tiantian',
     age: 22,
-    homeTown: ["Hubei", "Huanggang"],
+    homeTown: ['Hubei', 'Huanggang'],
   },
 };
 
 console.log(getValue(obj)); // {name: 'Dasen', age: 23, bestFriend: {…}}
-console.log(getValue(obj, "")); // {name: 'Dasen', age: 23, bestFriend: {…}}
-console.log(getValue(obj, "name")); // Dasen
-console.log(getValue(obj, "age")); // 23
-console.log(getValue(obj, "gender")); // undefined
-console.log(getValue(obj, "gender.type")); // undefined
-console.log(getValue(obj, "bestFriend.name")); // Tiantian
-console.log(getValue(obj, "bestFriend.gender")); // undefined
-console.log(getValue(obj, "bestFriend.homeTown")); // ['Hubei', 'Huanggang']
-console.log(getValue(obj, "bestFriend.homeTown.1")); // Huanggang
+console.log(getValue(obj, '')); // {name: 'Dasen', age: 23, bestFriend: {…}}
+console.log(getValue(obj, 'name')); // Dasen
+console.log(getValue(obj, 'age')); // 23
+console.log(getValue(obj, 'gender')); // undefined
+console.log(getValue(obj, 'gender.type')); // undefined
+console.log(getValue(obj, 'bestFriend.name')); // Tiantian
+console.log(getValue(obj, 'bestFriend.gender')); // undefined
+console.log(getValue(obj, 'bestFriend.homeTown')); // ['Hubei', 'Huanggang']
+console.log(getValue(obj, 'bestFriend.homeTown.1')); // Huanggang
 
-setValue(obj, "name", "Dasen Sun");
-setValue(obj, "bestFriend.age", 23);
+setValue(obj, 'name', 'Dasen Sun');
+setValue(obj, 'bestFriend.age', 23);
 console.log(obj); // {name: 'Dasen Sun', age: 23, bestFriend: {name: 'Tiantian', age: 23, homeTown: Array(2)}}

@@ -2,8 +2,8 @@ const myFlat = (arr, n) => {
   if (n < 1) return arr;
 
   const res = [];
-  const res1 = arr.reduce((item) =>
-    Array.isArray(item) ? myFlat(item, n - 1) : item,
+  const res1 = arr.reduce(item =>
+    Array.isArray(item) ? myFlat(item, n - 1) : item
   );
   for (let item of arr) {
     if (Array.isArray(item)) {

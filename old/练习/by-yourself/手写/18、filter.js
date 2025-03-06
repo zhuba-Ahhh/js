@@ -10,4 +10,4 @@ Array.prototype.filter = function (cb) {
   return results;
 };
 
-console.log([1, 2, 3].filter((i) => i === 1));
+console.log([1, 2, 3].filter(i => i === 1));

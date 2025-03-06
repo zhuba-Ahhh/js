@@ -1,8 +1,8 @@
 function versionCompare(version1, version2) {
   let change = function (version) {
-    let v = version.split(".");
-    v[0] += ".";
-    return parseFloat(v.join(""));
+    let v = version.split('.');
+    v[0] += '.';
+    return parseFloat(v.join(''));
   };
 
   // let v1 = version1.split(".");

@@ -9,7 +9,7 @@ console.log(iterator.next());
 
 // 实现
 const Arr = {
-  name: "Arr",
+  name: 'Arr',
   arr: [1, 2, 3, 4],
   [Symbol.iterator]() {
     const arr = this.arr,

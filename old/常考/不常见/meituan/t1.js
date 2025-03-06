@@ -4,7 +4,7 @@
 // input:[-2,3,4,1,5] -> output:2
 
 let nums = [-2, 3, 4, 1, 5];
-let findMaxValue = (arr) => {
+let findMaxValue = arr => {
   const n = arr.length;
 
   for (let i = 0; i < n; i++) {

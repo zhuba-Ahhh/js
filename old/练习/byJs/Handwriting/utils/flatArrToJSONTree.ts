@@ -7,7 +7,7 @@ type JSONItem<T> = {
 };
 const flatArrToJSONTree = <T, V>(
   arr: Array<JSONItem<T>>,
-  rootId: V,
+  rootId: V
 ): Array<any> => {
   const result: Array<JSONItem<T>> = [];
   // 建立 id - value 的映射
@@ -29,12 +29,12 @@ const flatArrToJSONTree = <T, V>(
 
 //test
 let flatArr = [
-  { id: 1, title: "title1", parent_id: 0 },
-  { id: 2, title: "title2", parent_id: 0 },
-  { id: 3, title: "title2-1", parent_id: 2 },
-  { id: 4, title: "title3-1", parent_id: 3 },
-  { id: 5, title: "title4-1", parent_id: 4 },
-  { id: 6, title: "title3-2", parent_id: 3 },
+  { id: 1, title: 'title1', parent_id: 0 },
+  { id: 2, title: 'title2', parent_id: 0 },
+  { id: 3, title: 'title2-1', parent_id: 2 },
+  { id: 4, title: 'title3-1', parent_id: 3 },
+  { id: 5, title: 'title4-1', parent_id: 4 },
+  { id: 6, title: 'title3-2', parent_id: 3 },
 ];
 console.log(flatArrToJSONTree(flatArr, 0));
 /* 

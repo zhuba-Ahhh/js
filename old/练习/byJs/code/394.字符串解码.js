@@ -11,13 +11,13 @@
  */
 var decodeString = function (s) {
   let stk = [],
-    res = "",
+    res = '',
     mult = 0;
   for (let c of s) {
-    if (c === "[") {
+    if (c === '[') {
       stk.push([mult, res]);
-      [mult, res] = [0, ""];
-    } else if (c === "]") {
+      [mult, res] = [0, ''];
+    } else if (c === ']') {
       const [tmult, lastStr] = stk.pop();
       res = lastStr + res.repeat(tmult);
     } else if (!isNaN(c)) {

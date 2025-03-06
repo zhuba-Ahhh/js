@@ -13,7 +13,7 @@ var minAddToMakeValid = function (s) {
   let cnt = 0,
     left = 0; //未使用的左括号数
   for (const c of s) {
-    left -= c === ")" ? 1 : -1;
+    left -= c === ')' ? 1 : -1;
     if (left < 0) {
       cnt++, left++;
     }

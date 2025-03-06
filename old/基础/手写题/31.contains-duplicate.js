@@ -26,7 +26,7 @@
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
 
-const containsDuplicate1 = (nums) => {
+const containsDuplicate1 = nums => {
   const cacheMap = {};
 
   for (const num of nums) {
@@ -40,7 +40,7 @@ const containsDuplicate1 = (nums) => {
   return Object.keys(cacheMap).length < nums.length;
 };
 
-const containsDuplicate2 = (nums) => {
+const containsDuplicate2 = nums => {
   nums.sort((a, b) => a - b);
 
   const len = nums.length;

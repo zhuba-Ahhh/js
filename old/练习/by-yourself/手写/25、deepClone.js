@@ -4,7 +4,7 @@
 // 处理symbol
 // 处理循环引用
 function isObject(raw) {
-  return typeof raw === "object" && raw !== null;
+  return typeof raw === 'object' && raw !== null;
 }
 function deepClone(raw, map = new Map()) {
   if (!isObject(raw)) return raw;
@@ -19,14 +19,14 @@ function deepClone(raw, map = new Map()) {
   map.set(raw, res);
   const keys = Object.keys(raw);
 
-  keys.forEach((key) => {
+  keys.forEach(key => {
     const value = raw[key];
     res[key] = !isObject(value) ? value : deepClone(value, map);
   });
 
   // 处理symbol
   const symbolKeys = Object.getOwnPropertySymbols(raw);
-  symbolKeys.forEach((key) => {
+  symbolKeys.forEach(key => {
     const value = raw[key];
     res[key] = !isObject(value) ? value : deepClone(value, map);
   });

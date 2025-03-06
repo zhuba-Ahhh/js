@@ -9,10 +9,10 @@ let arr = new Array(1, 2, 3); // 创建数组[1,2,3]
 
 // 2 数组静态方法
 
-let arr1 = Array.from("string");
+let arr1 = Array.from('string');
 console.log(arr1); // ['s', 't', 'r', 'i', 'n', 'g']
 let arr2 = Array.from({
-  0: "Dasen",
+  0: 'Dasen',
   1: 22,
   length: 2,
 });
@@ -22,15 +22,15 @@ console.log(arr3); // [1, 2, 3, 4, 5]
 console.log(Array.isArray(arr2)); // true
 console.log(
   Array.isArray({
-    0: "Dasen",
+    0: 'Dasen',
     1: 22,
     length: 2,
-  }),
+  })
 ); // false
 
 // 3 迭代器方法
 
-let arr = ["red", "blue", "yellow"];
+let arr = ['red', 'blue', 'yellow'];
 let iter = arr.values();
 console.log(iter.next()); // {value: 'red', done: false}
 console.log(iter.next()); // {value: 'blue', done: false}
@@ -71,12 +71,12 @@ console.log(arr); // [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log(arr.toString()); // 1,2,3,4,5,6,7,8,9
-console.log(arr.join(",")); // 1,2,3,4,5,6,7,8,9
-console.log(arr.join(" ")); // 1 2 3 4 5 6 7 8 9
+console.log(arr.join(',')); // 1,2,3,4,5,6,7,8,9
+console.log(arr.join(' ')); // 1 2 3 4 5 6 7 8 9
 
 // 6 排序方法
 
-let arr = ["1", "2", "11", "12"];
+let arr = ['1', '2', '11', '12'];
 arr.reverse();
 console.log(arr); // ['12', '11', '2', '1']
 arr.sort();
@@ -115,18 +115,18 @@ console.log(arr.findIndex(find2)); // 5
 
 // 8 迭代方法
 
-let arr1 = [1, "a", 2, "b", 3, "c"];
+let arr1 = [1, 'a', 2, 'b', 3, 'c'];
 let arr2 = [1, 2, 3, 4, 5, 6];
-console.log(arr1.every((val) => typeof val === "number")); // false
-console.log(arr2.every((val) => typeof val === "number")); // true
-console.log(arr1.some((val) => typeof val === "string")); // true
-console.log(arr2.some((val) => typeof val === "string")); // false
-console.log(arr1.filter((val) => typeof val === "number")); // [1, 2, 3]
-console.log(arr1.filter((val) => typeof val === "string")); // ['a', 'b', 'c']
+console.log(arr1.every(val => typeof val === 'number')); // false
+console.log(arr2.every(val => typeof val === 'number')); // true
+console.log(arr1.some(val => typeof val === 'string')); // true
+console.log(arr2.some(val => typeof val === 'string')); // false
+console.log(arr1.filter(val => typeof val === 'number')); // [1, 2, 3]
+console.log(arr1.filter(val => typeof val === 'string')); // ['a', 'b', 'c']
 let sum = 0;
-arr2.forEach((val) => (sum += val));
+arr2.forEach(val => (sum += val));
 console.log(sum); // 21
-console.log(arr2.map((val) => val.toString())); // ['1', '2', '3', '4', '5', '6']
+console.log(arr2.map(val => val.toString())); // ['1', '2', '3', '4', '5', '6']
 
 // 9 归并方法
 
@@ -164,15 +164,15 @@ console.log(arr); // [0, 1, 1]
 // 10 其他方法
 
 // concat
-let colors = ["red", "green", "blue"];
-let colors2 = colors.concat("yellow", ["black", "brown"]);
+let colors = ['red', 'green', 'blue'];
+let colors2 = colors.concat('yellow', ['black', 'brown']);
 console.log(colors); // ["red", "green", "blue"]
 console.log(colors2); // ["red", "green", "blue", "yellow", "black", "brown"]
 
 // 阻止concat打平数组
-let colors = ["red", "green", "blue"];
-let colors2 = ["black", "brown"];
-let colors3 = ["black", "brown"];
+let colors = ['red', 'green', 'blue'];
+let colors2 = ['black', 'brown'];
+let colors3 = ['black', 'brown'];
 colors3[Symbol.isConcatSpreadable] = false;
 console.log(colors.concat(colors2)); // ['red', 'green', 'blue', 'black', 'brown']
 console.log(colors.concat(colors3)); // ['red', 'green', 'blue', Array(2)]
@@ -204,17 +204,17 @@ let m = new Map();
 
 // 创建一个映射，由键值对的数组给出初始值
 let m = new Map([
-  ["key1", "val1"],
-  ["key2", "val2"],
-  ["key3", "val3"],
+  ['key1', 'val1'],
+  ['key2', 'val2'],
+  ['key3', 'val3'],
 ]);
 
 // 创建一个映射，由可迭代对象创建
 let m = new Map({
   *[Symbol.iterator]() {
-    yield ["key1", "val1"];
-    yield ["key2", "val2"];
-    yield ["key3", "val3"];
+    yield ['key1', 'val1'];
+    yield ['key2', 'val2'];
+    yield ['key3', 'val3'];
   },
 });
 
@@ -222,12 +222,12 @@ let m = new Map({
 
 let m = new Map();
 console.log(m); // Map(0)
-m.set("name", "Dasen").set("age", 22); // 连缀使用set
+m.set('name', 'Dasen').set('age', 22); // 连缀使用set
 console.log(m); // Map(2) {name => Dasen, age => 22}
-console.log(m.get("name")); // Dasen
-console.log(m.has("age")); // true
-m.delete("age");
-console.log(m.has("age")); // false
+console.log(m.get('name')); // Dasen
+console.log(m.has('age')); // true
+m.delete('age');
+console.log(m.has('age')); // false
 console.log(m.size); // 1
 m.clear();
 console.log(m); // Map(0)
@@ -235,9 +235,9 @@ console.log(m); // Map(0)
 // 3 迭代器方法
 
 let m = new Map([
-  ["key1", "val1"],
-  ["key2", "val2"],
-  ["key3", "val3"],
+  ['key1', 'val1'],
+  ['key2', 'val2'],
+  ['key3', 'val3'],
 ]);
 let valIter = m.values();
 console.log(valIter.next()); // {value: 'val1', done: false}
@@ -251,12 +251,12 @@ for (const key of m.keys()) {
 // key2
 // key3
 for (const [key, val] of m) {
-  console.log(key, ":", val);
+  console.log(key, ':', val);
 }
 // key1 : val1
 // key2 : val2
 // key3 : val3
-m.forEach((val, key) => console.log(key, ":", val));
+m.forEach((val, key) => console.log(key, ':', val));
 // key1 : val1
 // key2 : val2
 // key3 : val3
@@ -281,10 +281,10 @@ let User = (() => {
       return privateProperty[property];
     }
     setId(id) {
-      this.setPrivate("id", id);
+      this.setPrivate('id', id);
     }
     getId() {
-      return this.getPrivate("id");
+      return this.getPrivate('id');
     }
   }
   return User;

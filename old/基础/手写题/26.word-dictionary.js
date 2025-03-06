@@ -63,9 +63,9 @@ WordDictionary.prototype.search = function (word) {
     return false;
   }
 
-  if (word.includes(".")) {
+  if (word.includes('.')) {
     const wordReg = new RegExp(word);
-    return this.wordMap[len].some((it) => wordReg.test(it));
+    return this.wordMap[len].some(it => wordReg.test(it));
   } else {
     return this.wordMap[len].includes(word);
   }

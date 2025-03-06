@@ -7,7 +7,7 @@
 // 当一个对象被传递给 fill方法的时候, 填充数组的是这个对象的引用。
 Array.prototype.my_fill = function (value, start = 0, end) {
   if (this == undefined) {
-    throw TypeError("this is null or undefined");
+    throw TypeError('this is null or undefined');
   }
   end = end || this.length;
   if (start < 0) {
@@ -25,16 +25,16 @@ Array.prototype.my_fill = function (value, start = 0, end) {
   }
   return this; //直接返回，会改变对象
 };
-let arr = ["a", "a", "a"];
+let arr = ['a', 'a', 'a'];
 console.log(arr.my_fill([1, 2, 3], 4));
 // join() 方法将数组作为字符串返回。
 
 // 元素将由指定的分隔符分隔。默认分隔符是逗号 (,)
-Array.prototype.my_join = function (value = ",") {
+Array.prototype.my_join = function (value = ',') {
   if (this == undefined) {
-    throw TypeError("this is null or undefined");
+    throw TypeError('this is null or undefined');
   }
-  let str = "";
+  let str = '';
   for (let i = 0; i < this.length; i++) {
     str += this[i];
     if (i != this.length - 1) {
@@ -47,4 +47,4 @@ Array.prototype.my_join = function (value = ",") {
 };
 
 let str = [1, 1, 1, 1];
-console.log(str.my_join("l"));
+console.log(str.my_join('l'));

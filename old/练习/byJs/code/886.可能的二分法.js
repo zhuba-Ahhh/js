@@ -13,7 +13,7 @@
 var possibleBipartition = function (n, dislikes) {
   const fa = new Array(n + 1).fill(0); //并查集
   for (let i = 0; i <= n; i++) fa[i] = i;
-  const find = (x) => (x === fa[x] ? x : (fa[x] = find(fa[x])));
+  const find = x => (x === fa[x] ? x : (fa[x] = find(fa[x])));
   const merge = (i, j) => {
     const x = find(i),
       y = find(j);

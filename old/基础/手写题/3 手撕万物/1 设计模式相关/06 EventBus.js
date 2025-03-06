@@ -10,7 +10,7 @@ const EventBus = {
   },
   emit(event, ...args) {
     if (this.subs[event]) {
-      this.subs[event].forEach((fn) => fn(...args));
+      this.subs[event].forEach(fn => fn(...args));
     }
   },
   once(event, fn) {
@@ -30,15 +30,15 @@ const EventBus = {
 
 // 测试
 
-EventBus.on("hello", (name) => console.log("hello", name));
-EventBus.emit("hello", "dasen"); // hello dasen
+EventBus.on('hello', name => console.log('hello', name));
+EventBus.emit('hello', 'dasen'); // hello dasen
 
-const fn = (name) => console.log("你好", name);
-EventBus.on("你好", fn);
-EventBus.emit("你好", "大森"); // 你好 大森
-EventBus.off("你好", fn);
-EventBus.emit("你好", "大森"); // (无事发生)
+const fn = name => console.log('你好', name);
+EventBus.on('你好', fn);
+EventBus.emit('你好', '大森'); // 你好 大森
+EventBus.off('你好', fn);
+EventBus.emit('你好', '大森'); // (无事发生)
 
-EventBus.once("你好", fn);
-EventBus.emit("你好", "大森"); // 你好 大森
-EventBus.emit("你好", "大森"); // (无事发生)
+EventBus.once('你好', fn);
+EventBus.emit('你好', '大森'); // 你好 大森
+EventBus.emit('你好', '大森'); // (无事发生)

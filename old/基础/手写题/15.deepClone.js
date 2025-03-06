@@ -1,5 +1,5 @@
 const deepClone = (target, cache = new Map()) => {
-  const isObject = (obj) => typeof obj === "object" && obj !== null;
+  const isObject = obj => typeof obj === 'object' && obj !== null;
 
   if (isObject(target)) {
     // 解决循环引用
@@ -25,7 +25,7 @@ const deepClone = (target, cache = new Map()) => {
 };
 
 const deepClone2 = (target, cache = new Map()) => {
-  const isObject = (obj) => typeof obj === "object" && obj !== null;
+  const isObject = obj => typeof obj === 'object' && obj !== null;
   const forEach = (array, cb) => {
     const leng = array.length;
     let i = -1;
@@ -47,7 +47,7 @@ const deepClone2 = (target, cache = new Map()) => {
 
     cache.set(target, cloneTarget);
 
-    forEach(keys, (key) => {
+    forEach(keys, key => {
       const value = target[key];
       cloneTarget[key] = isObject(value) ? deepClone2(value, cache) : value;
     });
@@ -62,7 +62,7 @@ const target = {
   field1: 1,
   field2: undefined,
   field3: {
-    child: "child",
+    child: 'child',
   },
   field4: [2, 4, 8],
   f: {

@@ -1,6 +1,6 @@
 const storage = {
-  prefix: "fatFish",
-  timeSign: "|fatFish|",
+  prefix: 'fatFish',
+  timeSign: '|fatFish|',
   setItem(key, value, time) {
     // 做一个key的保护
     key = `${this.prefix}${key}`;
@@ -11,7 +11,7 @@ const storage = {
     // 构造一个形如 1646094676134|fatFish|"前端胖头鱼" 结构的字符串
     window.localStorage.setItem(
       key,
-      `${time}${this.timeSign}${JSON.stringify(value)}`,
+      `${time}${this.timeSign}${JSON.stringify(value)}`
     );
   },
   getItem(key) {

@@ -3,4 +3,4 @@
 // 然后判断T是否在其中即可
 type Includes<A extends unknown[], T> = T extends A[number] ? true : false;
 
-type isPillarMen = Includes<["Kars", "Esidisi", "Wamuu", "Santana"], "Dio">; // expected to be `false`
+type isPillarMen = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'>; // expected to be `false`

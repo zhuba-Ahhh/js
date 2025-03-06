@@ -27,7 +27,7 @@ function getData(url) {
   let promise = new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
     //新建一个http请求
-    xhr.open("GET", url, true);
+    xhr.open('GET', url, true);
     //设置xhr
     xhr.onreadystatechange = function () {
       if (this.readyState !== 4) return;
@@ -42,9 +42,9 @@ function getData(url) {
     xhr.onerror = function () {
       reject(new Error(this.statusText));
     };
-    xhr.responseType = "json";
+    xhr.responseType = 'json';
 
-    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader('Accept', 'application/json');
 
     xhr.send(null);
   });

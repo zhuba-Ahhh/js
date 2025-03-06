@@ -18,8 +18,8 @@ function once<T>(f: (...args: any) => T): (...args: any) => T {
 
 //test
 const test = (a: number) => {
-  console.log("a:", a);
-  console.log("c");
+  console.log('a:', a);
+  console.log('c');
   return a;
 };
 

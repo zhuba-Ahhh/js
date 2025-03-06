@@ -32,7 +32,7 @@ var reverseKGroup = function (head, k) {
   }
   return hair.next;
 };
-const getListLength = (head) => {
+const getListLength = head => {
   let cur = head;
   let i = 0;
   while (cur) {

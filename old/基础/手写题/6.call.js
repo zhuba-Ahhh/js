@@ -7,12 +7,12 @@
  */
 Function.prototype.myCall = function (ctx, ...args) {
   if (!ctx) {
-    ctx = typeof window !== "undefined" ? window : global;
+    ctx = typeof window !== 'undefined' ? window : global;
   }
   // 暴露处理 ctx有可能传非对象
   ctx = Object(ctx);
 
-  const fnName = Symbol("key");
+  const fnName = Symbol('key');
 
   ctx[fnName] = this;
 
@@ -27,5 +27,5 @@ let fn = function (name, sex) {
   console.log(this, name, sex);
 };
 
-fn.myCall("", "前端胖头鱼", "boy"),
-  fn.myCall({ name: "前端胖头鱼", sex: "boy" }, "前端胖头鱼", "boy");
+fn.myCall('', '前端胖头鱼', 'boy'),
+  fn.myCall({ name: '前端胖头鱼', sex: 'boy' }, '前端胖头鱼', 'boy');

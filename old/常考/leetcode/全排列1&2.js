@@ -4,7 +4,7 @@
  * @return {number[][]}
  * TC:O(2^n)   SC:O(n)
  */
-const permute = (nums) => {
+const permute = nums => {
   const res = [],
     l = nums.length;
 
@@ -32,7 +32,7 @@ const permute = (nums) => {
  * @param {number[]} nums
  * @return {number[][]} TC:O(2^n)   SC:O(n)
  */
-const permuteUnique = (nums) => {
+const permuteUnique = nums => {
   nums.sort((a, b) => a - b);
   const res = [],
     l = nums.length;
@@ -58,12 +58,12 @@ const permuteUnique = (nums) => {
 // 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 function permute1(nums) {
   const res = [];
-  const backtrack = (path) => {
+  const backtrack = path => {
     if (path.length === nums.length) {
       res.push(path);
       return;
     }
-    nums.forEach((n) => {
+    nums.forEach(n => {
       if (path.includes(n)) return;
       backtrack(path.concat(n));
     });
@@ -72,7 +72,7 @@ function permute1(nums) {
   return res;
 }
 
-console.log("permute1", permute1([5, 1, 2, 4, 1]));
+console.log('permute1', permute1([5, 1, 2, 4, 1]));
 // 给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
 function permuteUnique1(nums) {
   const res = [];
@@ -92,4 +92,4 @@ function permuteUnique1(nums) {
   backtrack([], []);
   return res;
 }
-console.log("permuteUnique1", permuteUnique1([5, 1, 2, 4, 1]));
+console.log('permuteUnique1', permuteUnique1([5, 1, 2, 4, 1]));

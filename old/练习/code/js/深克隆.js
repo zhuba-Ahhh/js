@@ -13,7 +13,7 @@
 // }
 
 function isObject(val) {
-  return typeof val === "object" && val !== null;
+  return typeof val === 'object' && val !== null;
 }
 
 function deepClone(obj, hash = new WeakMap()) {
@@ -23,7 +23,7 @@ function deepClone(obj, hash = new WeakMap()) {
   }
   let target = Array.isArray(obj) ? [] : {};
   hash.set(obj, target);
-  Reflect.ownKeys(obj).forEach((item) => {
+  Reflect.ownKeys(obj).forEach(item => {
     if (isObject(obj[item])) {
       target[item] = deepClone(obj[item], hash);
     } else {

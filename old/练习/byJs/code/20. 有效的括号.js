@@ -5,9 +5,9 @@
 var isValid = function (s) {
   const stk = []; //数组模拟栈
   const mp = new Map(); ////对应括号映射
-  mp["("] = ")";
-  mp["{"] = "}";
-  mp["["] = "]";
+  mp['('] = ')';
+  mp['{'] = '}';
+  mp['['] = ']';
   for (let c of s) {
     //拿到左括号
     // if(['(','[','{'].indexOf(c) != -1){

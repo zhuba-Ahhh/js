@@ -8,7 +8,7 @@ var add = function (a, b) {
     a = a ^ b;
     // 将要进位的内容向左移动，重新进行异或相加
     b = carry << 1;
-    console.log("a,b", a, b);
+    console.log('a,b', a, b);
   }
   return a;
 };

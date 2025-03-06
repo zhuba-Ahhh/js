@@ -14,7 +14,7 @@ var letterCasePermutation = function (s) {
   const dfs = (arr, idx) => {
     while (idx < arr.length && !isLetter(arr[idx])) idx++;
     if (idx === arr.length) {
-      ans.push(arr.join(""));
+      ans.push(arr.join(''));
       return;
     }
     dfs(arr, idx + 1, ans);
@@ -24,8 +24,8 @@ var letterCasePermutation = function (s) {
   dfs([...s], 0, ans);
   return ans;
 };
-const isLetter = (ch) => {
-  return ("a" <= ch && ch <= "z") || ("A" <= ch && ch <= "Z");
+const isLetter = ch => {
+  return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
 };
 
 // @lc code=end

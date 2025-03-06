@@ -4,16 +4,16 @@
 
 // var声明
 console.log(a); // undefined
-var a = "aaa";
+var a = 'aaa';
 console.log(a); // aaa
-var a = "bbb";
+var a = 'bbb';
 console.log(a); // bbb
 console.log(this.a); // bbb
 
 // let声明作用域为块作用域
 if (true) {
-  var a = "aaa";
-  let b = "bbb";
+  var a = 'aaa';
+  let b = 'bbb';
   console.log(a); // aaa
   console.log(b); // bbb
 }
@@ -50,7 +50,7 @@ console.log(b); // ReferenceError: b is not defined
 function x2Tag(strings, ...expressions) {
   console.log(strings); // ['', ' + ', ' = ', '']
   console.log(expressions); // [1, 2, 3]
-  let e = expressions.map((val) => val * 2);
+  let e = expressions.map(val => val * 2);
   let r = strings[0];
   for (let i = 0; i < e.length; ++i) {
     r += e[i] + strings[i + 1];
@@ -71,15 +71,15 @@ console.log(s2); // \n\t\u00A9
 // 独一无二的符号
 let sym1 = Symbol();
 let sym2 = Symbol();
-let sym3 = Symbol("sym");
-let sym4 = Symbol("sym");
+let sym3 = Symbol('sym');
+let sym4 = Symbol('sym');
 console.log(sym1 === sym2); // false
 console.log(sym3 === sym4); // false
 
 // 全局符号注册表
-let aSym1 = Symbol.for("a");
-let aSym2 = Symbol.for("a");
-let bSym = Symbol.for("b");
+let aSym1 = Symbol.for('a');
+let aSym2 = Symbol.for('a');
+let bSym = Symbol.for('b');
 console.log(aSym1 === aSym2); // true
 console.log(aSym1 === bSym); // false
 console.log(Symbol.keyFor(aSym1)); // a
@@ -87,13 +87,13 @@ console.log(Symbol.keyFor(aSym2)); // a
 console.log(Symbol.keyFor(bSym)); // b
 
 // 符号作为属性名
-let aSym = Symbol("a");
-let bSym = Symbol("b");
+let aSym = Symbol('a');
+let bSym = Symbol('b');
 let obj = {
-  [aSym]: "a val",
-  [bSym]: "b val",
-  a: "aaa",
-  b: "bbb",
+  [aSym]: 'a val',
+  [bSym]: 'b val',
+  a: 'aaa',
+  b: 'bbb',
 };
 console.log(Object.getOwnPropertyNames(obj)); // ['a', 'b']
 console.log(Object.getOwnPropertySymbols(obj)); // [Symbol(a), Symbol(b)]
@@ -150,13 +150,13 @@ aloop: for (let i = 0; i < 3; i++) {
 // 2 with语句
 
 let obj = {
-  name: "obj",
-  a: "aaa",
+  name: 'obj',
+  a: 'aaa',
 };
 with (obj) {
   let aaa = a;
   console.log(aaa); // aaa
   console.log(name); // obj
-  name = "ooo";
+  name = 'ooo';
   console.log(name); // ooo
 }

@@ -1,7 +1,7 @@
 /* 深比较 */
 function deepEqual(x, y) {
   if (x === y) return true;
-  else if (typeof x === "object" && typeof y === "object") {
+  else if (typeof x === 'object' && typeof y === 'object') {
     if (x === null || y === null) return false;
     const keyX = Object.keys(x);
     const keyY = Object.keys(y);

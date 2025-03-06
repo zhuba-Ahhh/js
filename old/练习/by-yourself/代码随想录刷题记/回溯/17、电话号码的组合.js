@@ -4,9 +4,9 @@
 var letterCombinations = function (digits) {
   if (digits.length === 0) return [];
   // 2-9对应的字母
-  const map = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+  const map = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
   const res = [];
-  function dfs(current = 0, cache = "") {
+  function dfs(current = 0, cache = '') {
     if (current === digits.length) {
       res.push(cache);
       return;

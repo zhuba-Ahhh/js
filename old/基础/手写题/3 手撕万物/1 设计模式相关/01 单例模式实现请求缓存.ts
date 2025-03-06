@@ -1,5 +1,5 @@
 // api 为接口函数（异步），接受请求的 url 作为参数，返回收到的响应
-import api from "./utils";
+import api from './utils';
 
 // 全局唯一的单例缓存
 const cache: Record<string, string> = {};

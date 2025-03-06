@@ -11,7 +11,7 @@ const sum = (...args) => {
 };
 
 //test
-const clog = (v) => void console.log(v);
+const clog = v => void console.log(v);
 clog(sum(1, 2, 3).valueOf()); //6
 clog(sum(2, 3)(2).valueOf()); //7
 clog(sum(1)(2)(3)(4).valueOf()); //10

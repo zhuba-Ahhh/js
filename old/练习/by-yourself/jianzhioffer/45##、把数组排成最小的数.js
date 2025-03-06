@@ -4,5 +4,5 @@ var minNumber = function (nums) {
     if (`${a}${b}` > `${b}${a}`) return 1;
     return -1;
   });
-  return nums.join("");
+  return nums.join('');
 };

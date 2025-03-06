@@ -28,7 +28,7 @@ const debounce = (fn, delay = 1000) => {
 };
 
 //test
-const test = () => void console.log("test");
+const test = () => void console.log('test');
 const debouncedTest = debounce(test);
 debouncedTest(11, 11); //这里会触发
 //中间这三个不会触发

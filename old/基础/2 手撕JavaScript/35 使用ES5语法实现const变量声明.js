@@ -16,7 +16,7 @@ var __const = function __const(data, value) {
     set: function (data) {
       if (data !== value) {
         // 当要对当前属性进行赋值时，则抛出错误
-        throw new TypeError("Assignment to constant variable.");
+        throw new TypeError('Assignment to constant variable.');
       } else {
         return value;
       }
@@ -24,7 +24,7 @@ var __const = function __const(data, value) {
   });
 };
 
-__const("a", 10);
+__const('a', 10);
 console.log(a);
 delete a;
 console.log(a);

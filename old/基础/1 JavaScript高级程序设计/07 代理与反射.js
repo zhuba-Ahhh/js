@@ -4,7 +4,7 @@
 
 // 创建一个对象 obj 和它的代理 proxy
 let obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 22,
   girlfriend: null,
 };
@@ -20,8 +20,8 @@ console.log(obj.age); // 20
 obj.age += 2;
 console.log(proxy.age); // 22
 // 甚至方法的调用都没有差别
-console.log(obj.hasOwnProperty("girlfriend")); // true
-console.log(proxy.hasOwnProperty("girlfriend")); // true
+console.log(obj.hasOwnProperty('girlfriend')); // true
+console.log(proxy.hasOwnProperty('girlfriend')); // true
 console.log(proxy.girlfriend); // null
 // 相等判断可以区分代理和原对象
 console.log(proxy == obj); // false
@@ -37,14 +37,14 @@ console.log(proxy instanceof Proxy); // TypeError: Function has non-object proto
 
 // 使用捕获器
 let obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 22,
   girlfriend: null,
 };
 let handler = {
   get(tar, property, rec) {
-    if (property === "girlfriend" && tar[property] === null) {
-      return "无可奉告！";
+    if (property === 'girlfriend' && tar[property] === null) {
+      return '无可奉告！';
     } else {
       return Reflect.get(...arguments);
     }
@@ -55,19 +55,19 @@ console.log(proxy.name); // Dasen
 console.log(proxy.age); // 22
 console.log(obj.girlfriend); // null
 console.log(proxy.girlfriend); // 无可奉告！
-obj.girlfriend = "someone";
+obj.girlfriend = 'someone';
 console.log(proxy.girlfriend); // someone
 
 // 捕获器不变式
 let obj = {};
-Object.defineProperty(obj, "a", {
-  value: "aaa",
+Object.defineProperty(obj, 'a', {
+  value: 'aaa',
   configurable: false,
   writable: false,
 });
 let handler = {
   get() {
-    return "bbb";
+    return 'bbb';
   },
 };
 let proxy = new Proxy(obj, handler);
@@ -76,11 +76,11 @@ console.log(proxy.a); // TypeError: 'get' on proxy: ...
 // 3 可撤销代理
 
 let obj = {
-  a: "aaa",
+  a: 'aaa',
 };
 let handler = {
   get() {
-    return "hhh";
+    return 'hhh';
   },
 };
 let { proxy, revoke } = Proxy.revocable(obj, handler);
@@ -93,24 +93,24 @@ console.log(proxy.a); // TypeError: Cannot perform 'get' on a proxy that has bee
 // 与操作对象有关的反射
 let obj = {};
 if (
-  Reflect.defineProperty(obj, "a", {
-    value: "aaa",
+  Reflect.defineProperty(obj, 'a', {
+    value: 'aaa',
   })
 ) {
-  console.log("成功了！");
+  console.log('成功了！');
 } else {
-  console.log("失败了……");
+  console.log('失败了……');
 }
 
 // 5 多层代理
 
 let obj = {
-  name: "",
+  name: '',
 };
 let p1 = new Proxy(obj, {
   // 拦截 set 操作，将写入的值转换为小写
   set(target, property, value, rec) {
-    if (property !== "name") {
+    if (property !== 'name') {
       return Reflect.set(...arguments);
     }
     return Reflect.set(target, property, value.toLowerCase(), rec);
@@ -119,13 +119,13 @@ let p1 = new Proxy(obj, {
 let p2 = new Proxy(p1, {
   // 拦截 set 操作，去掉写入的值的前后空白符
   set(target, property, value, rec) {
-    if (property !== "name") {
+    if (property !== 'name') {
       return Reflect.set(...arguments);
     }
     return Reflect.set(target, property, value.trim(), rec);
   },
 });
-p2.name = "   Dasen   ";
+p2.name = '   Dasen   ';
 console.log(p2.name); // dasen
 
 // 6 代理类
@@ -158,11 +158,11 @@ console.log(proxyUser.id); // 666
 
 // get捕获器监听属性何时被访问
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
 };
 const proxy = new Proxy(obj, {
   get(target, p) {
-    console.log("obj 的属性", p, "被访问了！");
+    console.log('obj 的属性', p, '被访问了！');
     return Reflect.get(...arguments);
   },
 });
@@ -172,14 +172,14 @@ console.log(proxy.name);
 
 // set捕获器实现简单的数据双向绑定
 const obj1 = {
-  val: "",
+  val: '',
 };
 const obj2 = {
-  val: "",
+  val: '',
 };
 const proxy1 = new Proxy(obj1, {
   set(target, p, v) {
-    if (p !== "val") {
+    if (p !== 'val') {
       return Reflect.set(...arguments);
     }
     obj2[p] = v;
@@ -188,25 +188,25 @@ const proxy1 = new Proxy(obj1, {
 });
 const proxy2 = new Proxy(obj2, {
   set(target, p, v) {
-    if (p !== "val") {
+    if (p !== 'val') {
       return Reflect.set(...arguments);
     }
     obj1[p] = v;
     return Reflect.set(...arguments);
   },
 });
-proxy1.val = "val1";
+proxy1.val = 'val1';
 console.log(proxy1.val); // val1
 console.log(proxy2.val); // val1
-proxy2.val = "val2";
+proxy2.val = 'val2';
 console.log(proxy1.val); // val2
 console.log(proxy2.val); // val2
 
 // 2 隐藏属性
 
-const hiddenProperties = ["age", "weight"];
+const hiddenProperties = ['age', 'weight'];
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 22,
   height: 180,
   weight: 135,
@@ -233,19 +233,19 @@ console.log(proxy.weight); // undefined
 // 3 对象属性验证
 
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 22,
   height: 180,
   weight: 135,
 };
 const proxy = new Proxy(obj, {
   set(o, p, v) {
-    if (p === "weight") {
-      if (typeof v !== "number" || v <= 0) {
-        console.log("体重只能是大于0的数字！");
+    if (p === 'weight') {
+      if (typeof v !== 'number' || v <= 0) {
+        console.log('体重只能是大于0的数字！');
         return false;
       } else if (v > 180) {
-        console.log("大森是不可能那么胖的！");
+        console.log('大森是不可能那么胖的！');
         return false;
       }
     }
@@ -256,7 +256,7 @@ proxy.weight = 130;
 console.log(proxy.weight); // 130
 proxy.weight = 185; // 大森是不可能那么胖的！
 console.log(proxy.weight); // 130
-proxy.weight = "135"; // 体重只能是大于0的数字！
+proxy.weight = '135'; // 体重只能是大于0的数字！
 console.log(proxy.weight); // 130
 proxy.weight = -1; // 体重只能是大于0的数字！
 console.log(proxy.weight); // 130
@@ -272,12 +272,12 @@ const proxy = new Proxy(sum, {
   apply(t, thisArg, arg) {
     let arrArg = arg[0];
     if (!Array.isArray(arrArg)) {
-      console.log("要传入一个数组作为参数！");
+      console.log('要传入一个数组作为参数！');
       return undefined;
     }
     for (const i of arrArg) {
-      if (typeof i !== "number") {
-        console.log("数组中的每一个值都应该是数值！");
+      if (typeof i !== 'number') {
+        console.log('数组中的每一个值都应该是数值！');
         return undefined;
       }
     }
@@ -288,7 +288,7 @@ console.log(proxy([1, 2, 3, 4, 5])); // 15
 console.log(proxy(1));
 // 要传入一个数组作为参数！
 // undefined
-console.log(proxy(["1", 2, "3"]));
+console.log(proxy(['1', 2, '3']));
 // 数组中的每一个值都应该是数值！
 // undefined
 
@@ -301,7 +301,7 @@ class User {
 const proxy = new Proxy(User, {
   construct(o, argArr) {
     if (argArr[0] === undefined) {
-      throw "必须要传入UserID！";
+      throw '必须要传入UserID！';
     }
     return Reflect.construct(...arguments);
   },
@@ -315,8 +315,8 @@ const userList = [];
 const watcher = new Proxy(userList, {
   set(target, p, value) {
     const res = Reflect.set(...arguments);
-    if (p !== "length" && res) {
-      console.log("欢迎", value.name, "的加入！");
+    if (p !== 'length' && res) {
+      console.log('欢迎', value.name, '的加入！');
     }
     return res;
   },
@@ -333,6 +333,6 @@ const userProxy = new Proxy(User, {
     return newUser;
   },
 });
-new userProxy("Dasen"); // 欢迎 Dasen 的加入！
-new userProxy("Three"); // 欢迎 Three 的加入！
-new userProxy("Jack"); // 欢迎 Jack 的加入！
+new userProxy('Dasen'); // 欢迎 Dasen 的加入！
+new userProxy('Three'); // 欢迎 Three 的加入！
+new userProxy('Jack'); // 欢迎 Jack 的加入！

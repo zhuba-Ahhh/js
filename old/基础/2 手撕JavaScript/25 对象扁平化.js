@@ -5,12 +5,12 @@
  **************************************************/
 
 const flatObject = function (target, keysPrefix, newObj) {
-  if (!newObj && typeof target !== "object") return target;
+  if (!newObj && typeof target !== 'object') return target;
   const obj = newObj || {};
-  if (typeof target === "object") {
+  if (typeof target === 'object') {
     for (const key in target) {
       let prefix;
-      if (keysPrefix) prefix = keysPrefix + "." + key;
+      if (keysPrefix) prefix = keysPrefix + '.' + key;
       else prefix = key;
       flatObject(target[key], prefix, obj);
     }
@@ -23,12 +23,12 @@ const flatObject = function (target, keysPrefix, newObj) {
 // 测试
 
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
   bestFriend: {
-    name: "Tiantian",
+    name: 'Tiantian',
     age: 22,
-    homeTown: ["Hubei", "Huanggang"],
+    homeTown: ['Hubei', 'Huanggang'],
   },
 };
 console.log(flatObject(obj)); // {name: 'Dasen', age: 23, bestFriend.name: 'Tiantian', bestFriend.age: 22, bestFriend.homeTown.0: 'Hubei', …}

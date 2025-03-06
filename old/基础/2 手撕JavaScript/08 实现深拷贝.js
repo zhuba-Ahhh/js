@@ -8,7 +8,7 @@
 // - 没有考虑循环引用
 
 function clone1(target) {
-  if (typeof target !== "object") return target;
+  if (typeof target !== 'object') return target;
   const obj = {};
   for (const key in target) {
     obj[key] = clone1(target[key]);
@@ -16,12 +16,12 @@ function clone1(target) {
   return obj;
 }
 
-console.log("---------- test1 ----------");
+console.log('---------- test1 ----------');
 const test1 = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
   girlfriend: {
-    name: "???",
+    name: '???',
   },
 };
 const test1Clone = clone1(test1);
@@ -32,9 +32,9 @@ console.log(test1.girlfriend === test1Clone.girlfriend); // false
 // 2 考虑数组、函数、null，函数不拷贝
 
 function clone2(target) {
-  if (typeof target === "function")
+  if (typeof target === 'function')
     return target; // 函数不进行拷贝
-  else if (typeof target === "object") {
+  else if (typeof target === 'object') {
     // 拷贝对象
     if (target === null)
       return null; // null
@@ -56,16 +56,16 @@ function clone2(target) {
   } else return target; // 原始值类型直接返回
 }
 
-console.log("---------- test2 ----------");
+console.log('---------- test2 ----------');
 const test2 = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
   girlfriend: {
-    name: "???",
+    name: '???',
   },
-  hobbies: ["coding", "cube", "sleep"],
+  hobbies: ['coding', 'cube', 'sleep'],
   sayHello() {
-    console.log("Hello, I am", this.name + ".");
+    console.log('Hello, I am', this.name + '.');
   },
 };
 const test2Clone = clone2(test2);
@@ -80,9 +80,9 @@ test2Clone.sayHello();
 // 3 考虑循环引用
 
 function clone3(target, map = new Map()) {
-  if (typeof target === "function")
+  if (typeof target === 'function')
     return target; // 函数不进行拷贝
-  else if (typeof target === "object") {
+  else if (typeof target === 'object') {
     // 拷贝对象
     if (target === null)
       return null; // null
@@ -109,12 +109,12 @@ function clone3(target, map = new Map()) {
   } else return target; // 原始值类型直接返回
 }
 
-console.log("---------- test3 ----------");
+console.log('---------- test3 ----------');
 const test3 = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
   girlfriend: {
-    name: "???",
+    name: '???',
   },
 };
 test3.myself = test3;
@@ -127,7 +127,7 @@ console.log(test3Clone === test3Clone.myself); // true
 // 4 考虑拷贝函数
 
 function clone4(target) {
-  if (typeof target === "function") {
+  if (typeof target === 'function') {
     // 拷贝函数
     const funcString = target.toString();
     if (target.prototype) {
@@ -138,7 +138,7 @@ function clone4(target) {
       const body = bodyReg.exec(funcString);
       console.log(body, param, funcString);
       if (param) {
-        const paramArr = param[0].split(",");
+        const paramArr = param[0].split(',');
         return new Function(...paramArr, body[0]);
       } else {
         return new Function(body[0]);
@@ -147,7 +147,7 @@ function clone4(target) {
       // 箭头函数
       return eval(funcString);
     }
-  } else if (typeof target === "object") {
+  } else if (typeof target === 'object') {
     // 拷贝对象
     if (target === null)
       return null; // null
@@ -169,8 +169,8 @@ function clone4(target) {
   }
 }
 
-console.log("---------- test2 ----------");
+console.log('---------- test2 ----------');
 
 // 5 考虑更多常用类型
 
-console.log("---------- test5 ----------");
+console.log('---------- test5 ----------');

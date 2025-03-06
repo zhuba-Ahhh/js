@@ -22,7 +22,7 @@ function fn2(para) {
 }
 
 function fn3(para) {
-  let reverse = "";
+  let reverse = '';
   for (const c of para) {
     reverse = c + reverse;
   }
@@ -30,7 +30,7 @@ function fn3(para) {
 }
 
 function fn4(para) {
-  return para + "!!!";
+  return para + '!!!';
 }
 
 const finallyFn = compose(fn1, fn2, fn3, fn4);

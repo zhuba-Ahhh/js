@@ -1,7 +1,7 @@
 // 需要考虑循环
 function convertToCamelCase(obj) {
   // 如果不是对象或者对象为空，直接返回
-  if (!obj || typeof obj !== "object") {
+  if (!obj || typeof obj !== 'object') {
     return obj;
   }
 
@@ -18,7 +18,7 @@ function convertToCamelCase(obj) {
     });
 
     // 如果属性的值是一个对象，则递归调用本函数
-    if (typeof value === "object") {
+    if (typeof value === 'object') {
       value = convertToCamelCase(value);
     }
 
@@ -32,16 +32,16 @@ function convertToCamelCase(obj) {
 
 let obj = {
   user_info: {
-    first_name: "John",
-    last_name: "Doe",
+    first_name: 'John',
+    last_name: 'Doe',
     contact_info: {
-      phone_number: "1234567890",
-      email_address: "john.doe@example.com",
+      phone_number: '1234567890',
+      email_address: 'john.doe@example.com',
     },
   },
   order_info: {
-    order_id: "123456",
-    order_date: "2023-04-30",
+    order_id: '123456',
+    order_date: '2023-04-30',
   },
 };
 

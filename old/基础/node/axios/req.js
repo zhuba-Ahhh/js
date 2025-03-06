@@ -1,9 +1,9 @@
 // let axios = require('axios');
-let request = require("request");
-let fs = require("fs");
-let path = require("path");
+let request = require('request');
+let fs = require('fs');
+let path = require('path');
 
-let url = "https://www.23qb.com/book/220921/";
+let url = 'https://www.23qb.com/book/220921/';
 
 // axios.get(url).then(function (res) {
 //     console.log(res)
@@ -70,20 +70,20 @@ async function getMovies(url, moviesType, id) {
   while ((res = reg.exec(body))) {
     arrList.push(res[1]);
   }
-  let temp = "";
+  let temp = '';
   for (let i = 0; i < arrList.length; i++) {
     let { response, body } = await req(arrList[i]);
-    if (i == 0) console.log("**分类** :" + moviesType + "\n\n");
+    if (i == 0) console.log('**分类** :' + moviesType + '\n\n');
     const reg = /playerBoxIntroCon">(.*?)<a href/gis,
       reg1 = /playerBox-info-cnName">(.*?)<\/h1>/gis;
     let res = reg.exec(body)[1],
       res1 = reg1.exec(body)[1];
-    let ans = res1 + ":" + res + "\n\n";
+    let ans = res1 + ':' + res + '\n\n';
     temp += ans;
   }
   // 写入
-  const now = path.join(__dirname, "movies", "/");
-  p = now + moviesType + ".txt";
+  const now = path.join(__dirname, 'movies', '/');
+  p = now + moviesType + '.txt';
   console.log(p);
   fs.writeFile(p, temp, function (err) {
     if (err) {

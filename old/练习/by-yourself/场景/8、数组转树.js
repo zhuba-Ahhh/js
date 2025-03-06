@@ -3,34 +3,34 @@ const source = [
   {
     id: 1,
     pid: 0,
-    name: "body",
+    name: 'body',
   },
   {
     id: 2,
     pid: 1,
-    name: "title",
+    name: 'title',
   },
   {
     id: 3,
     pid: 2,
-    name: "div",
+    name: 'div',
   },
 ];
 const tree = [
   {
     id: 1,
     pid: 0,
-    name: "body",
+    name: 'body',
     children: [
       {
         id: 2,
         pid: 1,
-        name: "title",
+        name: 'title',
         children: [
           {
             id: 3,
             pid: 1,
-            name: "div",
+            name: 'div',
           },
         ],
       },
@@ -43,13 +43,13 @@ function parse(arr) {
   const res = [];
 
   // 保存每一个id
-  arr.forEach((item) => {
+  arr.forEach(item => {
     cache.set(item.id, item);
   });
 
   // 重新遍历，如果pid不存在说明是顶级父亲，放入res
   // 否则就加入对应父亲的children中
-  arr.forEach((item) => {
+  arr.forEach(item => {
     const parent = cache.get(item.pid);
     if (!parent) res.push(item);
     else {

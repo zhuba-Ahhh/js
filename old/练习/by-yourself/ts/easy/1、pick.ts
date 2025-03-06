@@ -10,10 +10,10 @@ type MyPick<raw, picks extends keyof raw> = {
   [k in picks]: raw[k];
 };
 
-type TodoPreview = MyPick<Todo, "title" | "completed">;
+type TodoPreview = MyPick<Todo, 'title' | 'completed'>;
 
 const todo: TodoPreview = {
-  title: "Clean room",
+  title: 'Clean room',
   completed: false,
 };
 export {};

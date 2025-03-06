@@ -8,7 +8,7 @@
 // console.log(void 0);
 
 var obj = {
-  name: "hdf",
+  name: 'hdf',
   age: 18,
 };
 

@@ -3,7 +3,7 @@
 // 暴力就完事了
 var longestCommonPrefix = function (strs) {
   let min = Infinity;
-  let ans = "";
+  let ans = '';
   for (const str of strs) {
     min = Math.min(min, str.length);
   }

@@ -26,6 +26,6 @@ var merge = function (intervals) {
       intervals[i + 1] = merge2(cur, nxt);
     }
   }
-  return intervals.filter((a) => a);
+  return intervals.filter(a => a);
 };
 // @lc code=end

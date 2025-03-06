@@ -17,6 +17,6 @@ var magicalString = function (n) {
       s.push(last ^ 3);
     }
   }
-  return s.slice(0, n).filter((x) => x === 1).length;
+  return s.slice(0, n).filter(x => x === 1).length;
 };
 // @lc code=end

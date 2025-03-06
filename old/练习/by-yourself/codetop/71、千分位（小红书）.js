@@ -6,7 +6,7 @@ var thousandSeparator = function (n) {
     if (str.length <= 3) return str;
     const right = str.slice(str.length - 3);
     const left = str.slice(0, str.length - 3);
-    return parse(left) + "." + right;
+    return parse(left) + '.' + right;
   }
-  return parse(n + "");
+  return parse(n + '');
 };

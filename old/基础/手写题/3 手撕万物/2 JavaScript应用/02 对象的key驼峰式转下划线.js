@@ -13,13 +13,13 @@
 // 工具函数：驼峰转下划线
 
 const humpToUnderline = function (name) {
-  let newName = "";
+  let newName = '';
   for (const c of name) {
     if (
-      c.charCodeAt() <= "Z".charCodeAt() &&
-      c.charCodeAt() >= "A".charCodeAt()
+      c.charCodeAt() <= 'Z'.charCodeAt() &&
+      c.charCodeAt() >= 'A'.charCodeAt()
     ) {
-      newName += "_" + c.toLowerCase();
+      newName += '_' + c.toLowerCase();
     } else {
       newName += c;
     }
@@ -78,7 +78,7 @@ const formatPropertyNamesB = function (obj) {
 // 测试1：简单的对象
 
 const obj = {
-  userName: "Dasen",
+  userName: 'Dasen',
   userCurrentAge: 23,
 };
 formatPropertyNamesA(obj);
@@ -87,12 +87,12 @@ console.log(obj); // {user_name: 'Dasen', user_current_age: 23}
 // 测试2：有原型的对象
 
 const proto = {
-  userName: "Dasen",
+  userName: 'Dasen',
   userCurrentAge: 23,
 };
 
 function Person() {
-  this.nickName = "Dear " + this.userName;
+  this.nickName = 'Dear ' + this.userName;
 }
 Person.prototype = proto;
 const person = new Person();
@@ -102,16 +102,16 @@ console.log(person); // Person {nick_name: 'Dear Dasen', user_name: 'Dasen', use
 // 测试3：有带有属性配置的对象
 
 const person2 = {
-  userName: "Dasen",
+  userName: 'Dasen',
   userCurrentAge: 23,
 };
-Object.defineProperty(person2, "nickName", {
+Object.defineProperty(person2, 'nickName', {
   configurable: false,
   enumerable: true,
-  value: "Dear Dasen",
+  value: 'Dear Dasen',
 });
 // nickName 属性不可配置，删除操作会静默失败，结果会多一个重复的属性 nick_name
 // formatPropertyNamesA(person2); // {nickName: 'Dear Dasen', user_name: 'Dasen', user_current_age: 23, nick_name: 'Dear Dasen'}
 formatPropertyNamesB(person2);
 console.log(person2); // {nickName: 'Dear Dasen', user_name: 'Dasen', user_current_age: 23}
-console.log(Object.getOwnPropertyDescriptor(person2, "nickName")); // {value: 'Dear Dasen', writable: false, enumerable: true, configurable: false}
+console.log(Object.getOwnPropertyDescriptor(person2, 'nickName')); // {value: 'Dear Dasen', writable: false, enumerable: true, configurable: false}

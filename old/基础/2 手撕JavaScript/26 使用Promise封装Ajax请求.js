@@ -13,7 +13,7 @@ function ajaxRequest(url, method, body, headers) {
   return new Promise((resolve, reject) => {
     headers = headers || {};
     body = body || null;
-    method = method || "get";
+    method = method || 'get';
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
     for (const key in headers) {

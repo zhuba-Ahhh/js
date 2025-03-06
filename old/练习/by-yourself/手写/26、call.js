@@ -10,10 +10,10 @@ Function.prototype.call = function (thisArg, ...args) {
 };
 
 function run() {
-  console.log(this.name, "running");
+  console.log(this.name, 'running');
 }
 
 const me = {
-  name: "jzsp",
+  name: 'jzsp',
 };
 run.call(me);

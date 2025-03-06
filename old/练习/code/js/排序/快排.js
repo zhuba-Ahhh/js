@@ -29,8 +29,8 @@ function qk(arr) {
 const arr = [1, 2, 5, 6, 3, 4, 6, 7, 8, 2, 4, 8, 9, 0, 6, 5, 4, 6, 7, 9, 9],
   arr1 = [1, 2, 5, 6, 3, 4, 6, 7, 8, 2, 4, 8, 9, 0, 6, 5, 4, 6, 7, 9, 9];
 const A = new Array(100000).fill(1);
-let A1 = A.map((item) => (item = Math.random() * 10)),
-  A2 = A.map((item) => (item = Math.random() * 10));
+let A1 = A.map(item => (item = Math.random() * 10)),
+  A2 = A.map(item => (item = Math.random() * 10));
 
 let d = Date.now();
 quickSort(A1);

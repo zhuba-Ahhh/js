@@ -1,8 +1,8 @@
 // 'a_b_c' => 'ABC'
-let str = "abc_bcs_abd";
+let str = 'abc_bcs_abd';
 
 let change = function (str) {
-  let arr = str.split("_");
+  let arr = str.split('_');
   console.log(arr);
 
   // arr.forEach(item => {
@@ -13,7 +13,7 @@ let change = function (str) {
     arr[i].toUpperCase();
   }
 
-  return arr.join("");
+  return arr.join('');
 };
 
 console.log(change(str));

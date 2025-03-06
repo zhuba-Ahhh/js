@@ -15,10 +15,10 @@ Function.prototype.bind = function (thisArg, ...args) {
 };
 
 function run(time) {
-  console.log(this, time, "running");
+  console.log(this, time, 'running');
 }
 
 const me = {
-  name: "jzsp",
+  name: 'jzsp',
 };
 run.bind(me, 111)();

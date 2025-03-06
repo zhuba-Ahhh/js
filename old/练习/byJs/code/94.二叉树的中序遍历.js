@@ -19,7 +19,7 @@
  */
 var inorderTraversal = function (root) {
   const res = [];
-  const inorder = (root) => {
+  const inorder = root => {
     if (!root) return;
     inorder(root.left);
     res.push(root.val);

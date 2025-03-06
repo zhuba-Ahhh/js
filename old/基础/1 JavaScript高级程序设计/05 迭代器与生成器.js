@@ -131,7 +131,7 @@ class Counter {
         }
       },
       return() {
-        console.log("迭代器提前关闭啦！");
+        console.log('迭代器提前关闭啦！');
         return {
           done: true,
         };
@@ -163,7 +163,7 @@ for (const i of iter) {
   console.log(i);
   if (i > 2) break;
 }
-console.log("继续迭代");
+console.log('继续迭代');
 for (const i of iter) {
   console.log(i);
 }
@@ -189,14 +189,14 @@ console.log(arr3); // [0, 1, 2, 3, 4, 5, 6]
 // 1 生成器状态
 
 function* generator() {
-  console.log("生成器开始执行了！");
-  yield "第1次返回值";
-  console.log("又开始执行了！");
-  yield "第2次返回值";
-  console.log("又又开始执行了！");
-  yield "第3次返回值";
-  console.log("要结束了！");
-  return "Bye!";
+  console.log('生成器开始执行了！');
+  yield '第1次返回值';
+  console.log('又开始执行了！');
+  yield '第2次返回值';
+  console.log('又又开始执行了！');
+  yield '第3次返回值';
+  console.log('要结束了！');
+  return 'Bye!';
 }
 let g = generator(); // 未开始执行
 let r = g.next(); // 生成器开始执行了！
@@ -214,10 +214,10 @@ console.log(r); // {value: undefined, done: true}
 
 // 每次迭代新的生成器
 function* generator() {
-  yield "val1";
-  yield "val2";
-  yield "val3";
-  return "Bye";
+  yield 'val1';
+  yield 'val2';
+  yield 'val3';
+  return 'Bye';
 }
 for (const i of generator()) {
   console.log(i);
@@ -225,7 +225,7 @@ for (const i of generator()) {
 // val1
 // val2
 // val3
-console.log("再来一次"); // 再来一次
+console.log('再来一次'); // 再来一次
 for (const i of generator()) {
   console.log(i);
 }
@@ -235,10 +235,10 @@ for (const i of generator()) {
 
 // 迭代同一个生成器
 function* generator() {
-  yield "val1";
-  yield "val2";
-  yield "val3";
-  return "Bye";
+  yield 'val1';
+  yield 'val2';
+  yield 'val3';
+  return 'Bye';
 }
 let g = generator();
 for (const i of g) {
@@ -326,7 +326,7 @@ function* generator() {
 }
 let g = generator();
 console.log(g.next()); // {value: 1, done: false}
-g.throw("啊呀呀！出错了呢！");
+g.throw('啊呀呀！出错了呢！');
 let r = g.next(); // 啊呀呀！出错了呢！
 console.log(r); // {value: 3, done: false}
 console.log(g.next()); // {value: 4, done: false}

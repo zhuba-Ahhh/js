@@ -2,7 +2,7 @@ function createNew(con) {
   let result = Object.create(con.prototype);
   let args = [].slice.call(arguments, 1);
   let ret = con.apply(result, args);
-  return (typeof ret === "object" && ret !== null) || typeof ret === "function"
+  return (typeof ret === 'object' && ret !== null) || typeof ret === 'function'
     ? ret
     : result;
 }
@@ -16,7 +16,7 @@ function Person(name, age, score) {
   };
 }
 
-let rest = createNew(Person, "dmc", 21, 100);
+let rest = createNew(Person, 'dmc', 21, 100);
 console.log(rest);
 
 // 1、 创建一个新对象。

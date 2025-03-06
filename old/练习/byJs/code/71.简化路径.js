@@ -10,12 +10,12 @@
  * @return {string}
  */
 var simplifyPath = function (path) {
-  const names = path.split("/");
+  const names = path.split('/');
   const stk = [];
   for (const name of names) {
-    if (name === "..") stk.length && stk.pop();
-    else if (name.length && name !== ".") stk.push(name);
+    if (name === '..') stk.length && stk.pop();
+    else if (name.length && name !== '.') stk.push(name);
   }
-  return `/${stk.join("/")}`;
+  return `/${stk.join('/')}`;
 };
 // @lc code=end

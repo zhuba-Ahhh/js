@@ -10,7 +10,7 @@
 var singleNumber = function (nums) {
   // 统计每一位的1的个数
   let arr = new Array(32).fill(0);
-  nums.forEach((num) => {
+  nums.forEach(num => {
     let idx = 0;
     while (num !== 0) {
       if (num & 1) {

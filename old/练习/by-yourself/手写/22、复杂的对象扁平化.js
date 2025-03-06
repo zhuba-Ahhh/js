@@ -17,10 +17,10 @@ const input = {
 注意，省略掉null
 */
 function isObject(raw) {
-  return typeof raw === "object" && raw !== null;
+  return typeof raw === 'object' && raw !== null;
 }
 
-function flat(obj, preKey = "", res = {}) {
+function flat(obj, preKey = '', res = {}) {
   if (!obj) return;
   // 如果是数组调用entries，那么就是[index,value]
   // 如果是对象调用entries，那么就是[key,value]
@@ -30,7 +30,7 @@ function flat(obj, preKey = "", res = {}) {
       // 判断当前value的类型以决定key后要不要加.
       const temp = Array.isArray(obj) ? `${preKey}[${key}]` : `${preKey}${key}`;
       flat(value, temp, res);
-    } else if (typeof value === "object") {
+    } else if (typeof value === 'object') {
       const temp = Array.isArray(obj)
         ? `${preKey}[${key}].`
         : `${preKey}${key}.`;

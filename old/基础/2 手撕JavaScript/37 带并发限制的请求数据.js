@@ -19,7 +19,7 @@ function getDateByXHR(urls) {
       xhr.onerror = function (e) {
         reject(e.type);
       };
-      xhr.open("GET", urls[index]);
+      xhr.open('GET', urls[index]);
       xhr.send();
     });
     ++index;
@@ -63,7 +63,7 @@ function concurrentRequestByPool(
   urls,
   resolveFn,
   rejectFn,
-  concurrency = Infinity,
+  concurrency = Infinity
 ) {
   let limit = Math.min(concurrency, urls.length); // 实际的并发限制数
   const getNext = getDate(urls); // 请求数据的函数
@@ -92,7 +92,7 @@ function concurrentRequestByRace(
   urls,
   resolveFn,
   rejectFn,
-  concurrency = Infinity,
+  concurrency = Infinity
 ) {
   let limit = Math.min(concurrency, urls.length); // 实际的并发限制数
   const getNext = getDate(urls); // 请求数据的函数

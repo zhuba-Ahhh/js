@@ -28,7 +28,7 @@ const createProxyFolder = () => {
   const folder = new Folder();
   const proxy = new Proxy(folder, {
     set(target, p: keyof Folder, value, r) {
-      if (p === "size") {
+      if (p === 'size') {
         if (target.parent) target.parent.size += value - target[p];
       }
       return Reflect.set(target, p, value, r);
@@ -41,7 +41,7 @@ const createProxyFile = (size: number) => {
   const file = new Filee(size);
   const proxy = new Proxy(file, {
     set(target, p: keyof Folder, value, r) {
-      if (p === "size") {
+      if (p === 'size') {
         if (target.parent) target.parent.size += value - target[p];
       }
       return Reflect.set(target, p, value, r);

@@ -11,7 +11,7 @@ Ac1.prototype = new Ap1(); //继承
 const one1 = new Ac1();
 one1.hi(1); // 1
 const one2 = new Ac1();
-one1.arr.push("one1");
+one1.arr.push('one1');
 console.log(one2.arr); //[ 'one1' ]
 /* 问题：
 1. 引用类型的值在各个实例中是同一个引用
@@ -79,7 +79,7 @@ const fourC1 = create(fourP);
 const fourC2 = create(fourP);
 fourC1.arr.push(1);
 fourC1.f(); //1
-fourP.arr.push("p");
+fourP.arr.push('p');
 console.log(fourC1.arr); //[1, 'p']
 console.log(fourC2.arr); //[1, 'p']
 
@@ -133,8 +133,8 @@ function + new 继承
 //test nowcoder
 function Human(name) {
   this.name = name;
-  this.kingdom = "animal";
-  this.color = ["yellow", "white", "brown", "black"];
+  this.kingdom = 'animal';
+  this.color = ['yellow', 'white', 'brown', 'black'];
 }
 Human.prototype.getName = function () {
   return this.name;
@@ -142,7 +142,7 @@ Human.prototype.getName = function () {
 function Chinese(name, age) {
   Human.call(this, name); //1 继承父类属性
   this.age = age;
-  this.color = "yellow";
+  this.color = 'yellow';
 }
 Chinese.prototype = Object.create(Human.prototype); //2 寄生继承 连接原型链
 Chinese.prototype.constructor = Chinese; //3 设置 constructor 保证子类实例的constructor无误
@@ -151,11 +151,11 @@ Chinese.prototype.getAge = function () {
 };
 
 function test() {
-  const o = new Chinese("z", 18);
+  const o = new Chinese('z', 18);
   const judge =
     o.getAge() === 18 &&
-    o.getName() === "z" &&
-    o.kingdom === "animal" &&
+    o.getName() === 'z' &&
+    o.kingdom === 'animal' &&
     o.__proto__.constructor === Chinese;
   return judge;
 }

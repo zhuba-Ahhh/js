@@ -1,13 +1,13 @@
 // 7. 整数反转 https://leetcode-cn.com/problems/reverse-integer/
 
-const reverse = (x) => {
-  x = "" + x;
+const reverse = x => {
+  x = '' + x;
 
   if (x.length === 1) {
     return x;
   }
 
-  let result = "";
+  let result = '';
   let i = 1;
   const len = x.length;
   let firstNum = x[0];
@@ -16,11 +16,11 @@ const reverse = (x) => {
     // 负数
     const curValue = x[len - i];
 
-    result += result === "" && curValue === "0" ? "" : curValue;
+    result += result === '' && curValue === '0' ? '' : curValue;
     i++;
   }
 
-  result = firstNum === "-" ? firstNum + result : result + firstNum;
+  result = firstNum === '-' ? firstNum + result : result + firstNum;
 
   if (result < -Math.pow(2, 31)) {
     return 0;

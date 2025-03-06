@@ -19,19 +19,19 @@ let sum = (a, b) => a + b;
 console.log(sum(2, 3)); // 5
 
 // 函数对象
-let sum = new Function("a", "b", "return a+b;");
+let sum = new Function('a', 'b', 'return a+b;');
 console.log(sum(2, 3)); // 5
 
 // 2 函数表达式
 
 // 条件定义函数
-let char = "a";
+let char = 'a';
 let process;
-if (char >= "a" && char <= "z") {
+if (char >= 'a' && char <= 'z') {
   process = function (c) {
     return c.toUpperCase();
   };
-} else if (char >= "A" && char <= "Z") {
+} else if (char >= 'A' && char <= 'Z') {
   process = function (c) {
     return c.toLowerCase();
   };
@@ -43,7 +43,7 @@ for (var i = 0; i < 5; ++i) {
   setTimeout(
     (function (j) {
       return () => console.log(j);
-    })(i),
+    })(i)
   );
 } // 0 1 2 3 4
 
@@ -68,7 +68,7 @@ let sum2 = function (a, b) {
   return a + b;
 };
 let sum3 = (a, b) => a + b;
-let sum4 = new Function("a", "b", "return a + b;");
+let sum4 = new Function('a', 'b', 'return a + b;');
 let sum5 = sum1;
 let sum6 = sum2;
 let sum7 = sum3;
@@ -83,22 +83,22 @@ let funArr = [
   },
   (a, b) => a + b,
 ];
-console.log(funArr[0].name === ""); // true
-console.log(funArr[1].name === ""); // true
+console.log(funArr[0].name === ''); // true
+console.log(funArr[1].name === ''); // true
 let sum9 = funArr[0];
 let sum10 = funArr[1];
-console.log(funArr[0].name === ""); // true
-console.log(funArr[1].name === ""); // true
+console.log(funArr[0].name === ''); // true
+console.log(funArr[1].name === ''); // true
 
 // 带前缀的函数名
 let obj = {
-  name: "Three",
+  name: 'Three',
   age_: 18,
   get age() {
     return this.age_;
   },
 };
-let ageFun = Object.getOwnPropertyDescriptor(obj, "age");
+let ageFun = Object.getOwnPropertyDescriptor(obj, 'age');
 console.log(ageFun.get.name); // get age
 function fun() {}
 console.log(fun.bind(null).name); // bound fun
@@ -124,7 +124,7 @@ fun(1);
 
 // 严格模式
 function fun(a, b) {
-  "use strict";
+  'use strict';
   console.log(a, b);
   arguments[1] = 99;
   console.log(a, b);
@@ -145,17 +145,17 @@ console.log(sum(5)); // 7
 
 // 默认参数的求值顺序
 function f() {
-  console.log("f this :", this);
+  console.log('f this :', this);
   return 1;
 }
 
 function s() {
-  console.log("second");
+  console.log('second');
   return 2;
 }
 
 function fun(first = f(), second = s(), third = second * 2, t = this) {
-  console.log("fun this :", t);
+  console.log('fun this :', t);
   return `${first} ${second} ${third}`;
 }
 let obj = {
@@ -168,12 +168,12 @@ console.log(obj.fun());
 // 1 2 4
 
 // 参数的收集和扩展
-function print(name = "unknow", age, ...others) {
+function print(name = 'unknow', age, ...others) {
   console.log(`name: ${name}, age: ${age}, others: ${others}`);
 }
 print(); // name: unknow, age: undefined, others:
-let p = ["Dasen", 22];
-print(...p, "other1", "other2"); // name: Dasen, age: 22, others: other1,other2
+let p = ['Dasen', 22];
+print(...p, 'other1', 'other2'); // name: Dasen, age: 22, others: other1,other2
 
 // 3 函数内部对象
 
@@ -204,7 +204,7 @@ factorial = null; // 废弃掉原来的函数名
 console.log(anotherFun(5)); // 120
 
 // 带有默认名称的函数表达式
-("use strict");
+('use strict');
 let factorial = function f(num) {
   if (num <= 1) {
     return 1;
@@ -231,7 +231,7 @@ outer(); // ƒ outer()
 function sum(a, b) {
   return a + b;
 }
-let add2 = (a) => a + 2;
+let add2 = a => a + 2;
 console.log(sum.length); // 2
 console.log(add2.length); // 1
 
@@ -296,9 +296,9 @@ function Person(name) {
     name = personName;
   };
 }
-let person = new Person("Dasen");
+let person = new Person('Dasen');
 console.log(person.getName()); // Dasen
-person.setName("name");
+person.setName('name');
 console.log(person.getName()); // name
 
 // 类私有成员
@@ -316,10 +316,10 @@ let User = (function () {
   };
   return User;
 })();
-let user1 = new User("Dasen");
+let user1 = new User('Dasen');
 console.log(user1.countUser()); // 1
 console.log(user1.name); // Dasen
-let user2 = new User("Three");
+let user2 = new User('Three');
 console.log(user2.countUser()); // 2
 console.log(user2.name); // Three
 
@@ -332,7 +332,7 @@ let rooms = (function () {
   // 公共接口
   return {
     getRooms() {
-      return roomList.join(", ");
+      return roomList.join(', ');
     },
     getRoomNumber() {
       return roomList.length;
@@ -344,6 +344,6 @@ let rooms = (function () {
 })();
 console.log(rooms.getRoomNumber()); // 1
 console.log(rooms.getRooms()); // Dasen's room
-rooms.createRoom("New room");
+rooms.createRoom('New room');
 console.log(rooms.getRoomNumber()); // 2
 console.log(rooms.getRooms()); // Dasen's room, New room

@@ -34,5 +34,5 @@ const showName = throttle2(function (name) {
 }, 1000);
 
 setInterval(() => {
-  showName.call({ name: "前端胖头鱼" }, "前端胖头鱼");
+  showName.call({ name: '前端胖头鱼' }, '前端胖头鱼');
 }, 10);

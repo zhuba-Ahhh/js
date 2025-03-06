@@ -1,5 +1,5 @@
 function log(num) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       console.log(num);
       resolve();

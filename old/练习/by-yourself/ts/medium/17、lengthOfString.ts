@@ -3,7 +3,7 @@ type LengthOfString<S extends string> = S extends `${infer first}${infer rest}`
   ? add<LengthOfString<rest>, 1>
   : 0;
 
-type res = LengthOfString<"">;
-type res1 = LengthOfString<"abcdefg">;
-type res2 = LengthOfString<" ">;
+type res = LengthOfString<''>;
+type res1 = LengthOfString<'abcdefg'>;
+type res2 = LengthOfString<' '>;
 export {};

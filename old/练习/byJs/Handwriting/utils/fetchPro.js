@@ -1,19 +1,19 @@
 //fetch 基础用法
 fetch(url, {
-  method: "POST",
+  method: 'POST',
   headers: {
-    Accept: "*/*",
-    "Content-Type": "application/json;charset=utf-8",
-    "access-token": "token",
+    Accept: '*/*',
+    'Content-Type': 'application/json;charset=utf-8',
+    'access-token': 'token',
   },
 })
-  .then((res) => {
+  .then(res => {
     res.json();
   })
-  .then((data) => {
+  .then(data => {
     console.log(data);
   })
-  .catch((err) => {
+  .catch(err => {
     console.log(err.msg);
   });
 
@@ -30,11 +30,11 @@ fetch(url, {
  */
 const fetchPro = (url, method, header, body) => {
   const defaultHeader = {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   };
 
   let params;
-  if (method.toUpperCase() === "GET") {
+  if (method.toUpperCase() === 'GET') {
     params = undefined;
   } else {
     params = {
@@ -49,8 +49,8 @@ const fetchPro = (url, method, header, body) => {
 
   const p = new Promise((resolve, reject) => {
     fetch(url, params)
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         if (res.status === 200) {
           resolve(res);
         } else {
@@ -59,7 +59,7 @@ const fetchPro = (url, method, header, body) => {
           reject(res.errMsg);
         }
       })
-      .catch((err) => {
+      .catch(err => {
         //提示
         reject(err);
       })

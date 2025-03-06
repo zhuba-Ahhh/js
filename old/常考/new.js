@@ -1,7 +1,7 @@
 function _new(fn, ...arg) {
   let obj = Object.create(fn.prototype);
   let result = fn.apply(obj, ...arg);
-  return Object.prototype.toString.call(result) == "[object object]"
+  return Object.prototype.toString.call(result) == '[object object]'
     ? result
     : obj;
 }

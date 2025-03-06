@@ -1,6 +1,6 @@
-const PENDING = "pending";
-const FULFILLED = "fulfilled";
-const REJECTED = "rejected";
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = 'rejected';
 class myPromise {
   state = PENDING;
   value: any;
@@ -12,14 +12,14 @@ class myPromise {
       if (this.state === PENDING) {
         this.state = FULFILLED;
         this.value = value;
-        this.onFulfilledCallbacks.forEach((fn) => fn());
+        this.onFulfilledCallbacks.forEach(fn => fn());
       }
     };
     const reject = (reason: any) => {
       if (this.state === REJECTED) {
         this.state = REJECTED;
         this.reason = reason;
-        this.onRejectedCallbacks.forEach((fn) => fn());
+        this.onRejectedCallbacks.forEach(fn => fn());
       }
     };
     exectuor(resolve, reject);
@@ -41,10 +41,10 @@ class myPromise {
       }
       if (this.state === PENDING) {
         this.onFulfilledCallbacks.push(() =>
-          setTimeout(() => execute(onfulfilled, this.value, resolve, reject)),
+          setTimeout(() => execute(onfulfilled, this.value, resolve, reject))
         );
         this.onRejectedCallbacks.push(() =>
-          setTimeout(() => execute(onrejected, this.reason, resolve, reject)),
+          setTimeout(() => execute(onrejected, this.reason, resolve, reject))
         );
       }
     });
@@ -77,7 +77,7 @@ new myPromise((resolve, reject) => {
     return 3;
   })
   .then()
-  .then((res) => console.log(res));
+  .then(res => console.log(res));
 console.log(2);
 
 // 先输出2，两秒后打印1和3

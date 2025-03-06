@@ -17,7 +17,7 @@ var compress = function (chars) {
     if (read === chars.length - 1 || chars[read] !== chars[read + 1]) {
       chars[write++] = chars[read];
       if (tcnt > 1) {
-        tcnt = tcnt + "";
+        tcnt = tcnt + '';
         for (let s of tcnt) {
           chars[write++] = s;
         }

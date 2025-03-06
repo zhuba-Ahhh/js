@@ -9,12 +9,12 @@ var addStrings = function (num1, num2) {
   add = 0;
   const ans = [];
   while (i >= 0 || j >= 0 || add > 0) {
-    const a = i >= 0 ? num1[i].charAt() - "0" : 0,
-      b = j >= 0 ? num2[j].charAt() - "0" : 0;
+    const a = i >= 0 ? num1[i].charAt() - '0' : 0,
+      b = j >= 0 ? num2[j].charAt() - '0' : 0;
     const res = a + b + add;
     ans.push(res % 10);
     add = Math.floor(res / 10);
     i--, j--;
   }
-  return ans.reverse().join("");
+  return ans.reverse().join('');
 };

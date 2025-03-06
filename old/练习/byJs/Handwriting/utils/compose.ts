@@ -15,7 +15,7 @@ const compose = (...fns: Function[]) => {
   return fns.reduce(
     (a, b) =>
       (...args: any) =>
-        a(b(...args)),
+        a(b(...args))
   );
 };
 
@@ -34,7 +34,7 @@ const composeL2R = (...fns: Function[]) => {
   return fns.reduceRight(
     (a, b) =>
       (...args: any) =>
-        a(b(...args)),
+        a(b(...args))
   );
 };
 

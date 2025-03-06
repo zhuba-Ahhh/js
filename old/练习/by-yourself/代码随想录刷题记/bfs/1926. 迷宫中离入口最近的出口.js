@@ -17,7 +17,7 @@ var nearestExit = function (maze, entrance) {
   while (walkableArr.length) {
     let [row, col, step] = walkableArr.shift();
     // 设置当前点为+，标识已经压入过
-    maze[row][col] = "+";
+    maze[row][col] = '+';
     // 遍历四个方向
     for (let i = 0; i < pos.length; i++) {
       const { x, y } = pos[i];
@@ -29,7 +29,7 @@ var nearestExit = function (maze, entrance) {
         nextX < maze.length &&
         nextY >= 0 &&
         nextY <= maze[0].length &&
-        maze[nextX][nextY] === "."
+        maze[nextX][nextY] === '.'
       ) {
         // 压入之前进行判断
         if (
@@ -41,7 +41,7 @@ var nearestExit = function (maze, entrance) {
           return step + 1;
 
         // 压入之后，要赋值为+，表明已经走过这条路
-        maze[nextX][nextY] = "+";
+        maze[nextX][nextY] = '+';
         walkableArr.push([nextX, nextY, step + 1]);
       }
     }
@@ -67,7 +67,7 @@ var nearestExit = function (maze, entrance) {
   ];
   let res = Infinity;
   function dfs(i, j, len = 0) {
-    maze[i][j] = "+";
+    maze[i][j] = '+';
     for (let k = 0; k < arrow.length; k++) {
       const { x, y } = arrow[k];
       const nextX = x + i;
@@ -77,9 +77,9 @@ var nearestExit = function (maze, entrance) {
         nextX <= row - 1 &&
         nextY >= 0 &&
         nextY <= column - 1 &&
-        maze[nextX][nextY] === "."
+        maze[nextX][nextY] === '.'
       ) {
-        maze[nextX][nextY] = "+";
+        maze[nextX][nextY] = '+';
         if (
           nextX == 0 ||
           nextY === 0 ||
@@ -90,7 +90,7 @@ var nearestExit = function (maze, entrance) {
           res = Math.min(res, len + 1);
         }
         dfs(nextX, nextY, len + 1);
-        maze[nextX][nextY] = ".";
+        maze[nextX][nextY] = '.';
       }
     }
   }
@@ -100,16 +100,16 @@ var nearestExit = function (maze, entrance) {
 console.log(
   nearestExit(
     [
-      [".", ".", ".", ".", ".", ".", ".", "+", "."],
-      [".", "+", ".", ".", ".", "+", ".", "+", "+"],
-      [".", ".", ".", ".", "+", ".", ".", ".", "."],
-      [".", ".", "+", ".", ".", "+", ".", ".", "."],
-      ["+", ".", ".", "+", ".", ".", ".", ".", "+"],
-      [".", "+", ".", ".", ".", "+", ".", ".", "."],
-      [".", ".", "+", ".", ".", ".", "+", ".", "."],
-      [".", ".", "+", "+", "+", "+", "+", ".", "."],
-      [".", "+", "+", ".", ".", "+", ".", ".", "."],
+      ['.', '.', '.', '.', '.', '.', '.', '+', '.'],
+      ['.', '+', '.', '.', '.', '+', '.', '+', '+'],
+      ['.', '.', '.', '.', '+', '.', '.', '.', '.'],
+      ['.', '.', '+', '.', '.', '+', '.', '.', '.'],
+      ['+', '.', '.', '+', '.', '.', '.', '.', '+'],
+      ['.', '+', '.', '.', '.', '+', '.', '.', '.'],
+      ['.', '.', '+', '.', '.', '.', '+', '.', '.'],
+      ['.', '.', '+', '+', '+', '+', '+', '.', '.'],
+      ['.', '+', '+', '.', '.', '+', '.', '.', '.'],
     ],
-    [5, 8],
-  ),
+    [5, 8]
+  )
 );

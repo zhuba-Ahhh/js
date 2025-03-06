@@ -11,7 +11,7 @@
  */
 var frequencySort = function (nums) {
   const count = new Map();
-  nums.forEach((num) => void (count[num] = count[num] + 1 || 1));
+  nums.forEach(num => void (count[num] = count[num] + 1 || 1));
   nums.sort((a, b) => {
     if (count[a] === count[b]) return b - a;
     return count[a] - count[b];

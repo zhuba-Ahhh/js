@@ -16,12 +16,12 @@ var buildArray = function (target, n) {
   let cnt = 0,
     t = 0;
   for (let i = 1; i <= n; i++) {
-    ss.push("Push");
+    ss.push('Push');
     if (target[t] === i) {
       cnt++;
       t++;
     } else {
-      ss.push("Pop");
+      ss.push('Pop');
     }
     if (cnt === len) break;
   }

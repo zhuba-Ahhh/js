@@ -35,15 +35,15 @@ function formatNumber(str) {
 
   return arr.toString();
 }
-console.log(formatNumber("1234567890")); // 1,234,567,890
+console.log(formatNumber('1234567890')); // 1,234,567,890
 
 function formatNumber(str) {
   // ["0", "9", "8", "7", "6", "5", "4", "3", "2", "1"]
   return str
-    .split("")
+    .split('')
     .reverse()
     .reduce((prev, next, index) => {
-      return (index % 3 ? next : next + ",") + prev;
+      return (index % 3 ? next : next + ',') + prev;
     });
 }
-(123456789).toLocaleString("en-US"); // 1,234,567,890
+(123456789).toLocaleString('en-US'); // 1,234,567,890

@@ -14,7 +14,7 @@
 function _new() {
   const constructor = Array.prototype.shift.call(arguments);
   //首先传入的第一个参数要是一个函数
-  if (typeof constructor !== "function") {
+  if (typeof constructor !== 'function') {
     console.log(`TypeError: ${constructor} is not a constructor`);
     return;
   }
@@ -24,7 +24,7 @@ function _new() {
   let result = constructor.apply(obj, arguments);
 
   // 判断构造函数执行结果
-  if (result && (typeof result === "object" || typeof result === "function"))
+  if (result && (typeof result === 'object' || typeof result === 'function'))
     return result;
   return obj;
 }
@@ -34,25 +34,25 @@ function Person(firtName, lastName) {
   this.firtName = firtName;
   this.lastName = lastName;
 
-  return "demo"; //返回基础类型
+  return 'demo'; //返回基础类型
 }
-const a = new Person("zz", "qq");
+const a = new Person('zz', 'qq');
 console.log(a); //Person { firtName: 'zz', lastName: 'qq' }
 
-const a2 = _new(Person, "zz", "qq");
+const a2 = _new(Person, 'zz', 'qq');
 console.log(a2); //Person { firtName: 'zz', lastName: 'qq' }
 
 function Person2(firtName, lastName) {
   this.firtName = firtName;
   this.lastName = lastName;
 
-  return { one: "new obj", firtName }; //返回对象
+  return { one: 'new obj', firtName }; //返回对象
 }
 
-const b = new Person2("zz", "qq");
+const b = new Person2('zz', 'qq');
 console.log(b); //{ one: 'new obj', firtName: 'zz' }
 
-const b2 = _new(Person2, "zz", "qq");
+const b2 = _new(Person2, 'zz', 'qq');
 console.log(b2); //{ one: 'new obj', firtName: 'zz' }
 
 _new(); //TypeError: undefined is not a constructor

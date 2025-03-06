@@ -22,7 +22,7 @@
  * 
  */
 
-const validPalindrome = (s) => {
+const validPalindrome = s => {
   const isPalindrome = (st, ed) => {
     while (st < ed) {
       if (s[st] !== s[ed]) {
@@ -55,7 +55,7 @@ const validPalindrome = (s) => {
   return false;
 };
 
-console.log(validPalindrome("aba"));
-console.log(validPalindrome("abca"));
-console.log(validPalindrome("abc"));
-console.log(validPalindrome("deeee"));
+console.log(validPalindrome('aba'));
+console.log(validPalindrome('abca'));
+console.log(validPalindrome('abc'));
+console.log(validPalindrome('deeee'));

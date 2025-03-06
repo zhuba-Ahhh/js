@@ -3,7 +3,7 @@
  * @param {*} array 深层嵌套的数据
  * @returns array 新数组
  */
-const flat1 = (array) => {
+const flat1 = array => {
   return array.reduce((result, it) => {
     return result.concat(Array.isArray(it) ? flat1(it) : it);
   }, []);
@@ -18,7 +18,7 @@ console.log(flat1(arr1));
  * @param {*} array 深层嵌套的数据
  * @returns 新数组
  */
-const flat2 = (array) => {
+const flat2 = array => {
   return array.flat(Infinity);
 };
 
@@ -26,7 +26,7 @@ let arr2 = [1, [2, 3, 4], [5, [6, [7, [8]]]]];
 
 console.log(flat2(arr2));
 
-const flat3 = (array) => {
+const flat3 = array => {
   const result = [];
   const stack = [...array];
 

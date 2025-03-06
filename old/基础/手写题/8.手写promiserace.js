@@ -1,16 +1,16 @@
 function myPromiseRace(promises) {
   if (Array.isArray(promises)) {
-    throw new Error("promises are not Array");
+    throw new Error('promises are not Array');
   }
   return new Promise((resolve, reject) => {
-    promises.forEach((p) => {
+    promises.forEach(p => {
       Promise.resolve(p).then(
-        (res) => {
+        res => {
           resolve(res);
         },
-        (err) => {
+        err => {
           reject(err);
-        },
+        }
       );
     });
   });

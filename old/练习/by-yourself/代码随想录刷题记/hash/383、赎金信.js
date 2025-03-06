@@ -44,7 +44,7 @@ var canConstruct = function (ransomNote, magazine) {
 // 字母相关的hash可以用数组代替
 var canConstruct = function (a, b) {
   const hash = new Array(26).fill(0);
-  const aCode = "a".charCodeAt();
+  const aCode = 'a'.charCodeAt();
   for (let i = 0; i < b.length; i++) {
     const v = b[i].charCodeAt() - aCode;
     hash[v]++;

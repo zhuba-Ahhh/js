@@ -5,7 +5,7 @@
  **************************************************/
 
 function delegate(element, eventType, selector, fn) {
-  element.addEventListener(eventType, (e) => {
+  element.addEventListener(eventType, e => {
     let el = e.target;
     while (!el.matches(selector)) {
       if (element === el) {

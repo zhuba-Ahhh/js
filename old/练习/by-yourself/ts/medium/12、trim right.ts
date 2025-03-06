@@ -2,6 +2,6 @@
 type TrimLeft<S> = S extends ` ${infer R}` ? TrimLeft<R> : S;
 type TrimRight<S> = S extends `${infer R} ` ? TrimRight<R> : S;
 
-type trimed = TrimRight<TrimLeft<"  Hello World  ">>; // expected to be 'Hello World  '
+type trimed = TrimRight<TrimLeft<'  Hello World  '>>; // expected to be 'Hello World  '
 
 export {};

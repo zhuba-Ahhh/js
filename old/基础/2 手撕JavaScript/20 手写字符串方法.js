@@ -7,7 +7,7 @@
 // 1 实现字符串翻转方法 String.prototype.reverse()
 
 String.prototype.reverse = function () {
-  let result = "";
+  let result = '';
   const len = this.length;
   for (let i = len - 1; i >= 0; --i) {
     result += this[i];
@@ -27,7 +27,7 @@ String.prototype.myIndexOf = function (c) {
 
 // 3 测试
 
-const str = "My name is Sun Dasen.";
+const str = 'My name is Sun Dasen.';
 console.log(str.reverse()); // .nesaD nuS si eman yM
-console.log(str.myIndexOf("m")); // 5
-console.log(str.myIndexOf("z")); // -1
+console.log(str.myIndexOf('m')); // 5
+console.log(str.myIndexOf('z')); // -1

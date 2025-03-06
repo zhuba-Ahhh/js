@@ -51,7 +51,7 @@ var isMatch = function (s, p) {
   dp[0][1] = false; // 如果p长度为1，那么不可能是*，匹配失败
   for (let i = 2; i <= m; i++) {
     // 否则就判断，如果p的第i位是*的话，他就可以把第i-1位和自己抹除，那么就等于dp[0][i-2]
-    if (p[i - 1] === "*") {
+    if (p[i - 1] === '*') {
       dp[0][i] = dp[0][i - 2];
     }
   }
@@ -59,14 +59,14 @@ var isMatch = function (s, p) {
   for (let i = 1; i <= n; i++) {
     for (let j = 1; j <= m; j++) {
       // 如果p的第j位不是*
-      if (p[j - 1] !== "*") {
+      if (p[j - 1] !== '*') {
         // 如果第i，j位对应相同，或者第j位是.  ，那么第i，j位就可以抹除，只需要看他们前面是否是可匹配
-        if (p[j - 1] === s[i - 1] || p[j - 1] == ".") {
+        if (p[j - 1] === s[i - 1] || p[j - 1] == '.') {
           dp[i][j] = dp[i - 1][j - 1];
         }
       } else {
         // 第j-1（*前面的那个字符）和第i个不匹配，就用*将第j-1位去掉
-        if (p[j - 2] !== s[i - 1] && p[j - 2] !== ".") {
+        if (p[j - 2] !== s[i - 1] && p[j - 2] !== '.') {
           dp[i][j] = dp[i][j - 2];
         } else {
           // * 匹配0个，抹除自身和第j位
@@ -80,4 +80,4 @@ var isMatch = function (s, p) {
   return dp[n][m];
 };
 
-isMatch("aa", "a*");
+isMatch('aa', 'a*');

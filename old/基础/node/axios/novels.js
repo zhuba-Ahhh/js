@@ -1,6 +1,6 @@
-let axios = require("axios");
+let axios = require('axios');
 
-let url = "https://www.23qb.com//book/220921/86497271.html";
+let url = 'https://www.23qb.com//book/220921/86497271.html';
 
 function axi(url) {
   return new Promise(function (resolve, reject) {

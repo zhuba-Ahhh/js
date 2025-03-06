@@ -19,8 +19,8 @@
 
  */
 
-const isPalindrome = (str) => {
-  str = str.replace(/[^a-zA-Z\d]/g, "").toLowerCase();
+const isPalindrome = str => {
+  str = str.replace(/[^a-zA-Z\d]/g, '').toLowerCase();
 
   const length = str.length;
   let i = 0;
@@ -35,4 +35,4 @@ const isPalindrome = (str) => {
   return true;
 };
 
-console.log(isPalindrome("A man, a plan, a canal: Panama"));
+console.log(isPalindrome('A man, a plan, a canal: Panama'));

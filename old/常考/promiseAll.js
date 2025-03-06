@@ -2,7 +2,7 @@ function myAll(iterators) {
   const promises = Array.from(iterators);
   const values = [];
   return new Promise((resolve, reject) => {
-    promises.forEach((p) => {
+    promises.forEach(p => {
       p.then((data, err) => {
         if (err) {
           reject(err);
@@ -19,7 +19,7 @@ function myAll(iterators) {
 function PromiseAll(promises) {
   const values = [];
   return new Promise((resolve, reject) => {
-    promises.forEach((promise) => {
+    promises.forEach(promise => {
       promise.then((data, err) => {
         if (!err) reject(err);
         values.push(data);
@@ -47,6 +47,6 @@ let p3 = new Promise(function (resolve, reject) {
     resolve(3);
   }, 3000);
 });
-PromiseAll([p3, p1, p2]).then((res) => {
+PromiseAll([p3, p1, p2]).then(res => {
   console.log(res); // [3, 1, 2]
 });

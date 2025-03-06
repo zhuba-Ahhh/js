@@ -1,8 +1,8 @@
 // 比较版本号
 
 const compareVersion = function (version1, version2) {
-  version1 = version1.split(".");
-  version2 = version2.split(".");
+  version1 = version1.split('.');
+  version2 = version2.split('.');
 
   const len1 = version1.length;
   const len2 = version2.length;
@@ -38,8 +38,8 @@ const compareVersion = function (version1, version2) {
 
 // 也可以不补零
 const compareVersion = function (version1, version2) {
-  version1 = version1.split(".");
-  version2 = version2.split(".");
+  version1 = version1.split('.');
+  version2 = version2.split('.');
 
   const maxLen = Math.max(version1.length, version2.length);
 
@@ -58,12 +58,12 @@ const compareVersion = function (version1, version2) {
   return 0;
 };
 
-console.log(compareVersion("1.0", "1.0.0"));
+console.log(compareVersion('1.0', '1.0.0'));
 
 // 扩展1比较多个版本号
 
-const compareMoreVersion = (versions) => {
+const compareMoreVersion = versions => {
   return versions.sort((a, b) => compareVersion(a, b));
 };
 
-console.log(compareMoreVersion(["1.0", "3.1", "1.01"]));
+console.log(compareMoreVersion(['1.0', '3.1', '1.01']));

@@ -18,7 +18,7 @@
 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
  */
 // 正则表达式做法
-const myAtoi = (s) => {
+const myAtoi = s => {
   // 读取我们想要的数据
   const matchRe = /\s*([+\-]?\d*).*?/;
   const match = s.match(matchRe);
@@ -27,7 +27,7 @@ const myAtoi = (s) => {
   let result = 0;
   const macthNum = match[1];
 
-  if (match && !(macthNum == "+" || macthNum === "-")) {
+  if (match && !(macthNum == '+' || macthNum === '-')) {
     if (macthNum >= min && macthNum <= max) {
       result = macthNum;
     } else if (macthNum < min) {
@@ -42,7 +42,7 @@ const myAtoi = (s) => {
   return result;
 };
 
-const myAtoi2 = (s) => {
+const myAtoi2 = s => {
   let result = parseInt(s);
   const max = Math.pow(2, 31) - 1;
   const min = -max - 1;
@@ -60,5 +60,5 @@ const myAtoi2 = (s) => {
   return result;
 };
 
-console.log(myAtoi("-91283472332"));
-console.log(myAtoi2("-91283472332"));
+console.log(myAtoi('-91283472332'));
+console.log(myAtoi2('-91283472332'));

@@ -1,4 +1,4 @@
-type BuildArray<num, cache extends unknown[] = []> = cache["length"] extends num
+type BuildArray<num, cache extends unknown[] = []> = cache['length'] extends num
   ? cache
   : BuildArray<num, [...cache, unknown]>;
 
@@ -6,7 +6,7 @@ type BuildArray<num, cache extends unknown[] = []> = cache["length"] extends num
 type add<num1 extends number, num2 extends number> = [
   ...BuildArray<num1>,
   ...BuildArray<num2>,
-]["length"];
+]['length'];
 
 type res = add<1, 2>;
 

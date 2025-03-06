@@ -2,9 +2,9 @@ class URLSearchParams {
   constructor(init) {
     this.params = [];
 
-    if (typeof init === "string") {
+    if (typeof init === 'string') {
       this.parse(init);
-    } else if (init && typeof init === "object") {
+    } else if (init && typeof init === 'object') {
       Object.entries(init).forEach(([key, value]) => {
         this.append(key, value);
       });
@@ -41,28 +41,28 @@ class URLSearchParams {
     return this.params
       .map(
         ([key, value]) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
       )
-      .join("&");
+      .join('&');
   }
 
   parse(queryString) {
     this.params = queryString
-      .split("&")
-      .map((item) => item.split("=").map(decodeURIComponent));
+      .split('&')
+      .map(item => item.split('=').map(decodeURIComponent));
   }
 }
 
-const params = new URLSearchParams("?foo=bar&baz=qux");
+const params = new URLSearchParams('?foo=bar&baz=qux');
 
-params.get("foo"); // 'bar'
-params.get("baz"); // 'qux'
+params.get('foo'); // 'bar'
+params.get('baz'); // 'qux'
 
-params.set("foo", "new-value");
+params.set('foo', 'new-value');
 params.toString(); // 'foo=new-value&baz=qux'
 
-params.delete("foo");
-params.has("foo"); // false
+params.delete('foo');
+params.has('foo'); // false
 
 // const params = new URLSearchParams({ foo: 'bar', baz: 'qux' });
 

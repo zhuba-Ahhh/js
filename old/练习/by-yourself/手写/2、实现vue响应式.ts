@@ -25,7 +25,7 @@ function getDep(target: object, key: string | symbol): Set<any> {
 
 // 判断是否是object
 function isObject(raw: any) {
-  return typeof raw === "object" && raw !== null;
+  return typeof raw === 'object' && raw !== null;
 }
 
 // 收集依赖
@@ -38,7 +38,7 @@ function track(target: object, key: string | symbol) {
 // 触发依赖
 function trigger(target: object, key: string | symbol) {
   const dep = getDep(target, key);
-  dep.forEach((effect) => {
+  dep.forEach(effect => {
     effect();
   });
 }
@@ -59,15 +59,15 @@ function reactive(raw: any) {
   });
 }
 
-const a = reactive({ name: "wjj", friend: { name: "jzsp" } });
+const a = reactive({ name: 'wjj', friend: { name: 'jzsp' } });
 effect(() => {
-  console.log("我是", a.name);
+  console.log('我是', a.name);
 });
 effect(() => {
-  console.log("wjj的friends是", a.friend.name);
+  console.log('wjj的friends是', a.friend.name);
 });
 
-a.name = "jzsp";
-a.friend.name = "jzsp2";
+a.name = 'jzsp';
+a.friend.name = 'jzsp2';
 
 export {};

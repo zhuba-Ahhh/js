@@ -6,10 +6,10 @@ function parse(num) {
     num = ~~(num / 10);
   }
   arr.reverse();
-  const target = arr.findIndex((i) => i % 2 === 0);
+  const target = arr.findIndex(i => i % 2 === 0);
   if (target !== -1) {
     [arr[target], arr[arr.length - 1]] = [arr[arr.length - 1], arr[target]];
-    return arr.join("");
+    return arr.join('');
   }
   return -1;
 }

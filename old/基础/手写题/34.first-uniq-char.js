@@ -17,14 +17,14 @@ s = "loveleetcode"
 提示：你可以假定该字符串只包含小写字母。
  */
 // 利用hash表存储数量进行计数，然后再进行一次计算
-const firstUniqChar = (s) => {
+const firstUniqChar = s => {
   let cacheMap = {};
 
   for (let i = 0, len = s.length; i < len; i++) {
     const value = s[i];
 
     cacheMap[value] =
-      typeof cacheMap[value] !== "undefined" ? cacheMap[value] + 1 : 1;
+      typeof cacheMap[value] !== 'undefined' ? cacheMap[value] + 1 : 1;
   }
 
   for (let i = 0, len = s.length; i < len; i++) {
@@ -36,4 +36,4 @@ const firstUniqChar = (s) => {
   return -1;
 };
 
-console.log(firstUniqChar("aadadaad"));
+console.log(firstUniqChar('aadadaad'));

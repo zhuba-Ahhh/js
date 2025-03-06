@@ -7,10 +7,10 @@ var solve = function (board) {
   const m = board[0].length;
 
   function dfs(i, j) {
-    if (i < 0 || i >= n || j < 0 || j >= m || board[i][j] !== "O") {
+    if (i < 0 || i >= n || j < 0 || j >= m || board[i][j] !== 'O') {
       return;
     }
-    board[i][j] = "A";
+    board[i][j] = 'A';
     dfs(i + 1, j);
     dfs(i - 1, j);
     dfs(i, j - 1);
@@ -26,19 +26,19 @@ var solve = function (board) {
   }
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
-      if (board[i][j] === "A") {
-        board[i][j] = "O";
-      } else if (board[i][j] === "O") {
-        board[i][j] = "X";
+      if (board[i][j] === 'A') {
+        board[i][j] = 'O';
+      } else if (board[i][j] === 'O') {
+        board[i][j] = 'X';
       }
     }
   }
 };
 
 const board = [
-  ["O", "O", "O"],
-  ["O", "O", "O"],
-  ["O", "O", "O"],
+  ['O', 'O', 'O'],
+  ['O', 'O', 'O'],
+  ['O', 'O', 'O'],
 ];
 solve(board);
 console.log(board);

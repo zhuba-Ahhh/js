@@ -1,28 +1,28 @@
-const axios = require("axios");
-const fs = require("fs");
+const axios = require('axios');
+const fs = require('fs');
 // const path = require('path');
-const URL = require("url");
-const iconv = require("iconv-lite");
-const cheerio = require("cheerio");
+const URL = require('url');
+const iconv = require('iconv-lite');
+const cheerio = require('cheerio');
 
 // 书籍目录
-let url = "https://www.23qb.com/book/220921/";
+let url = 'https://www.23qb.com/book/220921/';
 
 // Ajax请求
 function getAjax(url) {
   return new Promise((resolve, reject) => {
     axios
       .get(url, {
-        responseType: "arraybuffer",
+        responseType: 'arraybuffer',
       })
-      .then((response) => {
+      .then(response => {
         // console.log(iconv.encodingExists("utf8"));
-        str = iconv.decode(Buffer.from(response.data), "gb2312");
+        str = iconv.decode(Buffer.from(response.data), 'gb2312');
         // html = iconv.encode(str, 'utf8').toString();
         // console.log(html)
         resolve(str); // 返回值为 response.data 就是网页数据
       })
-      .catch((err) => {
+      .catch(err => {
         reject(err);
       });
   });
@@ -35,25 +35,25 @@ async function getUrl(url) {
 
 async function getName(url) {
   let Body = await getUrl(url);
-  let baseUrl = URL.parse(url).protocol + "//" + URL.parse(url).host + "/";
+  let baseUrl = URL.parse(url).protocol + '//' + URL.parse(url).host + '/';
   const reg = /chapterList(.*?)lbxxyx_s/gims,
     regName = /title" content="(.*?)"\/>/gims,
     regAuthor = /authorarticle\.php\?author=(.*?)"/gims;
   let name = regName.exec(Body)[1];
   let author = regAuthor.exec(Body)[1];
-  full = name + "-" + author;
-  fs.writeFile(__dirname + "/novles/" + full + ".txt", full + "\n", (error) => {
+  full = name + '-' + author;
+  fs.writeFile(__dirname + '/novles/' + full + '.txt', full + '\n', error => {
     if (error) {
       console.log(`创建失败：${error}`);
     }
     console.log(`${full}创建成功！`);
-    console.log(name + "正在下载ing...");
+    console.log(name + '正在下载ing...');
   });
   let data = reg.exec(Body)[1];
   let $ = cheerio.load(data);
   let ans = [];
-  $("a").each((index, element) => {
-    let a = baseUrl + $(element).attr("href");
+  $('a').each((index, element) => {
+    let a = baseUrl + $(element).attr('href');
     let name = $(element).text().toString();
     ans.push({
       index,

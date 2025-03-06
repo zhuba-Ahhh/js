@@ -4,10 +4,10 @@ Promise.myReject = function (value) {
   });
 };
 
-Promise.myReject("err")
-  .then((res) => {
+Promise.myReject('err')
+  .then(res => {
     console.log(res);
   })
-  .catch((err) => {
-    console.log(err, "err");
+  .catch(err => {
+    console.log(err, 'err');
   });

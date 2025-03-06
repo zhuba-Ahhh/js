@@ -8,12 +8,12 @@ class Subject {
   }
 
   notify() {
-    this.observers.map((observer) => {
+    this.observers.map(observer => {
       observer?.callback();
     });
   }
   remove(observer) {
-    this.observers = this.observers.filter((o) => o !== observer);
+    this.observers = this.observers.filter(o => o !== observer);
   }
 }
 class Observer {
@@ -22,7 +22,7 @@ class Observer {
   }
 
   callback() {
-    console.log("id:", this.id);
+    console.log('id:', this.id);
   }
 }
 

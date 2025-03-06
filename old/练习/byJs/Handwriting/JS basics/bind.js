@@ -22,14 +22,14 @@ f._bind({ a: 66 }, 10)(11); // 66, 10
 //牛客上的测试样例
 function test() {
   const o1 = {
-    name: "z",
+    name: 'z',
     fn: function () {
       return this.name;
     },
   };
-  const o2 = { name: "g" };
+  const o2 = { name: 'g' };
   const result = o1.fn._bind(o2);
-  return result() === "g";
+  return result() === 'g';
 }
 
 console.log(test());

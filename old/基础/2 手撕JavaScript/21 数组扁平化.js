@@ -19,7 +19,7 @@ console.log(arr.flat(Infinity));
 
 // 3 使用正则表达式
 
-console.log(JSON.parse("[" + JSON.stringify(arr).replace(/\[|\]/g, "") + "]"));
+console.log(JSON.parse('[' + JSON.stringify(arr).replace(/\[|\]/g, '') + ']'));
 
 // 4 使用数组的 reduce 方法实现
 

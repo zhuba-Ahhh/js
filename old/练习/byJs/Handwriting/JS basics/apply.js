@@ -7,7 +7,7 @@
  */
 Function.prototype._apply = function (context = globalThis) {
   const args = arguments[1] || [];
-  const key = Symbol("key");
+  const key = Symbol('key');
   context[key] = this;
   const res = context[key](...args);
   delete context[key];

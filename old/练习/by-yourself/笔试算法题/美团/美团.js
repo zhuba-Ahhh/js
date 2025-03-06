@@ -5,11 +5,11 @@ function parse(reg, str) {
   for (let i = 0; i <= l2 - l1; i++) {
     let j;
     for (j = 0; j < l1; j++) {
-      if (reg[j] === "*") continue;
+      if (reg[j] === '*') continue;
       if (str[i + j] !== reg[j]) break;
     }
     if (j === l1) res++;
   }
   return res;
 }
-console.log(parse("a*c", "abcaacc"));
+console.log(parse('a*c', 'abcaacc'));

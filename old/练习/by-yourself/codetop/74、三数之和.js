@@ -23,7 +23,7 @@ var threeSum = function (nums) {
   }
   res = [...res];
   for (let i = 0; i < res.length; i++) {
-    res[i] = res[i].split(",");
+    res[i] = res[i].split(',');
   }
   return res;
 };

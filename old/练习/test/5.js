@@ -25,7 +25,7 @@ function PALL(args) {
     values = [],
     l = Promises.length;
   return new Promise((resolve, reject) => {
-    Promises.forEach((promise) => {
+    Promises.forEach(promise => {
       promise.then((data, err) => {
         if (!err) reject(err);
         values.length === l ? resolve(values) : values.push(data);

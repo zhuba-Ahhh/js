@@ -14,7 +14,7 @@ Promise.myAll = function (iterable) {
     for (const promise of iterable) {
       const currentIndex = index; // 对每个 promise 要封闭一下 index 作用域！
       promise.then(
-        (value) => {
+        value => {
           if (anErrorOccurred) return; // 如果已经有错误发生，就什么也不做了
           result[currentIndex] = value; // 将解决结果存入结果数组
           elementCount++; // 统计解决个数
@@ -22,11 +22,11 @@ Promise.myAll = function (iterable) {
             resolve(result); // 全部解决了，最终的 promise 解决
           }
         },
-        (err) => {
+        err => {
           if (anErrorOccurred) return; // 如果已经有错误发生，就什么也不做了
           anErrorOccurred = true; // 发生了第一个错误，置标志
           reject(err); // 最终的 promise 拒绝
-        },
+        }
       );
       index++;
     }
@@ -46,16 +46,16 @@ Promise.myRace = function (iterable) {
     for (const promise of iterable) {
       promise.then(
         // 给每个 promise 添加解决和拒绝回调
-        (value) => {
+        value => {
           if (settlementOccurred) return; // 如果已经有一个落定了的 promise，就什么也不做了
           settlementOccurred = true; // 发生了一个解决，置标志
           resolve(value); // 最终的 promise 解决
         },
-        (err) => {
+        err => {
           if (settlementOccurred) return; // 如果已经有一个落定了的 promise，就什么也不做了
           settlementOccurred = true; // 发生了一个拒绝，置标志
           reject(err); // 最终的 promise 拒绝
-        },
+        }
       );
     }
   });
@@ -65,26 +65,26 @@ Promise.myRace = function (iterable) {
 
 Promise.allSettled = function (promisesArg) {
   if (!promisesArg.length) return Promise.resolve([]); // 如果是个空数组
-  const promises = promisesArg.map((p) =>
-    p instanceof Promise ? p : Promise.resolve(p),
+  const promises = promisesArg.map(p =>
+    p instanceof Promise ? p : Promise.resolve(p)
   ); // 包装一下不是 promise 的项
   return new Promise((resolve, reject) => {
     const result = [];
     let unSettledPromiseCount = promises.length;
     promises.forEach((p, index) => {
       p.then(
-        (reason) => {
+        reason => {
           result[index] = {
-            status: "resolve",
+            status: 'resolve',
             reason,
           };
         },
-        (reason) => {
+        reason => {
           result[index] = {
-            status: "reject",
+            status: 'reject',
             reason,
           };
-        },
+        }
       ).finally(() => {
         --unSettledPromiseCount;
         if (!unSettledPromiseCount) resolve(result);
@@ -98,8 +98,8 @@ Promise.allSettled = function (promisesArg) {
 // 简易版 - 不使用缓存，仅重试
 Promise.retrySimple = function (fn, maxRetry, timeout) {
   // 参数检查
-  if (typeof fn !== "function") {
-    throw new TypeError("Expected a function");
+  if (typeof fn !== 'function') {
+    throw new TypeError('Expected a function');
   }
   maxRetry = maxRetry || 3;
   timeout = timeout || 1000;
@@ -109,11 +109,11 @@ Promise.retrySimple = function (fn, maxRetry, timeout) {
     // 内部函数，进行一次尝试
     const run = () => {
       fn().then(
-        (value) => {
+        value => {
           // 封装的 promise 解决
           resolve(value);
         },
-        (err) => {
+        err => {
           // 超过了最大重试次数，拒绝
           if (retryCount >= options.maxRetry) {
             reject(err);
@@ -122,7 +122,7 @@ Promise.retrySimple = function (fn, maxRetry, timeout) {
           // 没有超过最大重试次数，则重试
           setTimeout(run, options.retryDelay);
           retryCount++;
-        },
+        }
       );
     };
     run();
@@ -132,8 +132,8 @@ Promise.retrySimple = function (fn, maxRetry, timeout) {
 // 完整版 - 有缓存
 Promise.retry = function (fn, options) {
   // 参数检查
-  if (typeof fn !== "function") {
-    throw new TypeError("Expected a function");
+  if (typeof fn !== 'function') {
+    throw new TypeError('Expected a function');
   }
   options = options || {};
   // 默认参数
@@ -142,18 +142,18 @@ Promise.retry = function (fn, options) {
       maxRetry: 3, // 默认重试次数
       retryDelay: 1000, // 默认重试时间间隔
       cache: false, // 是否缓存结果
-      cacheKey: "", // 缓存 key
+      cacheKey: '', // 缓存 key
       cacheExpire: 0, // 缓存过期时间，单位：毫秒
       cacheMax: 0, // 缓存最大值，超过后清空缓存
     },
-    options,
+    options
   );
   let retryCount = 0; // 已重试次数
   return new Promise((resolve, reject) => {
     // 内部函数，进行一次尝试
     const run = () => {
       fn().then(
-        (value) => {
+        value => {
           // 成功收到响应，如果需要缓存，则缓存结果，同时设置缓存过期时间
           if (options.cache) {
             localStorage.setItem(
@@ -161,13 +161,13 @@ Promise.retry = function (fn, options) {
               JSON.stringify({
                 value,
                 expire: Date.now() + options.cacheExpire,
-              }),
+              })
             );
           }
           // 封装的 promise 解决
           resolve(value);
         },
-        (err) => {
+        err => {
           // 超过了最大重试次数，拒绝
           if (retryCount >= options.maxRetry) {
             reject(err);
@@ -187,7 +187,7 @@ Promise.retry = function (fn, options) {
           // 重试
           setTimeout(run, options.retryDelay);
           retryCount++;
-        },
+        }
       );
     };
     run();
@@ -201,19 +201,19 @@ Promise.myAny = function (promises) {
     promises = Array.isArray(promises) ? promises : Array.from(promises);
     let count = promises.length;
     let errs = []; // 用于收集所有 reject
-    promises.forEach((promise) => {
+    promises.forEach(promise => {
       // 对每个 promise 绑定：如果解决了，则合成的 promise 解决，如果失败了，计数减一，全部失败返回失败结果
       promise.then(
-        (value) => {
+        value => {
           resolve(value);
         },
-        (err) => {
+        err => {
           count--;
           errs.push(err);
           if (count === 0) {
             reject(new AggregateError(errs));
           }
-        },
+        }
       );
     });
   });

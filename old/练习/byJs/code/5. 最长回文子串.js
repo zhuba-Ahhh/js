@@ -4,7 +4,7 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-  if (!s || !s.length) return "";
+  if (!s || !s.length) return '';
   let res = s[0];
   const dp = [];
   // dp[i][] 依赖 dp[i-1][] --> 干脆反着遍历
@@ -31,9 +31,9 @@ var longestPalindrome = function (s) {
 var longestPalindrome = function (s) {
   const lens = s.length;
   // 预处理字符数组
-  let str = "#";
+  let str = '#';
   for (let i = 0; i < lens; i++) {
-    str = str + s[i] + "#";
+    str = str + s[i] + '#';
   }
   // 当前回文子串能到达的右边界和它的中心
   let mid = 0,
@@ -69,6 +69,6 @@ var longestPalindrome = function (s) {
   }
   return s.substring(
     (maxLenMid + 1 - maxLen) / 2,
-    (maxLenMid - 1 + maxLen) / 2,
+    (maxLenMid - 1 + maxLen) / 2
   );
 };

@@ -1,8 +1,8 @@
 let data = {
-  name: "hdf",
+  name: 'hdf',
   age: 19,
   friend: {
-    name: "张纹龙",
+    name: '张纹龙',
   },
 };
 
@@ -10,7 +10,7 @@ let data = {
 observer(data);
 
 function observer(target) {
-  if (!target || typeof target == "object") {
+  if (!target || typeof target == 'object') {
     return target;
   }
 
@@ -32,7 +32,7 @@ function defineReactive(target, key, value) {
         observer(newValue);
         if (newValue !== value) {
           value = newValue;
-          console.log("更新视图");
+          console.log('更新视图');
         }
       },
     };

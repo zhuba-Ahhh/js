@@ -16,14 +16,14 @@ let t = setTimeout(() => {
   }, 2000);
 }, 1000);
 
-let p = new Promise((resolve) => setTimeout(resolve, 1000))
+let p = new Promise(resolve => setTimeout(resolve, 1000))
   .then(() => {
     console.log(111);
-    return new Promise((resolve) => setTimeout(resolve, 2000));
+    return new Promise(resolve => setTimeout(resolve, 2000));
   })
   .then(() => {
     console.log(222);
-    return new Promise((resolve) => setTimeout(resolve, 3000));
+    return new Promise(resolve => setTimeout(resolve, 3000));
   })
   .then(() => {
     console.log(333);
@@ -33,7 +33,7 @@ let p = new Promise((resolve) => setTimeout(resolve, 1000))
 
 function outputTime() {
   console.log(new Date());
-  return new Promise((resolve) => setTimeout(resolve, 3000)).then(outputTime);
+  return new Promise(resolve => setTimeout(resolve, 3000)).then(outputTime);
 }
 outputTime();
 // Thu Mar 17 2022 22:19:04 GMT+0800 (中国标准时间)

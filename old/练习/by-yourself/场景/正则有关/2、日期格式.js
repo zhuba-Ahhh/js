@@ -8,6 +8,6 @@ const dateFormat = (dateInput, format) => {
   format = format.replace(/dd/, day);
   return format;
 };
-dateFormat(new Date("2020-12-01"), "yyyy/MM/dd"); // 2020/12/01
-dateFormat(new Date("2020-04-01"), "yyyy/MM/dd"); // 2020/04/01
-dateFormat(new Date("2020-04-01"), "yyyy年MM月dd日"); // 2020年04月01日
+dateFormat(new Date('2020-12-01'), 'yyyy/MM/dd'); // 2020/12/01
+dateFormat(new Date('2020-04-01'), 'yyyy/MM/dd'); // 2020/04/01
+dateFormat(new Date('2020-04-01'), 'yyyy年MM月dd日'); // 2020年04月01日

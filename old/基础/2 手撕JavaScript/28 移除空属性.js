@@ -9,7 +9,7 @@ Object.prototype.deleteEmptyProperty = function () {
   for (const key in this) {
     if (this[key] === null || this[key] === undefined) {
       delList.push(key);
-    } else if (typeof this[key] === "object") {
+    } else if (typeof this[key] === 'object') {
       this[key].deleteEmptyProperty();
     }
   }
@@ -21,12 +21,12 @@ Object.prototype.deleteEmptyProperty = function () {
 // 测试
 
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
   girlFriend: null,
   dog: null,
   bestFriend: {
-    name: "Tiantian",
+    name: 'Tiantian',
     age: undefined,
     boyFriend: null,
   },

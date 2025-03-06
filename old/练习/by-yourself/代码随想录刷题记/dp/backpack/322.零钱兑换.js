@@ -5,7 +5,7 @@ var coinChange = function (coins, amount) {
   const dp = new Array(amount + 1).fill(Infinity);
   dp[0] = 0;
   // 每个硬币对应的花费，算一个硬币就可以达到
-  coins.forEach((cost) => (dp[cost] = 1));
+  coins.forEach(cost => (dp[cost] = 1));
 
   // 开始从前往后更新dp
   for (let i = 1; i <= amount; i++) {

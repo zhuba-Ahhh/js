@@ -10,7 +10,7 @@ function cov(n, base = 7) {
     ans.push(n % base);
     n = parseInt(n / base);
   }
-  return ans.reverse().join("");
+  return ans.reverse().join('');
 }
 
 console.log(cov(7));

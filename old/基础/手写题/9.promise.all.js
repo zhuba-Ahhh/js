@@ -1,4 +1,4 @@
-Promise.myAll = (promises) => {
+Promise.myAll = promises => {
   return new Promise((rs, rj) => {
     let count = 0;
     let result = [];
@@ -10,7 +10,7 @@ Promise.myAll = (promises) => {
 
     promises.forEach((p, i) => {
       Promise.resolve(p)
-        .then((res) => {
+        .then(res => {
           count += 1;
           result[i] = res;
 
@@ -23,10 +23,10 @@ Promise.myAll = (promises) => {
   });
 };
 
-Promise.myAll2 = (promises) => {
+Promise.myAll2 = promises => {
   return new Promise((resolve, reject) => {
     if (!Array.isArray(promises)) {
-      return reject("Promise.all accepts an array");
+      return reject('Promise.all accepts an array');
     }
 
     const length = promises.length;
@@ -41,7 +41,7 @@ Promise.myAll2 = (promises) => {
       try {
         if (value instanceof Promise) {
           // 注意此val非value
-          value.then((val) => {
+          value.then(val => {
             response(i, val);
           }, reject);
           return;
@@ -68,7 +68,7 @@ let p2 = 2;
 let p3 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, 3);
 });
-let p4 = Promise.reject("出错啦");
+let p4 = Promise.reject('出错啦');
 
 // Promise.myAll([ p1, p2, p3 ]).then((res) => {
 //   console.log(res, 'res---1')
@@ -101,9 +101,9 @@ let p4 = Promise.reject("出错啦");
 // })
 
 Promise.myAll2([p1, p2, p4])
-  .then((res) => {
-    console.log(res, "res--3");
+  .then(res => {
+    console.log(res, 'res--3');
   })
-  .catch((err) => {
-    console.log("err", err);
+  .catch(err => {
+    console.log('err', err);
   });

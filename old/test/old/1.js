@@ -3,7 +3,7 @@ function flatten2_1(arr, n = 1) {
     let time = n;
     console.log(next, time);
     return pre.concat(
-      Array.isArray(next) && time > 0 ? flatten2_1(next, time - 1) : next,
+      Array.isArray(next) && time > 0 ? flatten2_1(next, time - 1) : next
     );
   }, []);
 }
@@ -55,7 +55,7 @@ function removeSameItem(arr) {
 
   let map = new Map();
   let res = [];
-  arr.map((item) => {
+  arr.map(item => {
     if (!map.get(item)) {
       map.set(item, 1);
       res.push(item);
@@ -75,7 +75,7 @@ setTimeout(() => {
 
 console.log(2);
 
-new Promise((reslove) => {
+new Promise(reslove => {
   console.log(3);
   reslove();
   console.log(4);

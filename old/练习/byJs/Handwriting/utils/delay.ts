@@ -22,5 +22,5 @@ const a = delay(
     return name;
   },
   1000,
-  "zhou",
-).then((v) => console.log(v));
+  'zhou'
+).then(v => console.log(v));

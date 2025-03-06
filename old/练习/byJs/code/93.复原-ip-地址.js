@@ -17,18 +17,18 @@ var restoreIpAddresses = function (s) {
   const dfs = (s, segId, segStart) => {
     if (segId === LIMIT) {
       if (segStart === s.length) {
-        ans.push(tmpSegments.join("."));
+        ans.push(tmpSegments.join('.'));
       }
       return;
     }
     if (segStart === s.length) return;
-    if (s.charAt(segStart) === "0") {
+    if (s.charAt(segStart) === '0') {
       tmpSegments[segId] = 0; //不能有前导0，所以当前为0就是该段为0
       dfs(s, segId + 1, segStart + 1);
     }
     let addr = 0;
     for (let segEnd = segStart; segEnd < s.length; segEnd++) {
-      addr = addr * 10 + (s.charAt(segEnd) - "0");
+      addr = addr * 10 + (s.charAt(segEnd) - '0');
       if (addr > 0 && addr <= 255) {
         tmpSegments[segId] = addr;
         dfs(s, segId + 1, segEnd + 1);

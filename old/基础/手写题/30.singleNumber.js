@@ -24,7 +24,7 @@
 
 // 除了某个元素只出现一次以外，其余每个元素均出现两次 这句话是突破口
 
-const singleNumber = (nums) => {
+const singleNumber = nums => {
   let ans = 0;
 
   for (const num of nums) {

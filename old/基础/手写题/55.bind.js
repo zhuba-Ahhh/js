@@ -1,6 +1,6 @@
 Function.prototype.bind2 = function (context, ...args) {
-  if (typeof this !== "function") {
-    throw new TypeError("Bind must be called on a function");
+  if (typeof this !== 'function') {
+    throw new TypeError('Bind must be called on a function');
   }
 
   const executeBound = function (
@@ -8,7 +8,7 @@ Function.prototype.bind2 = function (context, ...args) {
     boundFunc,
     context,
     callingContext,
-    args,
+    args
   ) {
     if (!(callingContext instanceof boundFunc)) {
       // 如果调用方式不是new func的形式就直接调用sourceFunc，并且给到对应的参数即可
@@ -18,8 +18,8 @@ Function.prototype.bind2 = function (context, ...args) {
       const result = sourceFunc.apply(self, args);
 
       if (
-        (result && typeof result === "object") ||
-        typeof result === "function"
+        (result && typeof result === 'object') ||
+        typeof result === 'function'
       ) {
         return result;
       } else {
@@ -50,9 +50,9 @@ Person.prototype.showName = function (age) {
   console.log(this, this.name, age);
 };
 
-const bindPerson = Person.bind(null, "boy");
-const p1 = new bindPerson("前端胖头鱼");
+const bindPerson = Person.bind(null, 'boy');
+const p1 = new bindPerson('前端胖头鱼');
 
 p1.showName(100);
 
-showName.bind2({ name: "前端胖头鱼" }, "boy")(100);
+showName.bind2({ name: '前端胖头鱼' }, 'boy')(100);

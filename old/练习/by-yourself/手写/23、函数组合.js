@@ -35,6 +35,6 @@ function comp(...fns) {
   return fns.reduce(
     (composed, fn) =>
       (...args) =>
-        fn(composed(...args)),
+        fn(composed(...args))
   );
 }

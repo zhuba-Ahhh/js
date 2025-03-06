@@ -27,7 +27,7 @@ var singleNumbers = function (nums) {
   let a = 0;
   let b = 0;
   // 根据这个位置进行分组异或，得到结论
-  nums.forEach((i) => {
+  nums.forEach(i => {
     if ((i & div) === div) {
       a = a ^ i;
     } else {

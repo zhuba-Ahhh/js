@@ -4,7 +4,7 @@
  * @returns
  */
 const sleep = (seconds: number): Promise<void> =>
-  new Promise((resolve) => setTimeout(resolve, seconds));
+  new Promise(resolve => setTimeout(resolve, seconds));
 
 //test
 const d1 = new Date().getTime();

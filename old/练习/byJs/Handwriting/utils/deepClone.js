@@ -8,13 +8,13 @@ deepClone
 
 */
 // import getType from './getType'; //这里是直接从 那个文件里粘贴过来的，为了方便控制台调试
-const getType = (value) => {
+const getType = value => {
   // 对象为 null
   if (value === null) {
-    return value + "";
+    return value + '';
   }
   // 对象为引用类型（除函数外
-  if (typeof value === "object") {
+  if (typeof value === 'object') {
     const toString = Object.prototype.toString;
     return toString.call(value).slice(8, -1).toLowerCase();
   } else {
@@ -27,8 +27,8 @@ const getType = (value) => {
  * @param {any} target 要判断的变量
  * @returns {boolean} 是否为对象(包括函数)
  */
-const isObject = (target) =>
-  (typeof target === "object" || typeof target === "function") &&
+const isObject = target =>
+  (typeof target === 'object' || typeof target === 'function') &&
   target !== null;
 
 /* 可遍历的类型 */
@@ -40,23 +40,23 @@ const canTraverse = {
   arguments: true,
 };
 
-const mapTag = "map";
-const setTag = "set";
-const boolTag = "boolean";
-const numberTag = "number";
-const stringTag = "string";
-const symbolTag = "symbol";
-const dateTag = "date";
-const errorTag = "error";
-const regexpTag = "regexp";
-const funcTag = "function";
+const mapTag = 'map';
+const setTag = 'set';
+const boolTag = 'boolean';
+const numberTag = 'number';
+const stringTag = 'string';
+const symbolTag = 'symbol';
+const dateTag = 'date';
+const errorTag = 'error';
+const regexpTag = 'regexp';
+const funcTag = 'function';
 
-const handleRegExp = (target) => {
+const handleRegExp = target => {
   const { source, flags } = target;
   return new target.constructor(source, flags);
 };
 
-const handleFunc = (func) => {
+const handleFunc = func => {
   // 箭头函数直接返回自身
   if (!func.prototype) return func;
   const bodyReg = /(?<={)(.|\n)+(?=})/m;
@@ -67,7 +67,7 @@ const handleFunc = (func) => {
   const body = bodyReg.exec(funcString);
   if (!body) return null;
   if (param) {
-    const paramArr = param[0].split(",");
+    const paramArr = param[0].split(',');
     return new Function(...paramArr, body[0]);
   } else {
     return new Function(body[0]);
@@ -135,7 +135,7 @@ const deepClone = (target, cache = new WeakMap()) => {
   }
 
   if (type === setTag) {
-    target.forEach((item) => {
+    target.forEach(item => {
       cloneTarget.add(deepClone(item, cache));
     });
   }
@@ -152,16 +152,16 @@ const deepClone = (target, cache = new WeakMap()) => {
 //test
 const mp = new Map([
   [1, 2],
-  ["1", 2],
+  ['1', 2],
 ]);
 const st = new Set([1, 2, 3]);
 const f = function () {
-  console.log("f");
+  console.log('f');
 };
-const af = () => void console.log("af");
+const af = () => void console.log('af');
 const obj = { s: [1, 2] };
 obj.ss = obj;
-const a = [1, "1", mp, st, f, af, obj, false];
+const a = [1, '1', mp, st, f, af, obj, false];
 
 const b = deepClone(a);
 console.log(b); //太长不放注释里了
@@ -169,12 +169,12 @@ a[2].set(9, 0);
 console.log(a[2]); //Map { 1 => 2, '1' => 2, 9 => 0 }
 console.log(b[2]); //Map { 1 => 2, '1' => 2 }
 
-a[3].add("o");
+a[3].add('o');
 console.log(a[3]); //Set { 1, 2, 3, 'o' }
 console.log(b[3]); //Set { 1, 2, 3 }
 
 a[4] = function () {
-  console.log("update");
+  console.log('update');
 };
 a[4](); //update
 b[4](); //f
@@ -182,7 +182,7 @@ b[4](); //f
 a[5](); //af
 b[5](); //af
 
-a[6].test = "test";
+a[6].test = 'test';
 console.log(a[6]); //{ s: [ 1, 2 ], ss: [Circular], test: 'test' }
 console.log(b[6]); //{ s: [ 1, 2 ], ss: { s: [ 1, 2 ], ss: [Circular], test: 'test' } }
 

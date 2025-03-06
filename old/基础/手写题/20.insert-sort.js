@@ -5,7 +5,7 @@
  * 2. 从未排序序列中取一个元素出来，往有序序列中找到合适的位置，如果该位置比元素大，则后移动, 否则继续往前找
  */
 
-const insertSort = (array) => {
+const insertSort = array => {
   for (let i = 1, length = array.length; i < length; i++) {
     let j = i - 1;
     const curValue = array[i];

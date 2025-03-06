@@ -3,23 +3,23 @@
 // 1 给节点追加数据
 
 // 追加数据
-document.body.setUserData("name", "Nicholas", function () {});
+document.body.setUserData('name', 'Nicholas', function () {});
 // 获取数据
-let value = document.body.getUserData("name");
+let value = document.body.getUserData('name');
 
 // ==================== 样式 ====================
 
 // 1 操作元素内联样式
 
 // 获取元素 DOM
-let div = document.getElementById("myDiv");
+let div = document.getElementById('myDiv');
 // 设置背景颜色
-div.style.backgroundColor = "red";
+div.style.backgroundColor = 'red';
 // 修改大小
-div.style.width = "100px";
-div.style.height = "200px";
+div.style.width = '100px';
+div.style.height = '200px';
 // 设置边框
-div.style.border = "1px solid black";
+div.style.border = '1px solid black';
 
 // 2 操作的外联样式表
 
@@ -34,7 +34,7 @@ for (let i = 0, len = document.styleSheets.length; i < len; i++) {
 let sheet = document.styleSheets[0];
 let rules = sheet.cssRules || sheet.rules; // 取得规则集合
 let rule = rules[0]; // 取得第一条规则
-rule.style.backgroundColor = "red"; // 修改它
+rule.style.backgroundColor = 'red'; // 修改它
 
 // 3 元素尺寸
 

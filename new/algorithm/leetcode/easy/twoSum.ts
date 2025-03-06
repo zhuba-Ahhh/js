@@ -1,4 +1,9 @@
 /**
+ * @tag 数组
+ * @tag 哈希表
+ */
+
+/**
  * 两数之和
  * @param nums 输入数组
  * @param target 目标和

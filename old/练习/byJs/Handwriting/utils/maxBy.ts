@@ -17,7 +17,7 @@ const maxBy = (list: Array<any>, keyBy: Function, only = true) =>
               : keyBy(x) === keyBy(acc[0])
                 ? [...acc, x]
                 : acc,
-          [list[0]],
+          [list[0]]
         );
 
 //test
@@ -30,7 +30,7 @@ console.log(maxBy(data, (x: any) => x.value)); //{value: 6}
  * 找出页面中出现次数最多的 HTML 标签
  */
 const getFrequentTag = () => {
-  const tags = [...document.querySelectorAll("*")].map((x) => x.tagName);
+  const tags = [...document.querySelectorAll('*')].map(x => x.tagName);
   console.log(tags);
   const tagsCnt = tags.reduce((o, tag) => {
     o[tag] = o[tag] ? o[tag] + 1 : 1;

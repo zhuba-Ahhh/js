@@ -60,7 +60,7 @@ class MinHeap {
 
 const findKthLargest = (nums, k) => {
   const minHeap = new MinHeap();
-  nums.forEach((n) => {
+  nums.forEach(n => {
     // 将数组元素依次插入堆中
     minHeap.insert(n);
     // 如果堆大小超过k，将堆顶(最小) 的去掉

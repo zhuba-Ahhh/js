@@ -10,5 +10,5 @@ console.log(
     if (disCount > 0.05) return `${disCount * 100}%OFF`;
 
     return `-R$${disCount > 1 ? disCount.toFixed(2) : disCount.toFixed(1)}`;
-  })(pre, cur),
+  })(pre, cur)
 );

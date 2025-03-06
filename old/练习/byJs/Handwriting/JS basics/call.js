@@ -14,8 +14,8 @@ call:
  * @returns 返回调用结果
  */
 Function.prototype._call = function (context) {
-  if (typeof this !== "function") {
-    console.error("TypeError");
+  if (typeof this !== 'function') {
+    console.error('TypeError');
   }
   let args = [...arguments].slice(1),
     res = null;

@@ -15,7 +15,7 @@ const curry = (func, ...args) => {
 const curry2 =
   (fn, arr = []) =>
   (...args) =>
-    ((arg) => (arg.length === fn.length ? fn(...arg) : curry(fn, arg)))([
+    (arg => (arg.length === fn.length ? fn(...arg) : curry(fn, arg)))([
       ...arr,
       ...args,
     ]);

@@ -5,11 +5,11 @@
 // 创建时间日期
 let dt1 = new Date();
 let dt2 = new Date(Date.now());
-let dt3 = new Date(Date.parse("5/1/2020"));
-let dt4 = new Date(Date.parse("May 1, 2020"));
-let dt5 = new Date(Date.parse("我不是日期"));
+let dt3 = new Date(Date.parse('5/1/2020'));
+let dt4 = new Date(Date.parse('May 1, 2020'));
+let dt5 = new Date(Date.parse('我不是日期'));
 let dt6 = new Date(Date.UTC(2020, 4, 1, 13, 14, 5, 21));
-let dt7 = new Date("5/1/2020");
+let dt7 = new Date('5/1/2020');
 let dt8 = new Date(2020, 4, 1, 13, 14, 5, 21);
 console.log(Number(dt1)); // 1638845562036
 console.log(Number(dt2)); // 1638845562036
@@ -41,12 +41,12 @@ console.log(dt.toJSON()); // 2021-12-07T03:02:35.844Z
 let p1 = /at/g; // 匹配字符串中所有的"at"
 let p2 = /[bc]at/i; // 匹配第一个"bat"或"cat"，忽略大小写
 let p3 = /.at/gi; // 将全局模式和忽略大小写结合
-let p4 = new RegExp(".at", "gi"); // 使用构造函数创建，等价于p3
+let p4 = new RegExp('.at', 'gi'); // 使用构造函数创建，等价于p3
 
 // 2 正则表达式方法
 
 // exec
-let text = "mom and dad and baby";
+let text = 'mom and dad and baby';
 let pattern = /mom( and dad( and baby)?)?/gi;
 let matches = pattern.exec(text);
 console.log(matches.index); // 0
@@ -59,7 +59,7 @@ console.log(matches[2]); // " and baby"
 
 // 1 Object包装
 
-let s = new Object("Dasen");
+let s = new Object('Dasen');
 let n = new Object(2);
 let b = new Object(true);
 console.log(typeof s); // object
@@ -74,10 +74,10 @@ console.log(b instanceof Boolean); // true
 let b1 = new Boolean(true);
 let b2 = new Boolean(false);
 if (b1) {
-  console.log("b1解释为真");
+  console.log('b1解释为真');
 }
 if (b2) {
-  console.log("b2解释为真");
+  console.log('b2解释为真');
 }
 // b1解释为真
 // b2解释为真
@@ -94,14 +94,14 @@ console.log(f.toPrecision(5)); // 3.1416
 // 4 String
 
 // UTF16编码
-let s = "我是大森";
+let s = '我是大森';
 console.log(s.charAt(1)); // 是
 console.log(s.charCodeAt(2)); // 22823
 console.log(s.charCodeAt(3).toString(16)); // 68ee
 console.log(String.fromCharCode(22823, 0x68ee)); // 大森
 
 // UTF32编码
-let s = "我是大森😊";
+let s = '我是大森😊';
 console.log(s.charAt(4)); // �
 console.log(s.charAt(5)); // �
 console.log(s.charCodeAt(4)); // 55357
@@ -112,7 +112,7 @@ console.log(String.fromCharCode(55357, 56842)); // 😊
 console.log(String.fromCodePoint(128522)); // 😊
 
 // 字符串迭代器
-let s = "我是大森😊";
+let s = '我是大森😊';
 for (const c of s) {
   console.log(c);
 }
@@ -123,35 +123,35 @@ for (const c of s) {
 // 😊
 
 // 字符串操作方法
-let s = "Hello";
-console.log(s.concat(" world", "!")); // Hello world!
+let s = 'Hello';
+console.log(s.concat(' world', '!')); // Hello world!
 console.log(s.slice(1, 4)); // ell
 console.log(s.slice(1)); // ello
 console.log(s.slice(-4, -1)); // ell
 console.log(s.substring(1, 4)); // ell
 console.log(s.substring(1)); // ello
 console.log(s.substring(-4, 4)); // Hell
-console.log("输出空串：", s.substring(-4, -1)); // 输出空串：
+console.log('输出空串：', s.substring(-4, -1)); // 输出空串：
 console.log(s.substr(1, 3)); // ell
 console.log(s.substr(-4, 3)); // ell
-console.log("输出空串：", s.substr(-4, -1)); // 输出空串：
+console.log('输出空串：', s.substr(-4, -1)); // 输出空串：
 
 // 字符串位置方法
-let s = "Hello world!";
-console.log(s.indexOf("o")); // 4
-console.log(s.lastIndexOf("o")); // 7
-console.log(s.indexOf("o", 5)); // 7
-console.log(s.lastIndexOf("o", 6)); // 4
+let s = 'Hello world!';
+console.log(s.indexOf('o')); // 4
+console.log(s.lastIndexOf('o')); // 7
+console.log(s.indexOf('o', 5)); // 7
+console.log(s.lastIndexOf('o', 6)); // 4
 
 // 字符串包含方法
-let s = "hello";
-console.log(s.startsWith("he")); // true
-console.log(s.startsWith("lo")); // false
-console.log(s.endsWith("he")); // false
-console.log(s.endsWith("lo")); // true
-console.log(s.includes("ell")); // true
+let s = 'hello';
+console.log(s.startsWith('he')); // true
+console.log(s.startsWith('lo')); // false
+console.log(s.endsWith('he')); // false
+console.log(s.endsWith('lo')); // true
+console.log(s.includes('ell')); // true
 
 // 其他字符串方法
-console.log("   hello \n ".trim()); // hello
-console.log("呐呐".repeat(5)); // 呐呐呐呐呐呐呐呐呐呐
-console.log("Dasen".padEnd(10, "-").padStart(15, "-")); // -----Dasen-----
+console.log('   hello \n '.trim()); // hello
+console.log('呐呐'.repeat(5)); // 呐呐呐呐呐呐呐呐呐呐
+console.log('Dasen'.padEnd(10, '-').padStart(15, '-')); // -----Dasen-----

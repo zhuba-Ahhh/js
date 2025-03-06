@@ -2,7 +2,7 @@ function person(name, age) {
   this.name = name;
   this.age = age;
 }
-person.prototype.jzsp = () => console.log("jzsp");
+person.prototype.jzsp = () => console.log('jzsp');
 
 function student(name, age, stdno) {
   person.call(this, name, age);

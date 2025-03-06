@@ -11,7 +11,7 @@
  * @return {number}
  */
 var atMostNGivenDigitSet = function (digits, n) {
-  const s = n + ""; //转为字符串
+  const s = n + ''; //转为字符串
   const len = s.length,
     m = digits.length;
   const dp = new Array(len + 1).fill(0);

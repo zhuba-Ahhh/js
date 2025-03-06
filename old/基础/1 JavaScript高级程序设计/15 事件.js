@@ -2,20 +2,20 @@
 
 // 1 DOM0 事件处理程序
 
-let btn = document.getElementById("myBtn");
+let btn = document.getElementById('myBtn');
 btn.onclick = function () {
-  console.log("Clicked");
+  console.log('Clicked');
 };
 
 // 2 DOM2 事件处理程序
 
-let btn = document.getElementById("myBtn");
+let btn = document.getElementById('myBtn');
 btn.addEventListener(
-  "click",
+  'click',
   () => {
     console.log(this.id);
   },
-  false,
+  false
 );
 
 // 3 使用 DOM2 方法更换绑定的事件处理程序
@@ -35,18 +35,18 @@ const EventUtil = {
     if (element.addEventListener) {
       element.addEventListener(type, handler, false);
     } else if (element.attachEvent) {
-      element.attachEvent("on" + type, handler);
+      element.attachEvent('on' + type, handler);
     } else {
-      element["on" + type] = handler;
+      element['on' + type] = handler;
     }
   },
   removeHandler(element, type, handler) {
     if (element.removeEventListener) {
       element.removeEventListener(type, handler, false);
     } else if (element.detachEvent) {
-      element.detachEvent("on" + type, handler);
+      element.detachEvent('on' + type, handler);
     } else {
-      element["on" + type] = null;
+      element['on' + type] = null;
     }
   },
 };
@@ -55,27 +55,27 @@ const EventUtil = {
 
 // 1 阻止 DOM 事件继续冒泡或捕获
 
-let btn = document.getElementById("myBtn");
+let btn = document.getElementById('myBtn');
 btn.onclick = function (event) {
-  console.log("Clicked");
+  console.log('Clicked');
   event.stopPropagation();
 };
 document.body.onclick = function (event) {
-  console.log("Body clicked");
+  console.log('Body clicked');
 };
 
 // 2 IE 事件对象
 
 // DOM0 方式的事件对象
-const btn = document.getElementById("myBtn");
+const btn = document.getElementById('myBtn');
 btn.onclick = function () {
   let event = window.event;
   console.log(event.type); // "click"
 };
 
 // IE 事件处理程序的事件对象
-const btn = document.getElementById("myBtn");
-btn.attachEvent("onclick", function (event) {
+const btn = document.getElementById('myBtn');
+btn.attachEvent('onclick', function (event) {
   console.log(event.type); // "click"
 });
 

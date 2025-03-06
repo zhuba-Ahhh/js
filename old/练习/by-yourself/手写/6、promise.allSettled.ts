@@ -2,26 +2,26 @@
 function myPromiseAllSettled(promises: Promise<any>[]) {
   return new Promise((resolve, reject) => {
     const results = [] as { state?: any; value?: any; reason?: any }[];
-    promises.forEach((promise) => {
+    promises.forEach(promise => {
       promise.then(
-        (value) => {
+        value => {
           results.push({
-            state: "resolved",
+            state: 'resolved',
             value,
           });
           if (results.length === promises.length) {
             resolve(results);
           }
         },
-        (reason) => {
+        reason => {
           results.push({
-            state: "rejected",
+            state: 'rejected',
             reason,
           });
           if (results.length === promises.length) {
             resolve(results);
           }
-        },
+        }
       );
     });
   });

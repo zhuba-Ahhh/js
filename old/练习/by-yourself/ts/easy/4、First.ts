@@ -1,4 +1,4 @@
-type arr1 = ["a", "b", "c"];
+type arr1 = ['a', 'b', 'c'];
 type arr2 = [3, 2, 1];
 
 // 用infer提取值

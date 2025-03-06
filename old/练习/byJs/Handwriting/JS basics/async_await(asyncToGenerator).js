@@ -1,16 +1,16 @@
 // 用于测试
-const getData = (id) =>
-  new Promise((resolve) =>
+const getData = id =>
+  new Promise(resolve =>
     setTimeout(() => {
       resolve(id);
-    }, 500),
+    }, 500)
   );
 /* 标标准准 async await 使用*/
 async function test() {
   const res = await getData(1);
-  console.log("res:", res);
+  console.log('res:', res);
   const res2 = await getData(2);
-  console.log("res2:", res2);
+  console.log('res2:', res2);
   return 3;
 }
 // test().then(res => console.log(res));
@@ -32,9 +32,9 @@ async 是 generator 语法糖
 // 上面的 test 代码编译为 generator 函数大概是这样
 function* testG() {
   const res = yield getData(1); //await 编译为 yield
-  console.log("res:", res);
+  console.log('res:', res);
   const res2 = yield getData(2);
-  console.log("res2:", res2);
+  console.log('res2:', res2);
   return 3;
 }
 /* 
@@ -96,12 +96,12 @@ function asyncToGenerator(generatorFn) {
           // 除了最后一次，前面 next() 返回的就是 {value: promise, done: false}
           return Promise.resolve(value).then(
             // 注意这里传入的 value 就是一个 yield 后面的 promise
-            (val) => step("next", val), // value 这个 promise resolve 的时候就执行 next()
-            (err) => step("throw", err), //处理错误
+            val => step('next', val), // value 这个 promise resolve 的时候就执行 next()
+            err => step('throw', err) //处理错误
           );
         }
       }
-      step("next");
+      step('next');
     });
   };
 }
@@ -117,7 +117,7 @@ function asyncToGenerator(generatorFn) {
     })
  */
 const testGAsync = asyncToGenerator(testG);
-testGAsync().then((res) => void console.log(res));
+testGAsync().then(res => void console.log(res));
 //res: 1
 //res: 2
 //3

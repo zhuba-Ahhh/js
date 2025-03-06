@@ -23,17 +23,17 @@ let findClosest = (words, word1, word2) => {
 };
 
 const words = [
-    "I",
-    "am",
-    "a",
-    "student",
-    "from",
-    "a",
-    "university",
-    "in",
-    "a",
-    "city",
+    'I',
+    'am',
+    'a',
+    'student',
+    'from',
+    'a',
+    'university',
+    'in',
+    'a',
+    'city',
   ],
-  word1 = "a",
-  word2 = "student";
+  word1 = 'a',
+  word2 = 'student';
 console.log(findClosest(words, word1, word2));

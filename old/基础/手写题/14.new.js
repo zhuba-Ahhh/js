@@ -7,8 +7,8 @@
  */
 
 const _new = function (func, ...args) {
-  if (typeof func !== "function") {
-    throw "func must be a function";
+  if (typeof func !== 'function') {
+    throw 'func must be a function';
   }
   // 这里有点求快了，应该手动模拟一下
   let obj = Object.create(func.prototype);
@@ -24,8 +24,8 @@ const _new = function (func, ...args) {
   let result = func.apply(obj, args);
 
   if (
-    (typeof result === "object" && result !== null) ||
-    typeof result === "function"
+    (typeof result === 'object' && result !== null) ||
+    typeof result === 'function'
   ) {
     return result;
   } else {
@@ -42,6 +42,6 @@ Person.prototype.showInfo = function () {
   console.log(this.name, this.sex);
 };
 
-let p1 = _new(Person, "前端胖头鱼", "sex");
+let p1 = _new(Person, '前端胖头鱼', 'sex');
 
 console.log(p1);

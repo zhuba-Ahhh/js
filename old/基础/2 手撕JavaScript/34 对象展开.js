@@ -10,7 +10,7 @@ const unfoldObject = function (obj) {
   const result = {};
   for (const properties in obj) {
     const value = obj[properties];
-    const pList = properties.split(".");
+    const pList = properties.split('.');
     let cur = result;
     const len = pList.length;
     for (let i = 0; i < len; ++i) {
@@ -28,12 +28,12 @@ const unfoldObject = function (obj) {
 };
 
 const obj = {
-  name: "Dasen",
+  name: 'Dasen',
   age: 23,
-  "bestFriend.name": "Tiantian",
-  "bestFriend.age": 22,
-  "bestFriend.homeTown.0": "Hubei",
-  "bestFriend.homeTown.1": "Huanggang",
-  "bestFriend.homeTown..length": 2,
+  'bestFriend.name': 'Tiantian',
+  'bestFriend.age': 22,
+  'bestFriend.homeTown.0': 'Hubei',
+  'bestFriend.homeTown.1': 'Huanggang',
+  'bestFriend.homeTown..length': 2,
 };
 console.log(unfoldObject(obj)); // {name: 'Dasen', age: 23, bestFriend: {…}}

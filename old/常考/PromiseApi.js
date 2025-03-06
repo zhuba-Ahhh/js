@@ -1,16 +1,16 @@
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("66666");
+    resolve('66666');
   }, 300);
 });
 const p2 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("77777");
+    resolve('77777');
   }, 200);
 });
 const p3 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject("88888");
+    reject('88888');
   }, 200);
 });
 
@@ -22,7 +22,7 @@ Promise.MyAll = function (promises) {
     // 返回一个新的 promise实例
     promises.forEach((item, i) => {
       Promise.resolve(item) //用类方法 resolve()的.then收集resolve结果
-        .then((res) => {
+        .then(res => {
           arr[i] = res;
           cnt++;
           if (cnt === promises.length) {
@@ -36,11 +36,11 @@ Promise.MyAll = function (promises) {
 };
 
 Promise.MyAll([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 Promise.MyAll([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //88888
 //["66666", "77777"]
 
@@ -51,7 +51,7 @@ let PromiseAll = function (promises) {
   return new Promise((resolve, reject) => {
     promises.forEach((item, index) => {
       Promise.resolve(item)
-        .then((res) => {
+        .then(res => {
           arr[index] = res;
           cnt++;
           if (cnt === l) {
@@ -64,11 +64,11 @@ let PromiseAll = function (promises) {
 };
 
 PromiseAll([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 PromiseAll([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 
 Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
@@ -79,11 +79,11 @@ Promise.race = function (promises) {
 };
 
 Promise.race([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 Promise.race([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //77777
 //88888
 
@@ -96,11 +96,11 @@ let PromiseRace = function (promises) {
 };
 
 PromiseRace([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 PromiseRace([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //77777
 //88888
 
@@ -109,14 +109,14 @@ Promise.MyAny = function (promises) {
     cnt = 0;
   return new Promise((resolve, reject) => {
     promises.forEach((item, i) => {
-      Promise.resolve(item).then(resolve, (err) => {
+      Promise.resolve(item).then(resolve, err => {
         arr[i] = {
-          status: "reject",
+          status: 'reject',
           value: err,
         };
         cnt++;
         if (cnt === promises.length) {
-          reject(new Error("没有promise成功"));
+          reject(new Error('没有promise成功'));
         }
       });
     });
@@ -124,12 +124,12 @@ Promise.MyAny = function (promises) {
 };
 
 Promise.MyAny([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //77777
 Promise.MyAny([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //66666
 
 let PromiseAny = function (promises) {
@@ -138,14 +138,14 @@ let PromiseAny = function (promises) {
     cnt = 0;
   return new Promise((resolve, reject) => {
     promises.forEach((item, index) => {
-      Promise.resolve(item).then(resolve, (err) => {
+      Promise.resolve(item).then(resolve, err => {
         arr[index] = {
-          status: "reject",
+          status: 'reject',
           value: err,
         };
         cnt++;
         if (cnt === l) {
-          reject(new Error("没有promise成功"));
+          reject(new Error('没有promise成功'));
         }
       });
     });
@@ -153,12 +153,12 @@ let PromiseAny = function (promises) {
 };
 
 PromiseAny([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //77777
 PromiseAny([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 //66666
 
 Promise.allSettled = function (promises) {
@@ -168,17 +168,17 @@ Promise.allSettled = function (promises) {
   return new Promise((resolve, reject) => {
     promises.forEach((item, index) => {
       Promise.resolve(item)
-        .then((res) => {
+        .then(res => {
           arr[index] = {
-            status: "fulfilled",
+            status: 'fulfilled',
             value: res,
           };
           cnt++;
           if (cnt === l) resolve(arr);
         })
-        .catch((err) => {
+        .catch(err => {
           arr[index] = {
-            status: "rejected",
+            status: 'rejected',
             value: err,
           };
           cnt++;
@@ -189,11 +189,11 @@ Promise.allSettled = function (promises) {
 };
 
 Promise.allSettled([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 Promise.allSettled([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 
 let PromiseAllSettled = function (promises) {
   let arr = [],
@@ -202,17 +202,17 @@ let PromiseAllSettled = function (promises) {
   return new Promise((resolve, reject) => {
     promises.forEach((item, index) => {
       Promise.resolve(item)
-        .then((res) => {
+        .then(res => {
           arr[index] = {
-            status: "fulfilled",
+            status: 'fulfilled',
             value: res,
           };
           cnt++;
           if (cnt === l) resolve(arr);
         })
-        .catch((err) => {
+        .catch(err => {
           arr[index] = {
-            status: "rejected",
+            status: 'rejected',
             value: err,
           };
           cnt++;
@@ -223,8 +223,8 @@ let PromiseAllSettled = function (promises) {
 };
 
 PromiseAllSettled([p1, p2])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 PromiseAllSettled([p1, p3])
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+  .then(res => console.log(res))
+  .catch(err => console.log(err));

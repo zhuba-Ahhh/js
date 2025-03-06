@@ -6,7 +6,7 @@
 
 const myInstanceof = function (obj, type) {
   // 基本数据类型都返回false
-  if ((typeof obj !== "object" && typeof obj !== "function") || obj === null)
+  if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null)
     return false;
   let proto = Object.getPrototypeOf(obj);
   while (true) {
