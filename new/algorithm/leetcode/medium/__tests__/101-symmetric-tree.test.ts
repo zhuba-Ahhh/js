@@ -1,5 +1,8 @@
 import { buildTree } from '../../../test-utils';
-import { isSymmetric, isSymmetricIterative } from '../../101-symmetric-tree';
+import {
+  isSymmetric,
+  isSymmetricIterative,
+} from '../../easy/101-symmetric-tree';
 
 describe('101. Symmetric Tree', () => {
   const testCases = [

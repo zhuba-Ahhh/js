@@ -93,3 +93,8 @@
 - Combination Sum (组合总和) - Medium
   - 解法：回溯法
   - 时间复杂度：O(n^target)
+
+### 困难题目
+- Trapping Rain Water (接雨水) - Hard
+  - 解法：暴力解法、动态规划、双指针、单调栈
+  - 时间复杂度：O(n²)、O(n)、O(n)、O(n)

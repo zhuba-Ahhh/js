@@ -1,4 +1,4 @@
-import { TreeNode } from '../test-utils';
+import { TreeNode } from '../../test-utils';
 
 // 解法1：递归（DFS）
 export function maxDepth(root: TreeNode | null): number {

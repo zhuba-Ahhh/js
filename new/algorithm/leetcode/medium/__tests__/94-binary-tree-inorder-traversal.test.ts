@@ -2,7 +2,7 @@ import { buildTree } from '../../../test-utils';
 import {
   inorderTraversal,
   inorderTraversalIterative,
-} from '../../94-binary-tree-inorder-traversal';
+} from '../../easy/94-binary-tree-inorder-traversal';
 
 describe('94. Binary Tree Inorder Traversal', () => {
   const testCases = [

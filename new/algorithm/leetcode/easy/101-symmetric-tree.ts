@@ -20,7 +20,7 @@
  * @returns 是否是对称二叉树
  */
 
-import { TreeNode } from '../test-utils';
+import { TreeNode } from '../../test-utils';
 
 // 解法1：递归（DFS）
 // 时间复杂度：O(n)，其中 n 是二叉树的节点数。每个节点恰好被遍历一次。

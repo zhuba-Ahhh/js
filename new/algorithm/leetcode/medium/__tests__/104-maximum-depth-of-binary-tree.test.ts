@@ -1,5 +1,8 @@
 import { buildTree } from '../../../test-utils';
-import { maxDepth, maxDepthBFS } from '../../104-maximum-depth-of-binary-tree';
+import {
+  maxDepth,
+  maxDepthBFS,
+} from '../../easy/104-maximum-depth-of-binary-tree';
 
 describe('104. Maximum Depth of Binary Tree', () => {
   const testCases = [
