@@ -65,3 +65,31 @@
 - Climbing Stairs (爬楼梯) - Easy
   - 解法：动态规划、递归+记忆化、矩阵快速幂
   - 时间复杂度：O(n)、O(n)、O(logn)
+- House Robber (打家劫舍) - Medium
+  - 解法：动态规划、记忆化搜索
+  - 时间复杂度：O(n)、O(n)
+- Longest Increasing Subsequence (最长递增子序列) - Medium
+  - 解法：动态规划、二分查找优化
+  - 时间复杂度：O(n²)、O(nlogn)
+
+### 二叉树
+- Maximum Depth of Binary Tree (二叉树的最大深度) - Easy
+  - 解法：递归法、迭代法(层序遍历)
+  - 时间复杂度：O(n)、O(n)
+- Binary Tree Inorder Traversal (二叉树的中序遍历) - Easy
+  - 解法：递归法、迭代法、Morris遍历
+  - 时间复杂度：O(n)、O(n)、O(n)
+- Symmetric Tree (对称二叉树) - Easy
+  - 解法：递归法、迭代法
+  - 时间复杂度：O(n)、O(n)
+
+### 回溯算法
+- Permutations (全排列) - Medium
+  - 解法：回溯法、递归交换
+  - 时间复杂度：O(n!)、O(n!)
+- Subsets (子集) - Medium
+  - 解法：回溯法、位运算
+  - 时间复杂度：O(2^n)、O(2^n)
+- Combination Sum (组合总和) - Medium
+  - 解法：回溯法
+  - 时间复杂度：O(n^target)

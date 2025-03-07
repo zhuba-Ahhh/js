@@ -49,4 +49,83 @@ function runTest<T extends any[], R>(
   console.log(`\n测试完成: ${passed}/${testCases.length} 个用例通过\n`);
 }
 
+// 二叉树节点的类型定义
+export class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
+}
+
+// 从数组构建二叉树（层序遍历数组）
+export function buildTree(values: (number | null)[]): TreeNode | null {
+  if (!values.length) return null;
+
+  const root = new TreeNode(values[0]!);
+  const queue = [root];
+  let i = 1;
+
+  while (queue.length && i < values.length) {
+    const node = queue.shift()!;
+
+    // 构建左子节点
+    if (i < values.length && values[i] !== null) {
+      const value = values[i];
+      if (typeof value === 'number') {
+        node.left = new TreeNode(value);
+        queue.push(node.left);
+      }
+    }
+    i++;
+
+    // 构建右子节点
+    if (i < values.length && values[i] !== null) {
+      const value = values[i];
+      if (typeof value === 'number') {
+        node.right = new TreeNode(value);
+        queue.push(node.right);
+      }
+    }
+    i++;
+  }
+
+  return root;
+}
+
+// 将二叉树转换为数组（用于测试结果比较）
+export function treeToArray(root: TreeNode | null): (number | null)[] {
+  if (!root) return [];
+
+  const result: (number | null)[] = [];
+  const queue = [root];
+
+  while (queue.length) {
+    const node = queue.shift()!;
+    result.push(node.val);
+
+    if (node.left) {
+      queue.push(node.left);
+    } else if (queue.length) {
+      result.push(null);
+    }
+
+    if (node.right) {
+      queue.push(node.right);
+    } else if (queue.length) {
+      result.push(null);
+    }
+  }
+
+  // 移除末尾的null
+  while (result[result.length - 1] === null) {
+    result.pop();
+  }
+
+  return result;
+}
+
 export { assertEquals, runTest };
