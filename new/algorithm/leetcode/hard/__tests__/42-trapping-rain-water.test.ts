@@ -3,7 +3,7 @@ import {
   trapDP,
   trapTwoPointers,
   trapStack,
-} from './42-trapping-rain-water';
+} from '../42-trapping-rain-water';
 
 describe('42-trapping-rain-water', () => {
   // 测试所有解法
